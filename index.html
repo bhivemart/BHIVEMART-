@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BHIVE MART — Smart Shopping. Better Living.</title>
+  <meta name="description" content="BHIVE MART — Smart Shopping. Better Living. Bagerhat, Bangladesh." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --forest-green: #174B35;
+      --cream-white: #F8F7F0;
+      --golden-beige: #D8B66A;
+      --dark-green: #24352B;
+      --white: #FFFFFF;
+      --border: rgba(36, 53, 43, 0.12);
+      --shadow: 0 8px 24px rgba(23, 75, 53, 0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif;
+      background-color: var(--cream-white);
+      color: var(--dark-green);
+      line-height: 1.6;
+      padding-bottom: 72px;
+    }
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--forest-green); color: var(--cream-white);
+      padding: 0.75rem 1rem; box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    }
+    .nav-top { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: auto; gap: 0.5rem; flex-wrap: wrap; }
+    .brand { display: flex; align-items: center; gap: 0.55rem; text-decoration: none; color: var(--cream-white); }
+    .brand-title { font-weight: 700; font-size: 1.1rem; letter-spacing: 0.4px; line-height: 1.1; }
+    .brand-tag { font-size: 0.6rem; color: var(--golden-beige); letter-spacing: 0.8px; display: block; }
+    .nav-actions { display: flex; align-items: center; gap: 0.45rem; }
+    .btn-pill {
+      background: rgba(248,247,240,0.12); color: var(--cream-white);
+      border: 1px solid rgba(216,182,106,0.45); padding: 0.38rem 0.7rem;
+      border-radius: 99px; font-size: 0.78rem; cursor: pointer; text-decoration: none;
+    }
+    .btn-gold { background: var(--golden-beige); color: var(--dark-green); font-weight: 700; border: none; }
+    .search-bar { max-width: 1200px; margin: 0.6rem auto 0; }
+    .search-bar input {
+      width: 100%; padding: 0.58rem 0.95rem; border-radius: 8px; border: none;
+      background: var(--cream-white); color: var(--dark-green); font-size: 0.9rem;
+    }
+    .hero {
+      background: linear-gradient(135deg, var(--forest-green) 0%, var(--dark-green) 100%);
+      color: var(--cream-white); padding: 2.3rem 1.2rem; text-align: center;
+    }
+    .hero-badge {
+      display: inline-block; background: rgba(216,182,106,0.18); color: var(--golden-beige);
+      padding: 0.28rem 0.8rem; border-radius: 99px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.7rem;
+    }
+    .hero h1 { font-size: clamp(1.7rem, 4vw, 2.6rem); margin-bottom: 0.55rem; }
+    .hero p { max-width: 620px; margin: 0 auto 1.2rem; opacity: 0.92; font-size: 0.92rem; }
+    .container { max-width: 1200px; margin: 1.8rem auto; padding: 0 1rem; }
+    .section-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+    .section-head h2 { font-size: 1.25rem; color: var(--forest-green); }
+    .grid-cats { display: grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap: 0.85rem; }
+    .cat-card {
+      background: var(--white); border: 1px solid var(--border); border-radius: 14px;
+      padding: 1rem; text-align: center; box-shadow: var(--shadow); cursor: pointer;
+    }
+    .cat-card:hover { border-color: var(--golden-beige); }
+    .cat-card img { width: 52px; height: 52px; object-fit: cover; border-radius: 10px; margin-bottom: 0.45rem; }
+    .grid-products { display: grid; grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)); gap: 0.95rem; }
+    .product-card {
+      background: var(--white); border: 1px solid var(--border); border-radius: 14px;
+      overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--shadow);
+    }
+    .product-img { height: 150px; background: #EAE8DC; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .product-img img { width: 100%; height: 100%; object-fit: cover; }
+    .product-body { padding: 0.8rem; }
+    .product-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 0.3rem; }
+    .price-row { display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.6rem; font-weight: 700; color: var(--forest-green); }
+    .old-price { text-decoration: line-through; color: #777; font-weight: 400; font-size: 0.8rem; }
+    .btn-add {
+      width: 100%; padding: 0.52rem; background: var(--forest-green); color: var(--cream-white);
+      border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.85rem;
+    }
+    .referral-banner {
+      background: var(--dark-green); color: var(--cream-white); border-radius: 16px;
+      padding: 1.5rem; border-left: 5px solid var(--golden-beige);
+    }
+    .mobile-nav {
+      position: fixed; bottom: 0; left: 0; right: 0; background: var(--white);
+      border-top: 1px solid var(--border); display: flex; justify-content: space-around;
+      padding: 0.55rem 0; z-index: 99;
+    }
+    .mobile-nav a { text-decoration: none; color: var(--dark-green); font-size: 0.72rem; text-align: center; font-weight: 600; }
+    @media (min-width: 768px) { .mobile-nav { display: none; } body { padding-bottom: 0; } }
+    footer { background: var(--dark-green); color: var(--cream-white); padding: 2rem 1rem; margin-top: 3rem; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-top">
+    <a href="index.html" class="brand">
+      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <polygon points="20,2 36,11 36,29 20,38 4,29 4,11" fill="#D8B66A" fill-opacity="0.18" stroke="#D8B66A" stroke-width="2.2"/>
+        <circle cx="20" cy="20" r="6.5" stroke="#F8F7F0" stroke-width="2"/>
+        <path d="M14 18H26M14 22H26" stroke="#D8B66A" stroke-width="2"/>
+      </svg>
+      <div>
+        <span class="brand-title">BHIVE MART</span>
+        <span class="brand-tag" data-i18n="tagline">SMART SHOPPING. BETTER LIVING.</span>
+      </div>
+    </a>
+    <div class="nav-actions">
+      <button class="btn-pill" id="langToggle">বাংলা</button>
+      <a href="account.html" class="btn-pill" data-i18n="account">Account</a>
+      <a href="cart.html" class="btn-pill btn-gold"><span data-i18n="cart">Cart</span> (<span id="cartCount">0</span>)</a>
+    </div>
+  </div>
+  <div class="search-bar">
+    <input type="search" id="searchInput" placeholder="Search BHive Fresh, Tech, Home, Living...">
+  </div>
+</header>
+
+<section class="hero">
+  <span class="hero-badge" data-i18n="location_badge">Bagerhat, Bangladesh • Smart Shopping</span>
+  <h1 data-i18n="hero_title">Smart Shopping. Better Living.</h1>
+  <p data-i18n="hero_sub">Discover trusted products across Fresh, Tech, Home, and Living with automated referral rewards.</p>
+  <a href="#catalogs" class="btn-pill btn-gold" style="padding: 0.65rem 1.4rem; display:inline-block;" data-i18n="shop_now">Shop Now</a>
+</section>
+
+<main class="container">
+  <section id="catalogs">
+    <div class="section-head">
+      <h2 data-i18n="shop_by_cat">Shop by Categories</h2>
+      <button class="btn-pill" style="color:var(--forest-green);border-color:var(--forest-green);" id="clearFilterBtn">All</button>
+    </div>
+    <div class="grid-cats" id="catalogGrid">
+      <div class="cat-card">Loading...</div>
+    </div>
+  </section>
+
+  <section style="margin-top: 2rem;">
+    <div class="section-head">
+      <h2 data-i18n="products_title">Available Products</h2>
+    </div>
+    <div class="grid-products" id="productGrid">
+      <div class="product-card"><div class="product-body">Loading products...</div></div>
+    </div>
+  </section>
+
+  <section style="margin-top: 2.2rem;">
+    <div class="referral-banner">
+      <span class="hero-badge">BHIVE REFERRAL & REWARDS</span>
+      <h2 style="color: var(--golden-beige); margin-bottom: 0.45rem;" data-i18n="ref_title">Invite Friends & Earn Gifts</h2>
+      <p style="font-size: 0.88rem; margin-bottom: 0.9rem;" data-i18n="ref_desc">
+        Share your referral link. Earn referrer gifts on qualifying delivered orders, and unlock a 4th-order gift for referred members.
+      </p>
+      <a href="account.html" class="btn-pill btn-gold" data-i18n="open_account">Open Account & Referrals</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container" style="margin:0 auto;">
+    <strong>BHIVE MART</strong> — <span data-i18n="tagline">SMART SHOPPING. BETTER LIVING.</span><br/>
+    <p style="opacity:0.8; margin-top:0.35rem;">Bagerhat, Bangladesh • Cash on Delivery</p>
+  </div>
+</footer>
+
+<nav class="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="#catalogs">Catalogs</a>
+  <a href="account.html">Account</a>
+  <a href="cart.html">Cart</a>
+</nav>
+
+<script type="module">
+  import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+  const SUPABASE_URL = 'https://vhvkdmvsgjvwhoomvqtm.supabase.co';
+  const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_TQaWxFVZgMoOwonAmwCD-w_F5hME9YD';
+  const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+
+  const dict = {
+    en: {
+      tagline: "SMART SHOPPING. BETTER LIVING.",
+      account: "Account", cart: "Cart",
+      location_badge: "Bagerhat, Bangladesh • Smart Shopping",
+      hero_title: "Smart Shopping. Better Living.",
+      hero_sub: "Discover trusted products across Fresh, Tech, Home, and Living with automated referral rewards.",
+      shop_now: "Shop Now", shop_by_cat: "Shop by Categories",
+      products_title: "Available Products",
+      ref_title: "Invite Friends & Earn Gifts",
+      ref_desc: "Share your referral link. Earn referrer gifts on qualifying delivered orders, and unlock a 4th-order gift for referred members.",
+      open_account: "Open Account & Referrals", add_cart: "Add to Cart"
+    },
+    bn: {
+      tagline: "স্মার্ট শপিং। বেটার লিভিং।",
+      account: "অ্যাকাউন্ট", cart: "কার্ট",
+      location_badge: "বাগেরহাট, বাংলাদেশ • স্মার্ট শপিং",
+      hero_title: "স্মার্ট শপিং। বেটার লিভিং।",
+      hero_sub: "ফ্রেশ, টেক, হোম এবং লিভিং পণ্যের সম্ভার ও অটোমেটেড রিওয়ার্ড সুবিধা।",
+      shop_now: "কেনাকাটা শুরু করুন", shop_by_cat: "ক্যাটাগরি সমূহ",
+      products_title: "পণ্যসমূহ",
+      ref_title: "বন্ধুদের আমন্ত্রণ জানান ও গিফট জিতুন",
+      ref_desc: "রেফারেল লিংক শেয়ার করুন। সফল ডেলিভারিতে রেফারার গিফট এবং ৪র্থ অর্ডারে নতুন সদস্যের জন্য বিশেষ গিফট আনলক করুন।",
+      open_account: "অ্যাকাউন্ট ও রেফারেল", add_cart: "কার্টে যোগ করুন"
+    }
+  };
+
+  let lang = localStorage.getItem('bhive_lang') || 'en';
+  let allProducts = [];
+  let selectedCatalogId = null;
+
+  const updateCartBadge = () => {
+    const cart = JSON.parse(localStorage.getItem('bhive_cart') || '[]');
+    const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+    document.getElementById('cartCount').textContent = totalQty;
+  };
+
+  const applyLanguage = () => {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const k = el.getAttribute('data-i18n');
+      if (dict[lang][k]) el.textContent = dict[lang][k];
+    });
+    document.getElementById('langToggle').textContent = lang === 'en' ? 'বাংলা' : 'EN';
+    renderCatalogs(window.__catalogs || []);
+    renderProducts(filterProducts());
+  };
+
+  const renderCatalogs = (catalogs) => {
+    const grid = document.getElementById('catalogGrid');
+    if (!catalogs.length) {
+      grid.innerHTML = `<div class="cat-card">${lang === 'bn' ? 'কোনো ক্যাটাগরি নেই' : 'No active catalogs'}</div>`;
+      return;
+    }
+    grid.innerHTML = catalogs.map(cat => `
+      <div class="cat-card" data-cat-id="${cat.id}" style="${selectedCatalogId === cat.id ? 'border-color:#174B35;background:#f0f6f3;' : ''}">
+        ${cat.image_url ? `<img src="${cat.image_url}" alt="${cat.name_en}">` : `<div style="font-size:1.5rem;margin-bottom:0.3rem;">🐝</div>`}
+        <div style="font-weight:700;font-size:0.9rem;">${lang === 'bn' ? (cat.name_bn || cat.name_en) : cat.name_en}</div>
+      </div>
+    `).join('');
+
+    grid.querySelectorAll('.cat-card[data-cat-id]').forEach(card => {
+      card.addEventListener('click', () => {
+        selectedCatalogId = card.getAttribute('data-cat-id');
+        renderCatalogs(window.__catalogs || []);
+        renderProducts(filterProducts());
+      });
+    });
+  };
+
+  const filterProducts = () => {
+    const q = document.getElementById('searchInput').value.trim().toLowerCase();
+    return allProducts.filter(p => {
+      const matchCat = !selectedCatalogId || p.catalog_id === selectedCatalogId;
+      const matchQuery = !q ||
+        (p.name_en || '').toLowerCase().includes(q) ||
+        (p.name_bn || '').toLowerCase().includes(q);
+      return matchCat && matchQuery;
+    });
+  };
+
+  const renderProducts = (items) => {
+    const grid = document.getElementById('productGrid');
+    if (!items.length) {
+      grid.innerHTML = `<div class="product-card"><div class="product-body">${lang === 'bn' ? 'কোনো পণ্য পাওয়া যায়নি' : 'No published products yet.'}</div></div>`;
+      return;
+    }
+    grid.innerHTML = items.map(p => {
+      const hasDiscount = p.discount_price !== null && p.discount_price > 0 && Number(p.discount_price) < Number(p.base_price);
+      const finalPrice = hasDiscount ? p.discount_price : p.base_price;
+      const imgUrl = Array.isArray(p.images) && p.images.length ? p.images[0] : '';
+      const title = lang === 'bn' ? (p.name_bn || p.name_en) : p.name_en;
+      return `
+        <div class="product-card">
+          <div class="product-img">
+            ${imgUrl ? `<img src="${imgUrl}" alt="${title}">` : `<span>BHIVE</span>`}
+          </div>
+          <div class="product-body">
+            <div class="product-title">${title}</div>
+            <div class="price-row">
+              <span>৳${Number(finalPrice).toFixed(0)}</span>
+              ${hasDiscount ? `<span class="old-price">৳${Number(p.base_price).toFixed(0)}</span>` : ''}
+            </div>
+            <button class="btn-add" data-add-id="${p.id}">${dict[lang].add_cart}</button>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    grid.querySelectorAll('[data-add-id]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const prod = allProducts.find(x => x.id === btn.getAttribute('data-add-id'));
+        if (!prod) return;
+        const unitPrice = (prod.discount_price !== null && prod.discount_price > 0 && Number(prod.discount_price) < Number(prod.base_price))
+          ? Number(prod.discount_price) : Number(prod.base_price);
+        const cart = JSON.parse(localStorage.getItem('bhive_cart') || '[]');
+        const existing = cart.find(c => c.id === prod.id);
+        if (existing) existing.qty += 1;
+        else cart.push({ id: prod.id, name_en: prod.name_en, name_bn: prod.name_bn, price: unitPrice, qty: 1 });
+        localStorage.setItem('bhive_cart', JSON.stringify(cart));
+        updateCartBadge();
+      });
+    });
+  };
+
+  async function loadStoreData() {
+    const { data: cats } = await supabase
+      .from('catalogs')
+      .select('*')
+      .eq('is_active', true)
+      .order('display_order', { ascending: true });
+    window.__catalogs = cats || [];
+    renderCatalogs(window.__catalogs);
+
+    const { data: prods } = await supabase
+      .from('products')
+      .select('*')
+      .eq('is_published', true)
+      .order('created_at', { ascending: false });
+    allProducts = prods || [];
+    renderProducts(filterProducts());
+  }
+
+  // Capture referral code if present in URL (?ref=BHIVE-XXXX)
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('ref')) {
+    localStorage.setItem('bhive_ref_code', params.get('ref').trim().toUpperCase());
+  }
+
+  document.getElementById('langToggle').addEventListener('click', () => {
+    lang = lang === 'en' ? 'bn' : 'en';
+    localStorage.setItem('bhive_lang', lang);
+    applyLanguage();
+  });
+
+  document.getElementById('searchInput').addEventListener('input', () => renderProducts(filterProducts()));
+  document.getElementById('clearFilterBtn').addEventListener('click', () => {
+    selectedCatalogId = null;
+    renderCatalogs(window.__catalogs || []);
+    renderProducts(filterProducts());
+  });
+
+  updateCartBadge();
+  applyLanguage();
+  loadStoreData();
+</script>
+</body>
+</html>
