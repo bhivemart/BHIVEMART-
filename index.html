@@ -30,7 +30,6 @@
       padding-bottom: 78px;
     }
 
-    /* Announcement Bar */
     .top-strip {
       background: var(--dark-green);
       color: var(--cream-white);
@@ -56,7 +55,6 @@
       font-weight: 700;
     }
 
-    /* Header */
     header {
       position: sticky;
       top: 0;
@@ -97,7 +95,6 @@
     .brand-title { font-weight: 800; font-size: 1.12rem; letter-spacing: 0.4px; line-height: 1.1; }
     .brand-tag { font-size: 0.62rem; color: var(--golden-beige); letter-spacing: 0.7px; display: block; font-weight: 600; }
 
-    .nav-actions { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
     .btn-pill {
       background: rgba(248, 247, 240, 0.14);
       color: var(--cream-white);
@@ -108,11 +105,8 @@
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s ease;
-    }
-    .btn-pill.active-view {
-      background: var(--cream-white);
-      color: var(--forest-green);
-      border-color: var(--cream-white);
+      text-decoration: none;
+      display: inline-block;
     }
     .btn-gold { background: var(--golden-beige); color: var(--dark-green); font-weight: 700; border: none; }
     .btn-forest { background: var(--forest-green); color: var(--cream-white); border: none; }
@@ -150,7 +144,6 @@
     .search-bar input { flex: 1 1 220px; }
     .search-bar select { width: auto; min-width: 145px; }
 
-    /* Hero */
     .hero {
       background: linear-gradient(135deg, var(--forest-green) 0%, var(--dark-green) 100%);
       color: var(--cream-white);
@@ -176,18 +169,57 @@
     }
     .hero h1 { font-size: clamp(1.7rem, 4vw, 2.5rem); margin-bottom: 0.55rem; line-height: 1.2; }
     .hero p { opacity: 0.92; font-size: 0.94rem; margin-bottom: 1.15rem; max-width: 600px; }
+
+    /* Banner Slider Box */
     .hero-visual {
       background: var(--cream-white);
       color: var(--dark-green);
       border-radius: 16px;
-      padding: 0.9rem;
+      padding: 0.75rem;
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
       border: 2px solid var(--golden-beige);
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    .hero-visual img { width: 100%; max-height: 240px; object-fit: contain; border-radius: 10px; }
+    .banner-stage {
+      position: relative;
+      width: 100%;
+      height: 225px;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #EAE8DC;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .banner-stage img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.4s ease;
+    }
+    .banner-dots {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .banner-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(36, 53, 43, 0.25);
+      border: none;
+      cursor: pointer;
+    }
+    .banner-dot.active {
+      background: var(--forest-green);
+      width: 18px;
+      border-radius: 99px;
+    }
 
-    /* Container & Cards */
     .container { max-width: 1240px; margin: 1.8rem auto; padding: 0 1rem; }
     .section-head {
       display: flex;
@@ -199,29 +231,13 @@
     }
     .section-head h2 { font-size: 1.22rem; color: var(--forest-green); }
 
-    .grid-cats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 0.85rem;
-    }
-    .cat-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1rem;
-      text-align: center;
-      box-shadow: var(--shadow);
-      cursor: pointer;
-    }
-    .cat-card img { width: 56px; height: 56px; object-fit: cover; border-radius: 10px; margin-bottom: 0.45rem; }
-
     .grid-products {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
       gap: 0.95rem;
     }
     .product-card {
-      background: var(--white);
+background: var(--white);
       border: 1px solid var(--border);
       border-radius: 14px;
       overflow: hidden;
@@ -231,7 +247,7 @@
       box-shadow: var(--shadow);
     }
     .product-img {
-      height: 160px;
+      height: 165px;
       background: #EAE8DC;
       display: flex;
       align-items: center;
@@ -240,6 +256,31 @@
       position: relative;
     }
     .product-img img { width: 100%; height: 100%; object-fit: cover; }
+    .media-pill-tag {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(23, 75, 53, 0.88);
+      color: #fff;
+      font-size: 0.68rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 99px;
+      font-weight: 700;
+    }
+    .thumb-strip {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 0.45rem;
+      overflow-x: auto;
+    }
+    .thumb-strip img {
+      width: 34px;
+      height: 34px;
+      object-fit: cover;
+      border-radius: 5px;
+      border: 1.5px solid var(--border);
+      cursor: pointer;
+    }
     .product-body { padding: 0.8rem; }
     .product-title { font-weight: 700; font-size: 0.92rem; margin-bottom: 0.25rem; }
     .product-meta { font-size: 0.74rem; opacity: 0.75; margin-bottom: 0.35rem; }
@@ -323,6 +364,11 @@
       background: rgba(216,182,106,0.24); color: var(--dark-green);
       padding: 0.2rem 0.55rem; border-radius: 99px; font-size: 0.74rem; font-weight: 700;
     }
+    .badge-live {
+      background: #e6f4ea;
+      color: #137333;
+      border: 1px solid #a8dab5;
+    }
     .sub-tabs { display: flex; gap: 0.4rem; flex-wrap: wrap; margin: 0.75rem 0; }
     .sub-tab-btn {
       background: var(--cream-white);
@@ -382,6 +428,10 @@
       font-weight: 700;
       cursor: pointer;
     }
+    .mobile-nav button.active-mob {
+      color: var(--forest-green);
+      text-decoration: underline;
+    }
 
     @media (min-width: 768px) {
       .hero-inner { grid-template-columns: 1.25fr 0.85fr; }
@@ -416,9 +466,9 @@
     </div>
   </div>
 
-  <!-- B & C. Main Header + Dynamic Category Navigation + Search/Sort -->
+  <!-- B & C. Clean Header -->
   <header>
-    <div class="nav-top">
+     <div class="nav-top">
       <div class="brand" id="goStoreBrand">
         <div class="brand-logo-box">
           <img id="headerLogoImg" src="assets/company-logo.png" alt="BHIVE Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
@@ -430,13 +480,7 @@
         </div>
       </div>
 
-      <div class="nav-actions">
-        <button class="btn-pill active-view" id="navStoreBtn" type="button">Store</button>
-        <button class="btn-pill" id="navAccountBtn" type="button">Account</button>
-        <button class="btn-pill" id="navAdminBtn" type="button">Admin</button>
-        <button class="btn-pill" id="langToggle" type="button">বাংলা</button>
-        <button class="btn-pill btn-gold" id="navCartBtn" type="button">Cart (<span id="cartCount">0</span>)</button>
-      </div>
+      <button class="btn-pill btn-gold" id="navCartBtn" type="button">Cart (<span id="cartCount">0</span>)</button>
     </div>
 
     <div class="cat-strip-bar" id="headerCatStrip"></div>
@@ -467,40 +511,35 @@
             Trusted Smart Gadgets, Home Appliances, and Fresh Food Items—crafted for everyday comfort and automated customer rewards.
           </p>
           <div style="display:flex;gap:0.65rem;flex-wrap:wrap;">
-            <a href="#catalogSection" class="btn-pill btn-gold" style="padding:0.65rem 1.35rem;">Shop Now</a>
+            <a href="#trendingSection" class="btn-pill btn-gold" style="padding:0.65rem 1.35rem;">Shop Trending</a>
             <a id="heroWaBtn" href="https://wa.me/8801611110611" target="_blank" rel="noopener noreferrer" class="btn-pill" style="padding:0.65rem 1.2rem;">
               WhatsApp: 01611110611
             </a>
           </div>
         </div>
 
+        <!-- 10-Banner Auto-Slider (Every 5 seconds) -->
         <div class="hero-visual">
-          <img id="heroBannerImg" src="assets/website-logo.png" alt="BHIVE MART Banner" onerror="this.style.display='none'; document.getElementById('heroLogoFallback').style.display='block';" />
-          <div id="heroLogoFallback" style="display:none;padding:1rem;">
-            <div style="font-size:1.4rem;font-weight:800;color:#174B35;">BHIVE MART</div>
-            <div style="font-size:0.85rem;color:#24352B;">SMART SHOPPING. BETTER LIVING.</div>
+          <div class="banner-stage" id="bannerStage">
+            <div id="bannerFallbackBox" style="padding:1rem;">
+              <div style="font-size:1.35rem;font-weight:800;color:#174B35;">BHIVE MART</div>
+              <div style="font-size:0.84rem;color:#24352B;">SMART SHOPPING. BETTER LIVING.</div>
+            </div>
           </div>
+          <div class="banner-dots" id="bannerDots"></div>
         </div>
       </div>
     </section>
 
     <main class="container">
-      <section id="catalogSection">
+      <!-- Trending Products Section -->
+      <section id="trendingSection">
         <div class="section-head">
-          <h2>Shop by Categories</h2>
-          <button class="btn-pill" style="color:var(--forest-green);border-color:var(--forest-green);" id="clearFilterBtn" type="button">All Categories</button>
-        </div>
-        <div class="grid-cats" id="catalogGrid">
-          <div class="cat-card">Loading catalogs...</div>
-        </div>
-      </section>
-
-      <section style="margin-top:2rem;">
-        <div class="section-head">
-          <h2 id="productSectionHeading">Featured & Available Products</h2>
+          <h2 id="trendingHeading">Trending Products</h2>
+          <button class="btn-pill" style="color:var(--forest-green);border-color:var(--forest-green);" id="clearFilterBtn" type="button">Show All</button>
         </div>
         <div class="grid-products" id="productGrid">
-          <div class="product-card"><div class="product-body">Loading products...</div></div>
+          <div class="product-card"><div class="product-body">Loading trending products...</div></div>
         </div>
       </section>
 
@@ -546,12 +585,13 @@
     </main>
   </div>
 
-  <!-- VIEW 2: CUSTOMER ACCOUNT, WISHLIST, ADDRESSES, REFERRALS & ORDERS -->
+  <!-- VIEW 2: CUSTOMER ACCOUNT & SETTINGS -->
   <div id="view-account" class="container" style="display:none;">
     <div class="panel-card" id="authCard">
-      <div style="display:flex;gap:0.5rem;margin-bottom:0.8rem;">
+      <div style="display:flex;gap:0.5rem;margin-bottom:0.8rem;flex-wrap:wrap;">
         <button type="button" class="btn btn-forest" id="showLoginTab">Login</button>
         <button type="button" class="btn btn-gold" id="showSignupTab">Create Account</button>
+        <button type="button" class="btn" style="background:var(--cream-white);border:1px solid var(--border);" id="guestLangToggle">ভাষা: বাংলা / EN</button>
       </div>
 
       <form id="loginForm">
@@ -587,6 +627,15 @@
             <div style="font-size:0.82rem;opacity:0.8;" id="profMeta"></div>
           </div>
           <button type="button" class="btn" style="background:#e0e0e0;" id="logoutCustomerBtn">Logout</button>
+        </div>
+
+        <!-- Customer Settings Menu (Language switcher placed here) -->
+        <div style="background:var(--cream-white);border:1px solid var(--border);border-radius:10px;padding:0.8rem;margin-top:0.85rem;display:flex;justify-content:space-between;align-items:center;gap:0.6rem;flex-wrap:wrap;">
+          <div>
+            <strong style="color:var(--forest-green);">Settings — Language (ভাষা সেটিংস)</strong>
+            <div style="font-size:0.78rem;opacity:0.8;">Choose storefront display language</div>
+          </div>
+          <button type="button" class="btn btn-gold" id="langToggle">বাংলা</button>
         </div>
 
         <form id="profileUpdateForm" style="margin-top:0.85rem;">
@@ -665,8 +714,9 @@
         <button type="button" class="btn btn-forest" id="admTabCats">Catalogs</button>
         <button type="button" class="btn btn-gold" id="admTabProds">Products</button>
         <button type="button" class="btn btn-forest" id="admTabOrders">Orders & Courier</button>
-        <button type="button" class="btn btn-gold" id="admTabGifts">Gifts & Reviews</button>
-        <button type="button" class="btn btn-forest" id="admTabSettings">Settings & Logs</button>
+        <button type="button" class="btn btn-gold" id="admTabCourierApi">Courier API Setup</button>
+        <button type="button" class="btn btn-forest" id="admTabGifts">Gifts & Reviews</button>
+        <button type="button" class="btn btn-gold" id="admTabSettings">Settings & Logs</button>
         <button type="button" class="btn" style="background:#e0e0e0;" id="admLogoutBtn">Logout</button>
       </div>
 
@@ -698,23 +748,36 @@
         </form>
         <div id="adminCatalogList" style="margin-top:1rem;"></div>
       </div>
-
+      <!-- Add Product: 5 Individual Photo Slots (Android-friendly) + 1 Optional Video -->
       <div class="panel-card" id="admSecProds" style="display:none;">
-        <h3>Product Management</h3>
+        <h3>Product Management (Max 5 Photos + 1 Optional Video)</h3>
         <form id="productForm">
           <div class="info-grid">
             <div><label>Name (EN)</label><input type="text" id="prodNameEn" required></div>
             <div><label>Name (BN)</label><input type="text" id="prodNameBn" required></div>
             <div><label>Catalog</label><select id="prodCatalogId" required></select></div>
-            <div><label>SKU</label><input type="text" id="prodSku" placeholder="BHV-SKU-01"></div>
+            <div><label>SKU (Optional)</label><input type="text" id="prodSku" placeholder="BHV-SKU-01"></div>
             <div><label>Price (BDT)</label><input type="number" step="0.01" id="prodPrice" required></div>
             <div><label>Discount Price</label><input type="number" step="0.01" id="prodDiscount"></div>
             <div><label>Stock</label><input type="number" id="prodStock" value="10" required></div>
           </div>
-          <label>Product Image</label>
-          <input type="file" id="prodImageFile" accept="image/*">
+
+          <div style="background:var(--cream-white);border:1px solid var(--border);border-radius:10px;padding:0.85rem;margin-top:0.75rem;">
+            <strong style="font-size:0.86rem;color:var(--forest-green);">Product Photos (সর্বোচ্চ ৫টি আলাদা ছবি যোগ করুন)</strong>
+            <div class="info-grid" style="margin-top:0.35rem;">
+              <div><label>Photo 1 (Main Cover)</label><input type="file" id="prodImg1" accept="image/*"></div>
+              <div><label>Photo 2 (Optional)</label><input type="file" id="prodImg2" accept="image/*"></div>
+              <div><label>Photo 3 (Optional)</label><input type="file" id="prodImg3" accept="image/*"></div>
+              <div><label>Photo 4 (Optional)</label><input type="file" id="prodImg4" accept="image/*"></div>
+              <div><label>Photo 5 (Optional)</label><input type="file" id="prodImg5" accept="image/*"></div>
+            </div>
+          </div>
+
+          <label>Product Video — Optional (ঐচ্ছিক ১টি ভিডিও)</label>
+          <input type="file" id="prodVideoFile" accept="video/*">
+
           <label><input type="checkbox" id="prodPublished" checked style="width:auto;"> Published</label>
-          <button type="submit" class="btn btn-forest" style="margin-top:0.8rem;">Save Product</button>
+          <button type="submit" id="saveProdBtn" class="btn btn-forest" style="margin-top:0.8rem;">Save Product</button>
         </form>
         <div id="adminProductList" style="margin-top:1rem;"></div>
       </div>
@@ -724,11 +787,11 @@
         <div style="background:var(--cream-white);border:1px solid var(--border);border-radius:10px;padding:0.85rem;margin-top:0.6rem;">
           <label style="margin-top:0;">Select Courier Provider (Confirm করলে এই কুরিয়ারে অটো বুক হবে)</label>
           <select id="adminCourierSelect">
-            <option value="Pathao Courier">Pathao Courier</option>
-            <option value="CarryBee">CarryBee</option>
-            <option value="Steadfast Courier">Steadfast Courier</option>
-            <option value="RedX">RedX</option>
-            <option value="Bagerhat Local Delivery">Bagerhat Local Delivery</option>
+            <option value="pathao">Pathao Courier</option>
+            <option value="carrybee">CarryBee</option>
+            <option value="steadfast">Steadfast Courier</option>
+            <option value="redx">RedX</option>
+            <option value="local">Bagerhat Local Delivery</option>
           </select>
         </div>
 
@@ -740,6 +803,49 @@
         </div>
 
         <div id="adminOrderList" style="margin-top:0.5rem;">Loading orders...</div>
+      </div>
+
+      <div class="panel-card" id="admSecCourierApi" style="display:none;">
+        <h3>Connect Courier Merchant Accounts (Live API Linking)</h3>
+        <p style="font-size:0.84rem;opacity:0.85;margin-bottom:0.85rem;">
+          আপনার Pathao, CarryBee, Steadfast বা RedX মার্চেন্ট প্যানেল থেকে পাওয়া API Key ও Credentials যুক্ত করে Active করুন।
+        </p>
+
+        <div class="sub-tabs" id="courierProviderTabs">
+          <button type="button" class="sub-tab-btn active-sub" data-provider-tab="pathao">Pathao Courier</button>
+          <button type="button" class="sub-tab-btn" data-provider-tab="carrybee">CarryBee</button>
+          <button type="button" class="sub-tab-btn" data-provider-tab="steadfast">Steadfast Courier</button>
+          <button type="button" class="sub-tab-btn" data-provider-tab="redx">RedX</button>
+        </div>
+
+        <form id="courierApiForm" style="background:var(--cream-white);padding:1rem;border-radius:12px;border:1px solid var(--border);margin-top:0.6rem;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;flex-wrap:wrap;gap:0.5rem;">
+            <strong id="cfgProviderHeading" style="color:var(--forest-green);font-size:1rem;">Pathao Courier Configuration</strong>
+            <span id="cfgProviderBadge" class="badge">Disconnected</span>
+          </div>
+
+          <input type="hidden" id="cfgProviderKey" value="pathao" />
+
+          <div class="info-grid">
+            <div><label>API Base URL</label><input type="text" id="cfgBaseUrl" placeholder="https://api-hermes.pathao.com" /></div>
+            <div><label>Store ID / Area ID</label><input type="text" id="cfgStoreId" placeholder="e.g. 12345" /></div>
+            <div><label>Client ID</label><input type="text" id="cfgClientId" placeholder="Merchant Client ID" /></div>
+            <div><label>Client Secret</label><input type="password" id="cfgClientSecret" placeholder="Merchant Client Secret" /></div>
+            <div><label>API Key / Access Token</label><input type="text" id="cfgApiKey" placeholder="API Key or Bearer Token" /></div>
+            <div><label>Secret Key</label><input type="password" id="cfgSecretKey" placeholder="Merchant Secret Key" /></div>
+            <div><label>Merchant Email / Username (Pathao)</label><input type="text" id="cfgUsername" placeholder="merchant@email.com" /></div>
+            <div><label>Merchant Password (Pathao)</label><input type="password" id="cfgPassword" placeholder="Account Password" /></div>
+          </div>
+
+          <label style="margin-top:0.85rem;display:flex;align-items:center;gap:0.5rem;cursor:pointer;">
+            <input type="checkbox" id="cfgIsActive" style="width:auto;" />
+            <span>Enable Live API Connection for this Courier (সক্রিয় করুন)</span>
+          </label>
+
+          <button type="submit" class="btn btn-forest" style="margin-top:0.9rem;">Save & Connect Courier Account</button>
+        </form>
+
+        <div id="courierStatusSummary" style="margin-top:1rem;"></div>
       </div>
 
       <div class="panel-card" id="admSecGifts" style="display:none;">
@@ -760,8 +866,9 @@
         <div id="adminReviewsList"></div>
       </div>
 
+      <!-- Website Settings: Logo Upload + Up to 10 Auto-Sliding Banners -->
       <div class="panel-card" id="admSecSettings" style="display:none;">
-        <h3>Website Settings</h3>
+        <h3>Website Settings, Logo & 10 Auto-Sliding Banners</h3>
         <form id="websiteSettingsForm">
           <div class="info-grid">
             <div><label>Store Name</label><input type="text" id="setBrandName" required></div>
@@ -771,9 +878,29 @@
             <div><label>Hero Heading</label><input type="text" id="setHeroTitle" required></div>
             <div><label>WhatsApp Number</label><input type="text" id="setWhatsapp" required></div>
           </div>
+
           <label>Hero Description</label>
           <textarea id="setHeroSub" rows="2" required></textarea>
-          <button type="submit" class="btn btn-forest" style="margin-top:0.8rem;">Save Settings</button>
+
+          <div style="background:var(--cream-white);border:1px solid var(--border);border-radius:10px;padding:0.85rem;margin-top:0.75rem;">
+            <div>
+              <label style="margin-top:0;">Change Website Logo (ওয়েবসাইটের নতুন লোগো)</label>
+              <input type="file" id="setLogoFile" accept="image/*">
+            </div>
+
+            <div style="margin-top:0.75rem;">
+              <label>Add Homepage Slider Banner (সর্বোচ্চ ১০টি ব্যানার — প্রতি ৫ সেকেন্ডে অটো স্লাইড হবে)</label>
+              <div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
+                <input type="file" id="setBannerFileSingle" accept="image/*" style="flex:1 1 200px;">
+                <button type="button" id="addSingleBannerBtn" class="btn btn-gold">+ Add Banner</button>
+              </div>
+              <div style="font-size:0.75rem;opacity:0.8;margin-top:0.25rem;">একটি করে ব্যানার সিলেক্ট করে "+ Add Banner" চাপলে সাথে সাথে তালিকায় যুক্ত হয়ে যাবে (সর্বোচ্চ ১০টি)।</div>
+            </div>
+
+            <div id="adminCurrentBannersPreview" style="margin-top:0.75rem;"></div>
+          </div>
+
+          <button type="submit" id="saveSettingsBtn" class="btn btn-forest" style="margin-top:0.9rem;">Save All Settings</button>
         </form>
 
         <h3 style="margin-top:1.3rem;">Recent Admin Activity Logs</h3>
@@ -782,7 +909,7 @@
     </div>
   </div>
 
-  <!-- VIEW 4: CART & CASH ON DELIVERY CHECKOUT -->
+  <!-- VIEW 4: CART & COD CHECKOUT -->
   <div id="view-cart" class="container" style="display:none;">
     <div class="panel-card">
       <h2>Shopping Cart</h2>
@@ -842,7 +969,7 @@
 
   <!-- Footer -->
   <footer>
-    <div class="container" style="margin:0 auto;">
+     <div class="container" style="margin:0 auto;">
       <div class="info-grid" style="background:transparent;">
         <div>
           <strong style="font-size:1.08rem;color:var(--golden-beige);" id="footBrandName">BHIVE MART</strong>
@@ -861,9 +988,9 @@
     </div>
   </footer>
 
-  <!-- Mobile Bottom Nav -->
-  <nav class="mobile-nav">
-    <button type="button" id="mobStoreBtn">Store</button>
+  <!-- Bottom Navigation -->
+  <nav class="mobile-nav" style="display:flex;">
+    <button type="button" id="mobStoreBtn" class="active-mob">Store</button>
     <button type="button" id="mobAccountBtn">Account</button>
     <button type="button" id="mobAdminBtn">Admin</button>
     <button type="button" id="mobCartBtn">Cart</button>
@@ -900,11 +1027,23 @@
       "Bogura (বগুড়া)": ["Bogura Sadar", "Adamdighi", "Dhunat", "Dhupchanchia", "Gabtali", "Kahaloo", "Nandigram", "Sariakandi", "Shajahanpur", "Sherpur", "Shibganj", "Sonatala"]
     };
 
+    const COURIER_META = {
+      pathao: { name: 'Pathao Courier', defaultUrl: 'https://api-hermes.pathao.com' },
+      carrybee: { name: 'CarryBee', defaultUrl: 'https://api.carrybee.com' },
+      steadfast: { name: 'Steadfast Courier', defaultUrl: 'https://portal.packzy.com/api/v1' },
+      redx: { name: 'RedX', defaultUrl: 'https://openapi.redx.com.bd/v1.0.0-beta' }
+    };
+
     let lang = localStorage.getItem('bhive_lang') || 'en';
     let allCatalogs = [];
     let allProducts = [];
     let allOrders = [];
     let allCourierBookings = [];
+    let courierConfigs = {};
+    let currentBanners = [];
+    let currentLogoUrl = '';
+    let bannerIndex = 0;
+    let bannerTimer = null;
     let selectedCatalogId = null;
     let activeOrderFolder = 'active';
 
@@ -957,7 +1096,6 @@
         document.getElementById('codZone').value = selectedDist.includes('Bagerhat') ? '60' : '120';
         renderCart();
       });
-
       bindDistrictUpazila('addrDistrict', 'addrUpazila');
     }
 
@@ -966,12 +1104,82 @@
         document.getElementById('view-' + v).style.display = v === viewName ? 'block' : 'none';
       });
       document.getElementById('storeSearchBar').style.display = viewName === 'store' ? 'flex' : 'none';
-      document.getElementById('navStoreBtn').classList.toggle('active-view', viewName === 'store');
-      document.getElementById('navAccountBtn').classList.toggle('active-view', viewName === 'account');
-      document.getElementById('navAdminBtn').classList.toggle('active-view', viewName === 'admin');
+      document.getElementById('mobStoreBtn').classList.toggle('active-mob', viewName === 'store');
+      document.getElementById('mobAccountBtn').classList.toggle('active-mob', viewName === 'account');
+      document.getElementById('mobAdminBtn').classList.toggle('active-mob', viewName === 'admin');
+      document.getElementById('mobCartBtn').classList.toggle('active-mob', viewName === 'cart');
       if (viewName === 'account') loadCustomerAccount();
       if (viewName === 'admin') checkAdminAuth();
       if (viewName === 'cart') renderCart();
+    }
+
+    function renderBannerSlider() {
+      const stage = document.getElementById('bannerStage');
+      const dots = document.getElementById('bannerDots');
+      if (bannerTimer) clearInterval(bannerTimer);
+
+      const list = Array.isArray(currentBanners) && currentBanners.length
+        ? currentBanners.slice(0, 10)
+        : ['assets/website-logo.png'];
+
+      if (bannerIndex >= list.length) bannerIndex = 0;
+
+      const drawSlide = () => {
+        const activeUrl = list[bannerIndex];
+        stage.innerHTML = `<img src="${activeUrl}" alt="BHIVE MART Banner ${bannerIndex + 1}" onerror="this.style.display='none';">`;
+        dots.innerHTML = list.map((_, idx) =>
+          `<button type="button" class="banner-dot ${idx === bannerIndex ? 'active' : ''}" data-bdot="${idx}" aria-label="Slide ${idx + 1}"></button>`
+        ).join('');
+
+        dots.querySelectorAll('[data-bdot]').forEach((d) => {
+          d.addEventListener('click', () => {
+            bannerIndex = Number(d.getAttribute('data-bdot'));
+            drawSlide();
+          });
+        });
+      };
+
+      drawSlide();
+
+      if (list.length > 1) {
+        bannerTimer = setInterval(() => {
+          bannerIndex = (bannerIndex + 1) % list.length;
+          drawSlide();
+        }, 5000);
+      }
+    }
+
+    function renderAdminBannerList() {
+      const box = document.getElementById('adminCurrentBannersPreview');
+      if (!box) return;
+      if (!currentBanners.length) {
+        box.innerHTML = '<p style="font-size:0.82rem;opacity:0.8;">এখনো কোনো ব্যানার যোগ করা হয়নি (0/10)।</p>';
+        return;
+      }
+      box.innerHTML = `<div style="font-size:0.8rem;font-weight:700;margin-bottom:0.4rem;">Active Slider Banners (${currentBanners.length}/10):</div>` +
+        currentBanners.map((url, idx) => `
+          <div class="list-item">
+            <div style="display:flex;align-items:center;gap:0.6rem;">
+              <img src="${url}" alt="Banner ${idx + 1}" style="width:68px;height:40px;object-fit:cover;border-radius:6px;">
+              <span style="font-size:0.82rem;">Banner #${idx + 1}</span>
+            </div>
+            <button type="button" class="btn btn-danger" data-rem-banner="${idx}">Remove</button>
+          </div>
+        `).join('');
+
+      box.querySelectorAll('[data-rem-banner]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const idx = Number(btn.getAttribute('data-rem-banner'));
+          currentBanners.splice(idx, 1);
+          const { error } = await supabase.from('website_settings').update({ hero_banners: currentBanners }).eq('id', 1);
+          if (error) showMsg(error.message, true);
+          else {
+            renderAdminBannerList();
+            renderBannerSlider();
+            showMsg('Banner removed.');
+          }
+        });
+      });
     }
 
     function applySettingsToUI(s) {
@@ -985,6 +1193,18 @@
       document.getElementById('footBrandName').textContent = s.brand_name || 'BHIVE MART';
       document.getElementById('footTagline').textContent = s.tagline || 'SMART SHOPPING. BETTER LIVING.';
       document.getElementById('footLocation').textContent = s.business_location || 'Bagerhat, Bangladesh';
+
+      if (s.logo_url) {
+        currentLogoUrl = s.logo_url;
+        const logoImg = document.getElementById('headerLogoImg');
+        logoImg.src = s.logo_url;
+        logoImg.style.display = 'block';
+        if (logoImg.nextElementSibling) logoImg.nextElementSibling.style.display = 'none';
+      }
+
+      currentBanners = Array.isArray(s.hero_banners) ? s.hero_banners.slice(0, 10) : [];
+      renderBannerSlider();
+      renderAdminBannerList();
 
       if (s.whatsapp_number) {
         const cleanWa = s.whatsapp_number.replace(/[^0-9]/g, '');
@@ -1004,11 +1224,9 @@
       document.getElementById('setWhatsapp').value = s.whatsapp_number || '01611110611';
     }
 
-    function renderCatalogs() {
-      const grid = document.getElementById('catalogGrid');
+    function renderCategoryStrip() {
       const strip = document.getElementById('headerCatStrip');
-
-      strip.innerHTML = `<button type="button" class="cat-chip ${!selectedCatalogId ? 'active' : ''}" data-cat-chip="">All</button>` +
+      strip.innerHTML = `<button type="button" class="cat-chip ${!selectedCatalogId ? 'active' : ''}" data-cat-chip="">${lang === 'bn' ? 'সব ট্রেন্ডিং' : 'All Trending'}</button>` +
         allCatalogs.map((cat) => {
           const title = lang === 'bn' ? (cat.name_bn || cat.name_en) : cat.name_en;
           return `<button type="button" class="cat-chip ${selectedCatalogId === cat.id ? 'active' : ''}" data-cat-chip="${cat.id}">${title}</button>`;
@@ -1017,26 +1235,7 @@
       strip.querySelectorAll('[data-cat-chip]').forEach((chip) => {
         chip.addEventListener('click', () => {
           selectedCatalogId = chip.getAttribute('data-cat-chip') || null;
-          renderCatalogs();
-          renderProducts();
-        });
-      });
-
-      if (!allCatalogs.length) {
-        grid.innerHTML = `<div class="cat-card">No active categories yet.</div>`;
-        return;
-      }
-      grid.innerHTML = allCatalogs.map((cat) => `
-        <div class="cat-card" data-cat-id="${cat.id}" style="${selectedCatalogId === cat.id ? 'border-color:#174B35;background:#f0f6f3;' : ''}">
-          ${cat.image_url ? `<img src="${cat.image_url}" alt="${cat.name_en}" loading="lazy">` : `<div style="font-size:1.5rem;margin-bottom:0.3rem;">🐝</div>`}
-          <div style="font-weight:700;font-size:0.9rem;">${lang === 'bn' ? (cat.name_bn || cat.name_en) : cat.name_en}</div>
-        </div>
-      `).join('');
-
-      grid.querySelectorAll('.cat-card[data-cat-id]').forEach((card) => {
-        card.addEventListener('click', () => {
-          selectedCatalogId = card.getAttribute('data-cat-id');
-          renderCatalogs();
+          renderCategoryStrip();
           renderProducts();
         });
       });
@@ -1045,6 +1244,7 @@
     function renderProducts() {
       const q = document.getElementById('searchInput').value.trim().toLowerCase();
       const sortBy = document.getElementById('sortSelect').value;
+      document.getElementById('trendingHeading').textContent = lang === 'bn' ? 'ট্রেন্ডিং পণ্যসমূহ' : 'Trending Products';
 
       let filtered = allProducts.filter((p) => {
         const matchCat = !selectedCatalogId || p.catalog_id === selectedCatalogId;
@@ -1066,22 +1266,33 @@
 
       const grid = document.getElementById('productGrid');
       if (!filtered.length) {
-        grid.innerHTML = `<div class="product-card"><div class="product-body">No published products found.</div></div>`;
+        grid.innerHTML = `<div class="product-card"><div class="product-body">No trending products found.</div></div>`;
         return;
       }
       grid.innerHTML = filtered.map((p) => {
         const hasDisc = p.discount_price !== null && p.discount_price > 0 && Number(p.discount_price) < Number(p.base_price);
         const price = hasDisc ? Number(p.discount_price) : Number(p.base_price);
-        const img = Array.isArray(p.images) && p.images.length ? p.images[0] : '';
+        const imgs = Array.isArray(p.images) ? p.images : [];
+        const img = imgs[0] || '';
         const title = lang === 'bn' ? (p.name_bn || p.name_en) : p.name_en;
         const stockText = Number(p.stock_qty) > 0 ? `Stock: ${p.stock_qty}` : 'Out of Stock';
+        const mediaBadge = p.video_url ? 'Video + Photo' : (imgs.length > 1 ? `${imgs.length} Photos` : '');
+
+        const thumbsHtml = imgs.length > 1
+          ? `<div class="thumb-strip">${imgs.map((u) => `<img src="${u}" data-swap-target="main-img-${p.id}" alt="thumb">`).join('')}</div>`
+          : '';
 
         return `
           <div class="product-card">
-            <div class="product-img">${img ? `<img src="${img}" alt="${title}" loading="lazy">` : `<span>BHIVE MART</span>`}</div>
+            <div class="product-img">
+              ${img ? `<img id="main-img-${p.id}" src="${img}" alt="${title}" loading="lazy">` : `<span>BHIVE MART</span>`}
+              ${mediaBadge ? `<span class="media-pill-tag">${mediaBadge}</span>` : ''}
+            </div>
             <div class="product-body">
+              ${thumbsHtml}
               <div class="product-title">${title}</div>
               <div class="product-meta">${stockText}</div>
+              ${p.video_url ? `<video src="${p.video_url}" controls preload="metadata" style="width:100%;max-height:95px;border-radius:6px;margin-bottom:0.45rem;background:#000;"></video>` : ''}
               <div class="price-row">
                 <span>৳${price.toFixed(0)}</span>
                 ${hasDisc ? `<span class="old-price">৳${Number(p.base_price).toFixed(0)}</span>` : ''}
@@ -1094,6 +1305,13 @@
           </div>
         `;
       }).join('');
+
+      grid.querySelectorAll('[data-swap-target]').forEach((th) => {
+        th.addEventListener('click', () => {
+          const mainEl = document.getElementById(th.getAttribute('data-swap-target'));
+          if (mainEl) mainEl.src = th.src;
+        });
+      });
 
       grid.querySelectorAll('[data-add-prod]').forEach((btn) => {
         btn.addEventListener('click', () => {
@@ -1214,7 +1432,7 @@
       allCatalogs = cats || [];
       allProducts = prods || [];
       applySettingsToUI(settings);
-      renderCatalogs();
+      renderCategoryStrip();
       renderProducts();
       loadApprovedReviews();
     }
@@ -1296,7 +1514,7 @@
           <div class="list-item">
             <div>
               <strong>Order #${o.order_number}</strong> <span class="badge">${o.order_status}</span>
-              ${o.courier_name ? `<span class="badge">${o.courier_name}</span>` : ''}
+              ${o.courier_name ? `<span class="badge">${o.courier_name} ${o.courier_tracking_id ? `(${o.courier_tracking_id})` : ''}</span>` : ''}
               <div style="font-size:0.84rem;margin-top:0.2rem;">Total: ৳${Number(o.total_amount).toFixed(0)} (${o.payment_method})</div>
               <div style="font-size:0.8rem;opacity:0.85;">${o.delivery_address}</div>
             </div>
@@ -1347,6 +1565,50 @@
       return supabase.storage.from(bucket).getPublicUrl(path).data.publicUrl;
     }
 
+    async function loadCourierConfigs() {
+      const { data } = await supabase.from('courier_integrations').select('*');
+      courierConfigs = {};
+      (data || []).forEach((row) => {
+        courierConfigs[row.provider_key] = row;
+      });
+      renderCourierForm('pathao');
+      renderCourierSummary();
+    }
+
+    function renderCourierForm(providerKey) {
+      const meta = COURIER_META[providerKey] || COURIER_META.pathao;
+      const cfg = courierConfigs[providerKey] || {};
+
+      document.getElementById('cfgProviderKey').value = providerKey;
+      document.getElementById('cfgProviderHeading').textContent = `${meta.name} Account Settings`;
+      const badge = document.getElementById('cfgProviderBadge');
+      badge.textContent = cfg.is_active ? 'Connected (Live API)' : 'Not Connected';
+      badge.className = 'badge ' + (cfg.is_active ? 'badge-live' : '');
+
+      document.getElementById('cfgBaseUrl').value = cfg.api_base_url || meta.defaultUrl;
+      document.getElementById('cfgStoreId').value = cfg.store_id || '';
+      document.getElementById('cfgClientId').value = cfg.client_id || '';
+      document.getElementById('cfgClientSecret').value = cfg.client_secret || '';
+      document.getElementById('cfgApiKey').value = cfg.api_key || '';
+      document.getElementById('cfgSecretKey').value = cfg.secret_key || '';
+      document.getElementById('cfgUsername').value = cfg.username || '';
+      document.getElementById('cfgPassword').value = cfg.password || '';
+      document.getElementById('cfgIsActive').checked = Boolean(cfg.is_active);
+    }
+
+    function renderCourierSummary() {
+      const box = document.getElementById('courierStatusSummary');
+      box.innerHTML = Object.keys(COURIER_META).map((k) => {
+        const cfg = courierConfigs[k] || {};
+        return `
+          <div class="list-item">
+            <div><strong>${COURIER_META[k].name}</strong> — ${cfg.store_id ? `Store/Area ID: ${cfg.store_id}` : 'No Store ID'}</div>
+            <span class="badge ${cfg.is_active ? 'badge-live' : ''}">${cfg.is_active ? 'Live API Active' : 'Inactive'}</span>
+          </div>
+        `;
+      }).join('');
+    }
+
     async function checkAdminAuth() {
       const { data: { session } } = await supabase.auth.getSession();
       if (!session) {
@@ -1364,6 +1626,7 @@
       await refreshAdminLists();
       await loadAdminOrders();
       await loadAdminExtras();
+      await loadCourierConfigs();
     }
 
     async function refreshAdminLists() {
@@ -1394,12 +1657,19 @@
         loadStore();
       }));
 
-      document.getElementById('adminProductList').innerHTML = allProducts.map((p) => `
-        <div class="list-item">
-          <div><strong>${p.name_en}</strong> — ৳${p.discount_price || p.base_price} <span class="badge">Stock: ${p.stock_qty}</span></div>
-          <button class="btn btn-forest" data-adm-toggle-prod="${p.id}" data-pub="${!p.is_published}" type="button">${p.is_published ? 'Unpublish' : 'Publish'}</button>
-        </div>
-      `).join('');
+      document.getElementById('adminProductList').innerHTML = allProducts.map((p) => {
+        const photoCount = Array.isArray(p.images) ? p.images.length : 0;
+        return `
+          <div class="list-item">
+            <div>
+              <strong>${p.name_en}</strong> — ৳${p.discount_price || p.base_price}
+              <span class="badge">Stock: ${p.stock_qty}</span>
+              <span class="badge">${photoCount} Photos${p.video_url ? ' + 1 Video' : ''}</span>
+            </div>
+            <button class="btn btn-forest" data-adm-toggle-prod="${p.id}" data-pub="${!p.is_published}" type="button">${p.is_published ? 'Unpublish' : 'Publish'}</button>
+          </div>
+        `;
+      }).join('');
 
       document.querySelectorAll('[data-adm-toggle-prod]').forEach((b) => b.addEventListener('click', async () => {
         await supabase.from('products').update({ is_published: b.getAttribute('data-pub') === 'true' }).eq('id', b.getAttribute('data-adm-toggle-prod'));
@@ -1410,17 +1680,30 @@
       }));
     }
 
-    async function bookCourierForOrder(order, selectedCourier) {
+    async function bookCourierForOrder(order, providerKey) {
       if (order.courier_tracking_id) {
-        return { courier: order.courier_name || selectedCourier, trackingId: order.courier_tracking_id };
+        return { courier: order.courier_name || providerKey, trackingId: order.courier_tracking_id, mode: 'existing' };
       }
-      const prefix = selectedCourier.replace(/[^A-Za-z]/g, '').slice(0, 3).toUpperCase() || 'BHV';
-      const trackingId = `${prefix}-${Date.now().toString().slice(-7)}`;
+
+      const providerLabel = COURIER_META[providerKey]?.name || 'Bagerhat Local Delivery';
+      let trackingId = `BHV-${Date.now().toString().slice(-7)}`;
+      let dispatchMode = 'manual';
+
+      if (providerKey !== 'local' && courierConfigs[providerKey]?.is_active) {
+        const { data: fnData, error: fnErr } = await supabase.functions.invoke('courier-dispatch', {
+          body: { order_id: order.id, provider_key: providerKey }
+        });
+        if (fnErr || fnData?.error) {
+          throw new Error(fnData?.error || fnErr?.message || 'Live Courier API call failed');
+        }
+        trackingId = fnData.tracking_id || trackingId;
+        dispatchMode = fnData.mode || 'live_api';
+      }
 
       await supabase.from('courier_bookings').insert({
         order_id: order.id,
         order_number: order.order_number,
-        courier_name: selectedCourier,
+        courier_name: providerLabel,
         tracking_code: trackingId,
         customer_name: order.customer_name,
         customer_phone: order.customer_phone,
@@ -1428,10 +1711,10 @@
         upazila: order.upazila || '',
         delivery_address: order.delivery_address,
         cod_amount: Number(order.total_amount || 0),
-        booking_status: 'Booked'
+        booking_status: dispatchMode === 'live_api' ? 'API Booked' : 'Manual Booked'
       });
 
-      return { courier: selectedCourier, trackingId };
+      return { courier: providerLabel, trackingId, mode: dispatchMode };
     }
 
     function updateOverviewStats() {
@@ -1464,7 +1747,7 @@
         box.innerHTML = allCourierBookings.map((b) => `
           <div class="list-item">
             <div>
-              <strong>${b.courier_name}</strong> — <span class="badge">${b.tracking_code}</span>
+              <strong>${b.courier_name}</strong> — <span class="badge">${b.tracking_code}</span> <span class="badge">${b.booking_status || 'Booked'}</span>
               <div style="font-size:0.84rem;margin-top:0.2rem;">Order #${b.order_number} • ${b.customer_name} (${b.customer_phone}) • COD: ৳${Number(b.cod_amount).toFixed(0)}</div>
               <div style="font-size:0.8rem;opacity:0.85;">${b.upazila || ''}, ${b.district || ''} — ${b.delivery_address}</div>
             </div>
@@ -1525,32 +1808,34 @@
           const oid = btn.getAttribute('data-save-order');
           const orderObj = allOrders.find((x) => x.id === oid);
           const newStatus = box.querySelector(`[data-order-status="${oid}"]`).value;
-          const selectedCourier = document.getElementById('adminCourierSelect').value;
+          const providerKey = document.getElementById('adminCourierSelect').value;
 
-          const patchData = {
-            order_status: newStatus,
-            updated_at: new Date().toISOString()
-          };
+          try {
+            const patchData = {
+              order_status: newStatus,
+              updated_at: new Date().toISOString()
+            };
 
-          let bookedInfo = '';
-          if (newStatus === 'Confirmed' && orderObj) {
-            const bk = await bookCourierForOrder(orderObj, selectedCourier);
-            patchData.courier_name = bk.courier;
-            patchData.courier_tracking_id = bk.trackingId;
-            patchData.courier_booked_at = new Date().toISOString();
-            bookedInfo = ` & auto-booked with ${bk.courier} (${bk.trackingId})`;
-          }
+            let bookedInfo = '';
+            if (newStatus === 'Confirmed' && orderObj) {
+              const bk = await bookCourierForOrder(orderObj, providerKey);
+              patchData.courier_name = bk.courier;
+              patchData.courier_tracking_id = bk.trackingId;
+              patchData.courier_booked_at = new Date().toISOString();
+              bookedInfo = ` & booked with ${bk.courier} [${bk.mode === 'live_api' ? 'LIVE API' : 'Manual'}] (${bk.trackingId})`;
+            }
 
-          const { error: updErr } = await supabase
-            .from('orders')
-            .update(patchData)
-            .eq('id', oid);
+            const { error: updErr } = await supabase
+              .from('orders')
+              .update(patchData)
+              .eq('id', oid);
 
-          if (updErr) showMsg(updErr.message, true);
-          else {
+            if (updErr) throw updErr;
             await logAdminAction(`Updated order ${orderObj?.order_number || oid} to ${newStatus}`);
             showMsg(`Order status updated to ${newStatus}${bookedInfo}.`);
             loadAdminOrders();
+          } catch (err) {
+            showMsg('Courier/Order error: ' + err.message, true);
           }
         });
       });
@@ -1633,17 +1918,26 @@
         : logs.map((l) => `<div class="list-item"><div>${l.action_text}</div><span class="badge">${new Date(l.created_at).toLocaleString()}</span></div>`).join('');
     }
 
+    const handleLanguageSwitch = () => {
+      lang = lang === 'en' ? 'bn' : 'en';
+      localStorage.setItem('bhive_lang', lang);
+      document.getElementById('langToggle').textContent = lang === 'en' ? 'বাংলা' : 'EN';
+      renderCategoryStrip();
+      renderProducts();
+      showMsg(lang === 'bn' ? 'ভাষা বাংলায় পরিবর্তন করা হয়েছে।' : 'Language switched to English.');
+    };
+
     // Navigation & Events
     document.getElementById('goStoreBrand').addEventListener('click', () => switchView('store'));
-    document.getElementById('navStoreBtn').addEventListener('click', () => switchView('store'));
-    document.getElementById('navAccountBtn').addEventListener('click', () => switchView('account'));
-    document.getElementById('navAdminBtn').addEventListener('click', () => switchView('admin'));
     document.getElementById('navCartBtn').addEventListener('click', () => switchView('cart'));
     document.getElementById('openAccountFromBanner').addEventListener('click', () => switchView('account'));
     document.getElementById('mobStoreBtn').addEventListener('click', () => switchView('store'));
     document.getElementById('mobAccountBtn').addEventListener('click', () => switchView('account'));
     document.getElementById('mobAdminBtn').addEventListener('click', () => switchView('admin'));
     document.getElementById('mobCartBtn').addEventListener('click', () => switchView('cart'));
+
+    document.getElementById('langToggle').addEventListener('click', handleLanguageSwitch);
+    document.getElementById('guestLangToggle').addEventListener('click', handleLanguageSwitch);
 
     document.querySelectorAll('[data-order-folder]').forEach((btn) => {
       btn.addEventListener('click', () => {
@@ -1654,21 +1948,47 @@
       });
     });
 
-    document.getElementById('codZone').addEventListener('change', renderCart);
-    document.getElementById('sortSelect').addEventListener('change', renderProducts);
-
-    document.getElementById('langToggle').addEventListener('click', () => {
-      lang = lang === 'en' ? 'bn' : 'en';
-      localStorage.setItem('bhive_lang', lang);
-      document.getElementById('langToggle').textContent = lang === 'en' ? 'বাংলা' : 'EN';
-      renderCatalogs();
-      renderProducts();
+    document.querySelectorAll('[data-provider-tab]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-provider-tab]').forEach((b) => b.classList.remove('active-sub'));
+        btn.classList.add('active-sub');
+        renderCourierForm(btn.getAttribute('data-provider-tab'));
+      });
     });
 
+    document.getElementById('courierApiForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const key = document.getElementById('cfgProviderKey').value;
+      const payload = {
+        provider_key: key,
+        provider_name: COURIER_META[key].name,
+        api_base_url: document.getElementById('cfgBaseUrl').value.trim(),
+        store_id: document.getElementById('cfgStoreId').value.trim(),
+        client_id: document.getElementById('cfgClientId').value.trim(),
+        client_secret: document.getElementById('cfgClientSecret').value.trim(),
+        api_key: document.getElementById('cfgApiKey').value.trim(),
+        secret_key: document.getElementById('cfgSecretKey').value.trim(),
+        username: document.getElementById('cfgUsername').value.trim(),
+        password: document.getElementById('cfgPassword').value.trim(),
+        is_active: document.getElementById('cfgIsActive').checked,
+        updated_at: new Date().toISOString()
+      };
+      const { error } = await supabase.from('courier_integrations').upsert(payload, { onConflict: 'provider_key' });
+      if (error) showMsg(error.message, true);
+      else {
+        await logAdminAction(`Updated ${COURIER_META[key].name} API settings`);
+        showMsg(`${COURIER_META[key].name} account settings saved!`);
+        await loadCourierConfigs();
+        renderCourierForm(key);
+      }
+    });
+
+    document.getElementById('codZone').addEventListener('change', renderCart);
+    document.getElementById('sortSelect').addEventListener('change', renderProducts);
     document.getElementById('searchInput').addEventListener('input', renderProducts);
     document.getElementById('clearFilterBtn').addEventListener('click', () => {
       selectedCatalogId = null;
-      renderCatalogs();
+      renderCategoryStrip();
       renderProducts();
     });
 
@@ -1832,7 +2152,7 @@
     });
 
     // Admin Tabs & Forms
-    const adminSections = ['admSecOverview', 'admSecCats', 'admSecProds', 'admSecOrders', 'admSecGifts', 'admSecSettings'];
+    const adminSections = ['admSecOverview', 'admSecCats', 'admSecProds', 'admSecOrders', 'admSecCourierApi', 'admSecGifts', 'admSecSettings'];
     const showAdminSec = (activeId) => {
       adminSections.forEach((id) => {
         document.getElementById(id).style.display = id === activeId ? 'block' : 'none';
@@ -1856,6 +2176,7 @@
     document.getElementById('admTabCats').addEventListener('click', () => showAdminSec('admSecCats'));
     document.getElementById('admTabProds').addEventListener('click', () => showAdminSec('admSecProds'));
     document.getElementById('admTabOrders').addEventListener('click', () => { showAdminSec('admSecOrders'); loadAdminOrders(); });
+    document.getElementById('admTabCourierApi').addEventListener('click', () => { showAdminSec('admSecCourierApi'); loadCourierConfigs(); });
     document.getElementById('admTabGifts').addEventListener('click', () => { showAdminSec('admSecGifts'); loadAdminExtras(); });
     document.getElementById('admTabSettings').addEventListener('click', () => { showAdminSec('admSecSettings'); loadAdminExtras(); });
 
@@ -1880,10 +2201,30 @@
       } catch (err) { showMsg(err.message, true); }
     });
 
+    // Product upload: 5 individual photo slots + 1 optional video
     document.getElementById('productForm').addEventListener('submit', async (e) => {
       e.preventDefault();
+      const saveBtn = document.getElementById('saveProdBtn');
+      saveBtn.disabled = true;
+      saveBtn.textContent = 'Uploading & Saving...';
+
       try {
-        const imgUrl = await uploadImg('product-images', document.getElementById('prodImageFile').files[0]);
+        const slotIds = ['prodImg1', 'prodImg2', 'prodImg3', 'prodImg4', 'prodImg5'];
+        const uploadedImages = [];
+        for (const sid of slotIds) {
+          const f = document.getElementById(sid).files[0];
+          if (f) {
+            const url = await uploadImg('product-images', f);
+            if (url) uploadedImages.push(url);
+          }
+        }
+
+        const videoFile = document.getElementById('prodVideoFile').files[0] || null;
+        let videoUrl = '';
+        if (videoFile) {
+          videoUrl = (await uploadImg('product-images', videoFile)) || '';
+        }
+
         const nameEn = document.getElementById('prodNameEn').value.trim();
         const disc = document.getElementById('prodDiscount').value;
         const { error } = await supabase.from('products').insert({
@@ -1895,16 +2236,22 @@
           base_price: Number(document.getElementById('prodPrice').value),
           discount_price: disc ? Number(disc) : null,
           stock_qty: Number(document.getElementById('prodStock').value),
-          images: imgUrl ? [imgUrl] : [],
+          images: uploadedImages,
+          video_url: videoUrl,
           is_published: document.getElementById('prodPublished').checked
         });
         if (error) throw error;
-        await logAdminAction(`Added product ${nameEn}`);
-        showMsg('Product added!');
+        await logAdminAction(`Added product ${nameEn} (${uploadedImages.length} photos${videoUrl ? ', 1 video' : ''})`);
+        showMsg('Product added successfully!');
         e.target.reset();
         refreshAdminLists();
         loadStore();
-      } catch (err) { showMsg(err.message, true); }
+      } catch (err) {
+        showMsg(err.message, true);
+      } finally {
+        saveBtn.disabled = false;
+        saveBtn.textContent = 'Save Product';
+      }
     });
 
     document.getElementById('giftForm').addEventListener('submit', async (e) => {
@@ -1924,23 +2271,80 @@
       }
     });
 
+    // Add single banner immediately (up to 10 banners)
+    document.getElementById('addSingleBannerBtn').addEventListener('click', async () => {
+      const fileInput = document.getElementById('setBannerFileSingle');
+      const file = fileInput.files[0];
+      if (!file) {
+        showMsg('আগে একটি ব্যানার ছবি নির্বাচন করুন।', true);
+        return;
+      }
+      if (currentBanners.length >= 10) {
+        showMsg('সর্বোচ্চ ১০টি ব্যানার যোগ করা হয়ে গেছে। নতুন ব্যানার দিতে চাইলে আগে একটি Remove করুন।', true);
+        return;
+      }
+      const btn = document.getElementById('addSingleBannerBtn');
+      btn.disabled = true;
+      btn.textContent = 'Uploading...';
+      try {
+        const bUrl = await uploadImg('catalog-images', file);
+        if (!bUrl) throw new Error('Banner upload failed');
+        const nextList = [...currentBanners, bUrl];
+        const { error } = await supabase
+          .from('website_settings')
+          .update({ hero_banners: nextList, updated_at: new Date().toISOString() })
+          .eq('id', 1);
+        if (error) throw error;
+        currentBanners = nextList;
+        fileInput.value = '';
+        renderAdminBannerList();
+        renderBannerSlider();
+        showMsg(`Banner #${currentBanners.length} added to homepage slider!`);
+      } catch (err) {
+        showMsg(err.message, true);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = '+ Add Banner';
+      }
+    });
+
+    // Website Settings & Logo Save
     document.getElementById('websiteSettingsForm').addEventListener('submit', async (e) => {
       e.preventDefault();
-      const { error } = await supabase.from('website_settings').update({
-        brand_name: document.getElementById('setBrandName').value.trim(),
-        tagline: document.getElementById('setTagline').value.trim(),
-        announcement_text: document.getElementById('setAnnouncement').value.trim(),
-        free_delivery_note: document.getElementById('setDeliveryNote').value.trim(),
-        hero_title: document.getElementById('setHeroTitle').value.trim(),
-        hero_subtitle: document.getElementById('setHeroSub').value.trim(),
-        whatsapp_number: document.getElementById('setWhatsapp').value.trim(),
-        updated_at: new Date().toISOString()
-      }).eq('id', 1);
-      if (error) showMsg(error.message, true);
-      else {
-        await logAdminAction('Updated website settings');
+      const saveBtn = document.getElementById('saveSettingsBtn');
+      saveBtn.disabled = true;
+      saveBtn.textContent = 'Saving...';
+      try {
+        const logoFile = document.getElementById('setLogoFile').files[0] || null;
+        let finalLogoUrl = currentLogoUrl;
+        if (logoFile) {
+          const uploadedLogo = await uploadImg('catalog-images', logoFile);
+          if (uploadedLogo) finalLogoUrl = uploadedLogo;
+        }
+
+        const { error } = await supabase.from('website_settings').update({
+          brand_name: document.getElementById('setBrandName').value.trim(),
+          tagline: document.getElementById('setTagline').value.trim(),
+          announcement_text: document.getElementById('setAnnouncement').value.trim(),
+          free_delivery_note: document.getElementById('setDeliveryNote').value.trim(),
+          hero_title: document.getElementById('setHeroTitle').value.trim(),
+          hero_subtitle: document.getElementById('setHeroSub').value.trim(),
+          whatsapp_number: document.getElementById('setWhatsapp').value.trim(),
+          logo_url: finalLogoUrl,
+          hero_banners: currentBanners,
+          updated_at: new Date().toISOString()
+        }).eq('id', 1);
+
+        if (error) throw error;
+        document.getElementById('setLogoFile').value = '';
+        await logAdminAction('Updated website settings & logo');
         showMsg('Website settings saved!');
         loadStore();
+      } catch (err) {
+        showMsg(err.message, true);
+      } finally {
+        saveBtn.disabled = false;
+        saveBtn.textContent = 'Save All Settings';
       }
     });
 
@@ -1950,6 +2354,7 @@
       localStorage.setItem('bhive_ref_code', urlRef.trim().toUpperCase());
       document.getElementById('regRefCode').value = urlRef.trim().toUpperCase();
     }
+    document.getElementById('langToggle').textContent = lang === 'en' ? 'বাংলা' : 'EN';
     populateLocations();
     saveCart(getCart());
     loadStore();
