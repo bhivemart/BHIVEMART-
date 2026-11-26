@@ -4,9 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BHIVE MART — Smart Shopping. Better Living.</title>
-  <meta name="description" content="BHIVE MART — Smart Shopping. Better Living. From Bagerhat to the World." />
+  <meta name="description" content="BHIVE MART — Smart Shopping. Better Living. From Bagerhat, Bangladesh to the World. Smart Gadgets, Home Appliances & Fresh Foods." />
+  <meta property="og:title" content="BHIVE MART — Smart Shopping. Better Living." />
+  <meta property="og:description" content="Trusted Smart Gadgets, Home Appliances, and Fresh Food Items from Bagerhat, Bangladesh." />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --forest-green: #174B35;
@@ -24,18 +27,18 @@
       background-color: var(--cream-white);
       color: var(--dark-green);
       line-height: 1.6;
-      padding-bottom: 76px;
+      padding-bottom: 78px;
     }
 
-    /* Top Strip */
+    /* Announcement Bar */
     .top-strip {
       background: var(--dark-green);
       color: var(--cream-white);
       font-size: 0.78rem;
-      padding: 0.42rem 1rem;
+      padding: 0.45rem 1rem;
     }
     .top-strip-inner {
-      max-width: 1200px;
+      max-width: 1240px;
       margin: auto;
       display: flex;
       justify-content: space-between;
@@ -60,14 +63,14 @@
       z-index: 100;
       background: var(--forest-green);
       color: var(--cream-white);
-      padding: 0.75rem 1rem;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.14);
+      padding: 0.72rem 1rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
     }
     .nav-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      max-width: 1200px;
+      max-width: 1240px;
       margin: auto;
       gap: 0.6rem;
       flex-wrap: wrap;
@@ -75,15 +78,15 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.65rem;
       cursor: pointer;
     }
     .brand-logo-box {
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
       background: var(--cream-white);
-      padding: 3px;
+      padding: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -91,8 +94,8 @@
       border: 1.5px solid var(--golden-beige);
     }
     .brand-logo-box img { width: 100%; height: 100%; object-fit: contain; }
-    .brand-title { font-weight: 700; font-size: 1.12rem; letter-spacing: 0.4px; line-height: 1.1; }
-    .brand-tag { font-size: 0.62rem; color: var(--golden-beige); letter-spacing: 0.7px; display: block; }
+    .brand-title { font-weight: 800; font-size: 1.12rem; letter-spacing: 0.4px; line-height: 1.1; }
+    .brand-tag { font-size: 0.62rem; color: var(--golden-beige); letter-spacing: 0.7px; display: block; font-weight: 600; }
 
     .nav-actions { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
     .btn-pill {
@@ -115,16 +118,37 @@
     .btn-forest { background: var(--forest-green); color: var(--cream-white); border: none; }
     .btn-danger { background: #9e2a2b; color: #fff; border: none; }
 
-    .search-bar { max-width: 1200px; margin: 0.65rem auto 0; }
-    .search-bar input {
-      width: 100%;
-      padding: 0.6rem 1rem;
+    .cat-strip-bar {
+      max-width: 1240px;
+      margin: 0.55rem auto 0;
+      display: flex;
+      gap: 0.4rem;
+      overflow-x: auto;
+      padding-bottom: 0.2rem;
+    }
+    .cat-chip {
+      background: rgba(248, 247, 240, 0.12);
+      color: var(--cream-white);
+      border: 1px solid rgba(216, 182, 106, 0.35);
+      padding: 0.25rem 0.65rem;
+      border-radius: 99px;
+      font-size: 0.75rem;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .cat-chip.active { background: var(--golden-beige); color: var(--dark-green); font-weight: 700; }
+
+    .search-bar { max-width: 1240px; margin: 0.55rem auto 0; display: flex; gap: 0.45rem; flex-wrap: wrap; }
+    .search-bar input, .search-bar select {
+      padding: 0.55rem 0.85rem;
       border-radius: 10px;
       border: none;
       background: var(--cream-white);
       color: var(--dark-green);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
+    .search-bar input { flex: 1 1 220px; }
+    .search-bar select { width: auto; min-width: 145px; }
 
     /* Hero */
     .hero {
@@ -133,7 +157,7 @@
       padding: 2.2rem 1.2rem;
     }
     .hero-inner {
-      max-width: 1200px;
+      max-width: 1240px;
       margin: auto;
       display: grid;
       grid-template-columns: 1fr;
@@ -150,33 +174,34 @@
       font-weight: 700;
       margin-bottom: 0.65rem;
     }
-    .hero h1 { font-size: clamp(1.7rem, 4vw, 2.55rem); margin-bottom: 0.55rem; line-height: 1.2; }
-    .hero p { opacity: 0.92; font-size: 0.94rem; margin-bottom: 1.15rem; max-width: 580px; }
+    .hero h1 { font-size: clamp(1.7rem, 4vw, 2.5rem); margin-bottom: 0.55rem; line-height: 1.2; }
+    .hero p { opacity: 0.92; font-size: 0.94rem; margin-bottom: 1.15rem; max-width: 600px; }
     .hero-visual {
       background: var(--cream-white);
       color: var(--dark-green);
       border-radius: 16px;
-      padding: 0.85rem;
+      padding: 0.9rem;
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
       border: 2px solid var(--golden-beige);
       text-align: center;
     }
-    .hero-visual img { width: 100%; max-height: 250px; object-fit: contain; border-radius: 10px; }
+    .hero-visual img { width: 100%; max-height: 240px; object-fit: contain; border-radius: 10px; }
 
     /* Container & Cards */
-    .container { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+    .container { max-width: 1240px; margin: 1.8rem auto; padding: 0 1rem; }
     .section-head {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 1rem;
+      margin-bottom: 0.95rem;
       gap: 0.5rem;
+      flex-wrap: wrap;
     }
-    .section-head h2 { font-size: 1.25rem; color: var(--forest-green); }
+    .section-head h2 { font-size: 1.22rem; color: var(--forest-green); }
 
     .grid-cats {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 0.85rem;
     }
     .cat-card {
@@ -192,7 +217,7 @@
 
     .grid-products {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
       gap: 0.95rem;
     }
     .product-card {
@@ -206,35 +231,63 @@
       box-shadow: var(--shadow);
     }
     .product-img {
-      height: 155px;
+      height: 160px;
       background: #EAE8DC;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      position: relative;
     }
     .product-img img { width: 100%; height: 100%; object-fit: cover; }
     .product-body { padding: 0.8rem; }
-    .product-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 0.3rem; }
-    .price-row { display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.6rem; font-weight: 700; color: var(--forest-green); }
+    .product-title { font-weight: 700; font-size: 0.92rem; margin-bottom: 0.25rem; }
+    .product-meta { font-size: 0.74rem; opacity: 0.75; margin-bottom: 0.35rem; }
+    .price-row { display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.55rem; font-weight: 700; color: var(--forest-green); }
     .old-price { text-decoration: line-through; color: #777; font-weight: 400; font-size: 0.8rem; }
+    .card-btns { display: flex; gap: 0.35rem; }
     .btn-add {
-      width: 100%;
-      padding: 0.52rem;
+      flex: 1;
+      padding: 0.5rem;
       background: var(--forest-green);
       color: var(--cream-white);
       border: none;
       border-radius: 8px;
       font-weight: 600;
       cursor: pointer;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
+    }
+    .btn-wish {
+      padding: 0.5rem 0.6rem;
+      background: var(--cream-white);
+      color: var(--forest-green);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 700;
     }
 
     .info-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.95rem;
     }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .stat-box {
+      background: var(--cream-white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.85rem;
+    }
+    .stat-num { font-size: 1.25rem; font-weight: 800; color: var(--forest-green); }
+    .stat-lbl { font-size: 0.76rem; opacity: 0.8; }
+
     .info-card, .panel-card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -259,16 +312,32 @@
       border-radius: 8px; font-family: inherit; font-size: 0.9rem; background: #fff;
     }
     .btn {
-      padding: 0.5rem 0.9rem; border-radius: 8px; cursor: pointer;
-      font-weight: 600; font-size: 0.84rem; display: inline-block;
+      padding: 0.48rem 0.85rem; border-radius: 8px; cursor: pointer;
+      font-weight: 600; font-size: 0.82rem; display: inline-block;
     }
     .list-item {
-      border-top: 1px solid var(--border); padding: 0.8rem 0;
-      display: flex; justify-content: space-between; align-items: flex-start; gap: 0.6rem; flex-wrap: wrap;
+      border-top: 1px solid var(--border); padding: 0.85rem 0;
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 0.7rem; flex-wrap: wrap;
     }
     .badge {
       background: rgba(216,182,106,0.24); color: var(--dark-green);
-      padding: 0.2rem 0.55rem; border-radius: 99px; font-size: 0.75rem; font-weight: 700;
+      padding: 0.2rem 0.55rem; border-radius: 99px; font-size: 0.74rem; font-weight: 700;
+    }
+    .sub-tabs { display: flex; gap: 0.4rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .sub-tab-btn {
+      background: var(--cream-white);
+      color: var(--dark-green);
+      border: 1px solid var(--border);
+      padding: 0.42rem 0.72rem;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .sub-tab-btn.active-sub {
+      background: var(--forest-green);
+      color: var(--cream-white);
+      border-color: var(--forest-green);
     }
     .msg { padding: 0.65rem 0.9rem; border-radius: 8px; margin-bottom: 1rem; font-size: 0.88rem; display: none; }
     .msg.ok { display: block; background: #e6f4ea; color: #137333; }
@@ -333,30 +402,31 @@
 </head>
 <body>
 
-  <!-- Top Strip -->
+  <!-- A. Announcement Bar -->
   <div class="top-strip">
     <div class="top-strip-inner">
-      <span>Bagerhat, Bangladesh • Smart Shopping. Better Living.</span>
+      <span id="annText">Welcome to BHIVE MART — From Bagerhat, Bangladesh to the World.</span>
       <div class="top-links">
-        <a class="wa-link" href="https://wa.me/8801611110611" target="_blank" rel="noopener noreferrer">
-          <span>WhatsApp: 01611110611</span>
+        <span id="freeDelNote" style="color:var(--golden-beige);font-weight:600;">Cash on Delivery Available</span>
+        <a class="wa-link" id="topWaLink" href="https://wa.me/8801611110611" target="_blank" rel="noopener noreferrer">
+          <span>WhatsApp: <span id="topWaNum">01611110611</span></span>
         </a>
-        <a href="https://www.facebook.com/share/19tShQMVbS/" target="_blank" rel="noopener noreferrer" style="color:#F8F7F0;text-decoration:none;">Facebook</a>
+        <a id="topFbLink" href="https://www.facebook.com/share/19tShQMVbS/" target="_blank" rel="noopener noreferrer" style="color:#F8F7F0;text-decoration:none;">Facebook</a>
       </div>
     </div>
   </div>
 
-  <!-- Header -->
+  <!-- B & C. Main Header + Dynamic Category Navigation + Search/Sort -->
   <header>
     <div class="nav-top">
       <div class="brand" id="goStoreBrand">
         <div class="brand-logo-box">
-          <img src="assets/company-logo.png" alt="BHIVE Company Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+          <img id="headerLogoImg" src="assets/company-logo.png" alt="BHIVE Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
           <span style="display:none;font-weight:800;color:#174B35;font-size:0.85rem;">BH</span>
         </div>
         <div>
-          <span class="brand-title">BHIVE MART</span>
-          <span class="brand-tag">SMART SHOPPING. BETTER LIVING.</span>
+          <span class="brand-title" id="headerBrandTitle">BHIVE MART</span>
+          <span class="brand-tag" id="headerBrandTag">SMART SHOPPING. BETTER LIVING.</span>
         </div>
       </div>
 
@@ -369,10 +439,17 @@
       </div>
     </div>
 
+    <div class="cat-strip-bar" id="headerCatStrip"></div>
+
     <div class="search-bar" id="storeSearchBar">
       <input type="search" id="searchInput" placeholder="Search BHive Fresh, Tech, Home, Living..." aria-label="Search products">
+      <select id="sortSelect" aria-label="Sort products">
+        <option value="newest">Newest First</option>
+        <option value="price_asc">Price: Low to High</option>
+        <option value="price_desc">Price: High to Low</option>
+      </select>
     </div>
-     </header>
+  </header>
 
   <!-- Global Status Message -->
   <div class="container" style="margin-top:1rem;margin-bottom:0;">
@@ -381,24 +458,25 @@
 
   <!-- VIEW 1: STOREFRONT -->
   <div id="view-store">
+    <!-- D. Hero Banner -->
     <section class="hero">
       <div class="hero-inner">
         <div>
-          <span class="hero-badge">From Bagerhat to the World</span>
-          <h1>Smart Shopping. Better Living.</h1>
-          <p>
+          <span class="hero-badge" id="heroLocationBadge">From Bagerhat to the World</span>
+          <h1 id="heroTitleEl">Smart Shopping. Better Living.</h1>
+          <p id="heroSubEl">
             Trusted Smart Gadgets, Home Appliances, and Fresh Food Items—crafted for everyday comfort and automated customer rewards.
           </p>
           <div style="display:flex;gap:0.65rem;flex-wrap:wrap;">
             <a href="#catalogSection" class="btn-pill btn-gold" style="padding:0.65rem 1.35rem;">Shop Now</a>
-            <a href="https://wa.me/8801611110611" target="_blank" rel="noopener noreferrer" class="btn-pill" style="padding:0.65rem 1.2rem;">
+            <a id="heroWaBtn" href="https://wa.me/8801611110611" target="_blank" rel="noopener noreferrer" class="btn-pill" style="padding:0.65rem 1.2rem;">
               WhatsApp: 01611110611
             </a>
           </div>
         </div>
 
         <div class="hero-visual">
-          <img src="assets/website-logo.png" alt="BHIVE MART Website Logo" onerror="this.style.display='none'; document.getElementById('heroLogoFallback').style.display='block';" />
+          <img id="heroBannerImg" src="assets/website-logo.png" alt="BHIVE MART Banner" onerror="this.style.display='none'; document.getElementById('heroLogoFallback').style.display='block';" />
           <div id="heroLogoFallback" style="display:none;padding:1rem;">
             <div style="font-size:1.4rem;font-weight:800;color:#174B35;">BHIVE MART</div>
             <div style="font-size:0.85rem;color:#24352B;">SMART SHOPPING. BETTER LIVING.</div>
@@ -408,39 +486,73 @@
     </section>
 
     <main class="container">
+      <!-- E. Shop by Categories -->
       <section id="catalogSection">
         <div class="section-head">
           <h2>Shop by Categories</h2>
-          <button class="btn-pill" style="color:var(--forest-green);border-color:var(--forest-green);" id="clearFilterBtn" type="button">All</button>
+          <button class="btn-pill" style="color:var(--forest-green);border-color:var(--forest-green);" id="clearFilterBtn" type="button">All Categories</button>
         </div>
         <div class="grid-cats" id="catalogGrid">
           <div class="cat-card">Loading catalogs...</div>
         </div>
       </section>
 
-      <section style="margin-top:2.2rem;">
+      <!-- F. Products -->
+      <section style="margin-top:2rem;">
         <div class="section-head">
-          <h2>Featured & Available Products</h2>
+          <h2 id="productSectionHeading">Featured & Available Products</h2>
         </div>
         <div class="grid-products" id="productGrid">
           <div class="product-card"><div class="product-body">Loading products...</div></div>
         </div>
       </section>
 
-      <section style="margin-top:2.3rem;">
+      <!-- G. Referral Promotion -->
+      <section style="margin-top:2.2rem;">
         <div class="referral-banner">
-          <span class="hero-badge">BHIVE REFERRAL & REWARDS</span>
+          <span class="hero-badge">BHIVE REFERRAL & GIFT REWARDS</span>
           <h2 style="color:var(--golden-beige);margin-bottom:0.45rem;">Share BHIVE, Unlock Exclusive Gifts</h2>
           <p style="font-size:0.9rem;margin-bottom:1rem;">
-            Invite friends with your personal referral link. Earn referrer gifts on qualifying delivered orders, while referred members unlock a special gift on their 4th order.
+            Invite friends with your unique referral link. Earn referrer gifts on qualifying delivered orders, while referred downline members unlock a gift on their 4th qualifying order.
           </p>
-          <button type="button" class="btn-pill btn-gold" id="openAccountFromBanner">Account & Order History</button>
+          <button type="button" class="btn-pill btn-gold" id="openAccountFromBanner">Referral Dashboard & Orders</button>
+        </div>
+      </section>
+
+      <!-- H. Trust & Service Section -->
+      <section style="margin-top:2rem;">
+        <div class="section-head"><h2>Why Shop with BHIVE MART</h2></div>
+        <div class="info-grid">
+          <div class="info-card"><h3>Secure Shopping</h3><p style="font-size:0.86rem;">Protected accounts, transparent pricing, and cash on delivery convenience.</p></div>
+          <div class="info-card"><h3>Fast Delivery</h3><p style="font-size:0.86rem;">Reliable Bagerhat local delivery and nationwide courier dispatch.</p></div>
+          <div class="info-card"><h3>Customer Support</h3><p style="font-size:0.86rem;">Direct assistance via WhatsApp hotline 01611110611.</p></div>
+          <div class="info-card"><h3>Easy Returns</h3><p style="font-size:0.86rem;">Clear order status tracking and hassle-free issue resolution.</p></div>
+        </div>
+      </section>
+
+      <!-- I. Verified Customer Reviews -->
+      <section style="margin-top:2rem;">
+        <div class="section-head"><h2>Verified Customer Reviews</h2></div>
+        <div class="info-grid" id="approvedReviewsBox">
+          <div class="info-card">Loading reviews...</div>
+        </div>
+        <div class="panel-card" style="margin-top:1rem;">
+          <h3>Write a Product Review</h3>
+          <form id="reviewForm">
+            <div class="info-grid">
+              <div><label>Product</label><select id="reviewProductId" required></select></div>
+              <div><label>Rating (1 to 5)</label><select id="reviewRating"><option value="5">5 ★</option><option value="4">4 ★</option><option value="3">3 ★</option><option value="2">2 ★</option><option value="1">1 ★</option></select></div>
+            </div>
+            <label>Your Comment</label>
+            <textarea id="reviewComment" rows="2" required placeholder="Share your experience with BHIVE MART..."></textarea>
+            <button type="submit" class="btn btn-forest" style="margin-top:0.7rem;">Submit Review</button>
+          </form>
         </div>
       </section>
     </main>
   </div>
 
-  <!-- VIEW 2: CUSTOMER ACCOUNT & ORDER HISTORY -->
+  <!-- VIEW 2: CUSTOMER ACCOUNT, WISHLIST, ADDRESSES, REFERRALS & ORDERS -->
   <div id="view-account" class="container" style="display:none;">
     <div class="panel-card" id="authCard">
       <div style="display:flex;gap:0.5rem;margin-bottom:0.8rem;">
@@ -484,21 +596,46 @@
         </div>
 
         <form id="profileUpdateForm" style="margin-top:0.85rem;">
-          <label>Full Name</label>
-          <input type="text" id="editFullName" required>
-          <label>Phone</label>
-          <input type="text" id="editPhone" required>
+          <div class="info-grid">
+            <div><label>Full Name</label><input type="text" id="editFullName" required></div>
+            <div><label>Phone</label><input type="text" id="editPhone" required></div>
+          </div>
           <button type="submit" class="btn btn-forest" style="margin-top:0.75rem;">Save Profile</button>
         </form>
       </div>
 
       <div class="panel-card">
-        <h3>Your Referral Link</h3>
+        <h3>Referral & Gift Rewards Hub</h3>
         <div style="background:var(--cream-white);border:1px dashed var(--forest-green);padding:0.75rem;border-radius:10px;word-break:break-all;font-size:0.85rem;">
-          <div>Code: <strong id="myRefCode">—</strong></div>
-          <div style="margin-top:0.3rem;">Link: <span id="myRefLink">—</span></div>
+          <div>Referral Code: <strong id="myRefCode">—</strong></div>
+          <div style="margin-top:0.25rem;">Referral Link: <span id="myRefLink">—</span></div>
         </div>
-        <button type="button" class="btn btn-gold" style="margin-top:0.7rem;" id="copyRefBtn">Copy Referral Link</button>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.7rem;">
+          <button type="button" class="btn btn-gold" id="copyRefBtn">Copy Referral Link</button>
+          <button type="button" class="btn btn-forest" id="claimGiftBtn">Request Gift Claim</button>
+        </div>
+        <div id="myRewardClaimsBox" style="margin-top:0.75rem;"></div>
+      </div>
+
+      <div class="panel-card">
+        <h3>My Wishlist</h3>
+        <div id="myWishlistBox" style="margin-top:0.5rem;">Loading wishlist...</div>
+      </div>
+
+      <div class="panel-card">
+        <h3>Saved Addresses</h3>
+        <form id="addAddressForm">
+          <div class="info-grid">
+            <div><label>Label</label><input type="text" id="addrLabel" placeholder="Home / Office" required></div>
+            <div><label>Recipient Name</label><input type="text" id="addrName" required></div>
+            <div><label>Phone</label><input type="text" id="addrPhone" required></div>
+            <div><label>District</label><input type="text" id="addrDistrict" required></div>
+            <div><label>Upazila / Thana</label><input type="text" id="addrUpazila" required></div>
+            <div><label>Street / Details</label><input type="text" id="addrStreet" required></div>
+          </div>
+          <button type="submit" class="btn btn-forest" style="margin-top:0.7rem;">Save Address</button>
+        </form>
+        <div id="myAddressesBox" style="margin-top:0.75rem;"></div>
       </div>
 
       <div class="panel-card">
@@ -508,7 +645,7 @@
     </div>
   </div>
 
-  <!-- VIEW 3: ADMIN PANEL (Catalogs, Products & Orders) -->
+  <!-- VIEW 3: COMPLETE ADMIN DASHBOARD -->
   <div id="view-admin" class="container" style="display:none;">
     <div class="panel-card" id="adminLoginBox">
       <h2>Admin Sign In</h2>
@@ -520,17 +657,35 @@
         <input type="password" id="adminPassword" required>
         <button type="submit" class="btn btn-forest" style="margin-top:0.9rem;width:100%;">Sign In to Admin</button>
       </form>
-    </div>
+      </div>
 
     <div id="adminDashboard" style="display:none;">
-      <div style="display:flex;gap:0.5rem;margin-bottom:1rem;flex-wrap:wrap;">
+      <div style="display:flex;gap:0.45rem;margin-bottom:1rem;flex-wrap:wrap;">
+        <button type="button" class="btn btn-gold" id="admTabOverview">Overview</button>
         <button type="button" class="btn btn-forest" id="admTabCats">Catalogs</button>
         <button type="button" class="btn btn-gold" id="admTabProds">Products</button>
-        <button type="button" class="btn btn-forest" id="admTabOrders">Orders</button>
+        <button type="button" class="btn btn-forest" id="admTabOrders">Orders & Courier</button>
+        <button type="button" class="btn btn-gold" id="admTabGifts">Gifts & Reviews</button>
+        <button type="button" class="btn btn-forest" id="admTabSettings">Settings & Logs</button>
         <button type="button" class="btn" style="background:#e0e0e0;" id="admLogoutBtn">Logout</button>
       </div>
 
-      <div class="panel-card" id="admSecCats">
+      <!-- Admin Overview -->
+      <div class="panel-card" id="admSecOverview">
+        <h3>Dashboard Overview (Live Database Metrics)</h3>
+        <div class="stats-grid" id="adminStatsGrid">
+          <div class="stat-box"><div class="stat-num" id="stTotalOrders">0</div><div class="stat-lbl">Total Orders</div></div>
+          <div class="stat-box"><div class="stat-num" id="stTotalSales">৳0</div><div class="stat-lbl">Total Sales</div></div>
+          <div class="stat-box"><div class="stat-num" id="stPendingOrders">0</div><div class="stat-lbl">Active / Pending</div></div>
+          <div class="stat-box"><div class="stat-num" id="stDeliveredOrders">0</div><div class="stat-lbl">Delivered Orders</div></div>
+          <div class="stat-box"><div class="stat-num" id="stTotalProducts">0</div><div class="stat-lbl">Products</div></div>
+          <div class="stat-box"><div class="stat-num" id="stTotalCatalogs">0</div><div class="stat-lbl">Catalogs</div></div>
+        </div>
+        <div id="recentOrdersPreview"></div>
+      </div>
+
+      <!-- Admin Catalogs -->
+      <div class="panel-card" id="admSecCats" style="display:none;">
         <h3>Dynamic Catalog Management</h3>
         <form id="catalogForm">
           <div class="info-grid">
@@ -546,6 +701,7 @@
         <div id="adminCatalogList" style="margin-top:1rem;"></div>
       </div>
 
+      <!-- Admin Products -->
       <div class="panel-card" id="admSecProds" style="display:none;">
         <h3>Product Management</h3>
         <form id="productForm">
@@ -553,6 +709,7 @@
             <div><label>Name (EN)</label><input type="text" id="prodNameEn" required></div>
             <div><label>Name (BN)</label><input type="text" id="prodNameBn" required></div>
             <div><label>Catalog</label><select id="prodCatalogId" required></select></div>
+            <div><label>SKU</label><input type="text" id="prodSku" placeholder="BHV-SKU-01"></div>
             <div><label>Price (BDT)</label><input type="number" step="0.01" id="prodPrice" required></div>
             <div><label>Discount Price</label><input type="number" step="0.01" id="prodDiscount"></div>
             <div><label>Stock</label><input type="number" id="prodStock" value="10" required></div>
@@ -565,9 +722,68 @@
         <div id="adminProductList" style="margin-top:1rem;"></div>
       </div>
 
+      <!-- Admin Orders & Courier -->
       <div class="panel-card" id="admSecOrders" style="display:none;">
-        <h3>Customer Orders Management</h3>
-        <div id="adminOrderList" style="margin-top:0.75rem;">Loading orders...</div>
+        <h3>Customer Orders & Courier Management</h3>
+        <div style="background:var(--cream-white);border:1px solid var(--border);border-radius:10px;padding:0.85rem;margin-top:0.6rem;">
+          <label style="margin-top:0;">Select Courier Provider (Confirm করলে এই কুরিয়ারে অটো বুক হবে)</label>
+          <select id="adminCourierSelect">
+            <option value="Pathao Courier">Pathao Courier</option>
+            <option value="CarryBee">CarryBee</option>
+            <option value="Steadfast Courier">Steadfast Courier</option>
+            <option value="RedX">RedX</option>
+            <option value="Bagerhat Local Delivery">Bagerhat Local Delivery</option>
+          </select>
+        </div>
+
+        <div class="sub-tabs">
+          <button type="button" class="sub-tab-btn active-sub" data-order-folder="active">Active Orders</button>
+          <button type="button" class="sub-tab-btn" data-order-folder="Delivered">Delivered</button>
+          <button type="button" class="sub-tab-btn" data-order-folder="Cancelled">Cancelled</button>
+          <button type="button" class="sub-tab-btn" data-order-folder="courier_bookings">Courier Bookings</button>
+        </div>
+
+        <div id="adminOrderList" style="margin-top:0.5rem;">Loading orders...</div>
+      </div>
+
+      <!-- Admin Gifts & Reviews -->
+      <div class="panel-card" id="admSecGifts" style="display:none;">
+        <h3>Referral Gifts & Claims</h3>
+        <form id="giftForm">
+          <div class="info-grid">
+            <div><label>Gift Title (EN)</label><input type="text" id="giftTitleEn" required></div>
+            <div><label>Gift Title (BN)</label><input type="text" id="giftTitleBn" required></div>
+            <div><label>Stock Qty</label><input type="number" id="giftStock" value="10" required></div>
+          </div>
+          <button type="submit" class="btn btn-forest" style="margin-top:0.7rem;">Add Gift</button>
+        </form>
+        <div id="adminGiftsList" style="margin-top:0.8rem;"></div>
+        <h3 style="margin-top:1.2rem;">Reward Claims</h3>
+        <div id="adminClaimsList"></div>
+
+        <h3 style="margin-top:1.2rem;">Customer Review Moderation</h3>
+        <div id="adminReviewsList"></div>
+      </div>
+
+      <!-- Admin Website Settings & Activity Logs -->
+      <div class="panel-card" id="admSecSettings" style="display:none;">
+        <h3>Website Settings</h3>
+        <form id="websiteSettingsForm">
+          <div class="info-grid">
+            <div><label>Store Name</label><input type="text" id="setBrandName" required></div>
+            <div><label>Tagline</label><input type="text" id="setTagline" required></div>
+            <div><label>Announcement Bar</label><input type="text" id="setAnnouncement" required></div>
+            <div><label>Delivery Note</label><input type="text" id="setDeliveryNote" required></div>
+            <div><label>Hero Heading</label><input type="text" id="setHeroTitle" required></div>
+            <div><label>WhatsApp Number</label><input type="text" id="setWhatsapp" required></div>
+          </div>
+          <label>Hero Description</label>
+          <textarea id="setHeroSub" rows="2" required></textarea>
+          <button type="submit" class="btn btn-forest" style="margin-top:0.8rem;">Save Settings</button>
+        </form>
+
+        <h3 style="margin-top:1.3rem;">Recent Admin Activity Logs</h3>
+        <div id="adminLogsBox"></div>
       </div>
     </div>
   </div>
@@ -589,7 +805,7 @@
     <div class="panel-card" id="codCheckoutCard">
       <h2>Cash on Delivery (COD) Checkout</h2>
       <p style="font-size:0.84rem;opacity:0.85;margin-bottom:0.5rem;">
-        Pay in cash upon delivery. Login to your customer account first so your order appears in Order History.
+        Pay in cash upon delivery. Select your District & Upazila/Thana automatically.
       </p>
       <form id="codCheckoutForm">
         <label>Customer Name</label>
@@ -598,14 +814,25 @@
         <label>Phone Number</label>
         <input type="text" id="codPhone" required placeholder="01XXXXXXXXX">
 
-        <label>Delivery Zone</label>
+        <div class="info-grid" style="margin-top:0.2rem;">
+          <div>
+            <label>District (জেলা)</label>
+            <select id="codDistrict" required></select>
+          </div>
+          <div>
+            <label>Upazila / Thana (উপজেলা / থানা)</label>
+            <select id="codUpazila" required></select>
+          </div>
+        </div>
+
+        <label>Delivery Charge Zone</label>
         <select id="codZone">
           <option value="60">Inside Bagerhat / Local (৳60)</option>
           <option value="120">Outside Bagerhat / Nationwide (৳120)</option>
         </select>
 
-        <label>Full Delivery Address</label>
-        <textarea id="codAddress" rows="3" required placeholder="House/Road/Upazila/District"></textarea>
+        <label>Street / House / Landmark Address</label>
+        <textarea id="codAddress" rows="2" required placeholder="House/Road/Bazar details"></textarea>
 
         <button type="submit" class="btn btn-gold" style="margin-top:0.95rem;width:100%;padding:0.7rem;">
           Place Cash on Delivery Order
@@ -615,24 +842,25 @@
   </div>
 
   <!-- Floating WhatsApp Button -->
-  <a class="wa-float" href="https://wa.me/8801611110611" target="_blank" rel="noopener noreferrer">
+  <a class="wa-float" id="floatWaBtn" href="https://wa.me/8801611110611" target="_blank" rel="noopener noreferrer">
     <span>WhatsApp: 01611110611</span>
   </a>
 
-  <!-- Footer -->
+  <!-- J. Footer -->
   <footer>
     <div class="container" style="margin:0 auto;">
       <div class="info-grid" style="background:transparent;">
         <div>
-          <strong style="font-size:1.05rem;color:var(--golden-beige);">BHIVE MART</strong>
-          <p style="margin-top:0.35rem;opacity:0.9;">SMART SHOPPING. BETTER LIVING.</p>
-          <p style="margin-top:0.35rem;opacity:0.8;">Bagerhat, Bangladesh</p>
+          <strong style="font-size:1.08rem;color:var(--golden-beige);" id="footBrandName">BHIVE MART</strong>
+          <p style="margin-top:0.35rem;opacity:0.9;" id="footTagline">SMART SHOPPING. BETTER LIVING.</p>
+          <p style="margin-top:0.35rem;opacity:0.8;" id="footLocation">Bagerhat, Bangladesh</p>
         </div>
         <div>
-          <strong style="color:var(--golden-beige);">Contact & Hotline</strong>
+          <strong style="color:var(--golden-beige);">Contact & Policies</strong>
           <p style="margin-top:0.35rem;">WhatsApp: <a href="https://wa.me/8801611110611" target="_blank" rel="noopener noreferrer">01611110611</a></p>
           <p style="margin-top:0.25rem;">Email: <a href="mailto:beehivemart24@gmail.com">beehivemart24@gmail.com</a></p>
           <p style="margin-top:0.25rem;">Facebook: <a href="https://www.facebook.com/share/19tShQMVbS/" target="_blank" rel="noopener noreferrer">BHIVE MART Official Page</a></p>
+          <p style="margin-top:0.35rem;font-size:0.78rem;opacity:0.8;">Privacy Policy • Terms & Conditions • Return & Refund Policy</p>
         </div>
       </div>
       <p style="opacity:0.65;margin-top:1.5rem;font-size:0.78rem;">© 2026 BHIVE MART. All rights reserved.</p>
@@ -654,16 +882,46 @@
     const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_TQaWxFVZgMoOwonAmwCD-w_F5hME9YD';
     const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 
+    const BD_LOCATIONS = {
+      "Bagerhat (বাগেরহাট)": ["Bagerhat Sadar", "Fakirhat", "Mollahat", "Chitalmari", "Kachua", "Rampal", "Mongla", "Morrelganj", "Sharankhola"],
+      "Khulna (খুলনা)": ["Khulna Sadar", "Sonadanga", "Khalishpur", "Daulatpur", "Dighalia", "Phultala", "Rupsa", "Batiaghata", "Dumuria", "Koyra", "Paikgachha", "Terokhada"],
+      "Dhaka (ঢাকা)": ["Dhaka North", "Dhaka South", "Savar", "Dhamrai", "Keraniganj", "Nawabganj", "Dohar"],
+      "Chattogram (চট্টগ্রাম)": ["Chattogram Sadar", "Sitakunda", "Mirsharai", "Hathazari", "Rangunia", "Raozan", "Patiya", "Anwara", "Boalkhali", "Banshkhali", "Cox's Bazar Sadar"],
+      "Jessore / Jashore (যশোর)": ["Jashore Sadar", "Abhaynagar", "Bagherpara", "Chaugachha", "Jhikargachha", "Keshabpur", "Manirampur", "Sharsha"],
+      "Satkhira (সাতক্ষীরা)": ["Satkhira Sadar", "Assasuni", "Debhata", "Kalaroa", "Kaliganj", "Shyamnagar", "Tala"],
+      "Pirojpur (পিরোজপুর)": ["Pirojpur Sadar", "Bhandaria", "Kawkhali", "Mathbaria", "Nazirpur", "Nesarabad (Swarupkathi)", "Indurkani"],
+      "Sylhet (সিলেট)": ["Sylhet Sadar", "Beanibazar", "Bishwanath", "Companiganj", "Dakshin Surma", "Fenchuganj", "Golapganj", "Gowainghat", "Jaintiapur", "Kanaighat", "Osmani Nagar", "Zakiganj"],
+      "Rajshahi (রাজশাহী)": ["Rajshahi Sadar", "Bagha", "Bagmara", "Charghat", "Durgapur", "Godagari", "Mohanpur", "Paba", "Puthia", "Tanore"],
+      "Rangpur (রংপুর)": ["Rangpur Sadar", "Badarganj", "Gangachara", "Kaunia", "Mithapukur", "Pirgachha", "Pirganj", "Taraganj"],
+      "Barishal (বরিশাল)": ["Barishal Sadar", "Agailjhara", "Babuganj", "Bakerganj", "Banaripara", "Gaurnadi", "Hizla", "Mehendiganj", "Muladi", "Wazirpur"],
+      "Mymensingh (ময়মনসিংহ)": ["Mymensingh Sadar", "Bhaluka", "Dhobaura", "Fulbaria", "Gaffargaon", "Gauripur", "Haluaghat", "Ishwarganj", "Muktagachha", "Nandail", "Phulpur", "Trishal"]
+    };
+
     let lang = localStorage.getItem('bhive_lang') || 'en';
     let allCatalogs = [];
     let allProducts = [];
+    let allOrders = [];
+    let allCourierBookings = [];
     let selectedCatalogId = null;
+    let activeOrderFolder = 'active';
+    let currentUserSession = null;
 
     const showMsg = (text, isErr = false) => {
       const box = document.getElementById('globalMsg');
       box.textContent = text;
       box.className = 'msg ' + (isErr ? 'err' : 'ok');
     };
+
+    const logAdminAction = async (actionText) => {
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (!session) return;
+        await supabase.from('admin_activity_logs').insert({
+          admin_id: session.user.id,
+          action_text: actionText
+        });
+      } catch (_) {}
+      };
 
     const getCart = () => JSON.parse(localStorage.getItem('bhive_cart') || '[]');
     const getDeliveryCharge = () => Number(document.getElementById('codZone')?.value || 60);
@@ -674,11 +932,28 @@
       renderCart();
     };
 
+    function populateLocations() {
+      const distSel = document.getElementById('codDistrict');
+      const upaSel = document.getElementById('codUpazila');
+      const districts = Object.keys(BD_LOCATIONS);
+      distSel.innerHTML = districts.map((d) => `<option value="${d}">${d}</option>`).join('');
+
+      const syncUpazilas = () => {
+        const list = BD_LOCATIONS[distSel.value] || [];
+        upaSel.innerHTML = list.map((u) => `<option value="${u}">${u}</option>`).join('');
+        document.getElementById('codZone').value = distSel.value.includes('Bagerhat') ? '60' : '120';
+        renderCart();
+      };
+
+      distSel.addEventListener('change', syncUpazilas);
+      syncUpazilas();
+    }
+
     function switchView(viewName) {
       ['store', 'account', 'admin', 'cart'].forEach((v) => {
         document.getElementById('view-' + v).style.display = v === viewName ? 'block' : 'none';
       });
-      document.getElementById('storeSearchBar').style.display = viewName === 'store' ? 'block' : 'none';
+      document.getElementById('storeSearchBar').style.display = viewName === 'store' ? 'flex' : 'none';
       document.getElementById('navStoreBtn').classList.toggle('active-view', viewName === 'store');
       document.getElementById('navAccountBtn').classList.toggle('active-view', viewName === 'account');
       document.getElementById('navAdminBtn').classList.toggle('active-view', viewName === 'admin');
@@ -687,15 +962,61 @@
       if (viewName === 'cart') renderCart();
     }
 
+    function applySettingsToUI(s) {
+      if (!s) return;
+      document.getElementById('annText').textContent = s.announcement_text || 'Welcome to BHIVE MART';
+      document.getElementById('freeDelNote').textContent = s.free_delivery_note || 'Cash on Delivery';
+      document.getElementById('headerBrandTitle').textContent = s.brand_name || 'BHIVE MART';
+      document.getElementById('headerBrandTag').textContent = s.tagline || 'SMART SHOPPING. BETTER LIVING.';
+      document.getElementById('heroTitleEl').textContent = s.hero_title || 'Smart Shopping. Better Living.';
+      document.getElementById('heroSubEl').textContent = s.hero_subtitle || '';
+      document.getElementById('footBrandName').textContent = s.brand_name || 'BHIVE MART';
+      document.getElementById('footTagline').textContent = s.tagline || 'SMART SHOPPING. BETTER LIVING.';
+      document.getElementById('footLocation').textContent = s.business_location || 'Bagerhat, Bangladesh';
+
+      if (s.whatsapp_number) {
+        const cleanWa = s.whatsapp_number.replace(/[^0-9]/g, '');
+        const waHref = `https://wa.me/${cleanWa.startsWith('880') ? cleanWa : '880' + cleanWa.replace(/^0/, '')}`;
+        document.getElementById('topWaNum').textContent = s.whatsapp_number;
+        document.getElementById('topWaLink').href = waHref;
+        document.getElementById('heroWaBtn').href = waHref;
+        document.getElementById('floatWaBtn').href = waHref;
+      }
+
+      document.getElementById('setBrandName').value = s.brand_name || 'BHIVE MART';
+      document.getElementById('setTagline').value = s.tagline || 'SMART SHOPPING. BETTER LIVING.';
+      document.getElementById('setAnnouncement').value = s.announcement_text || '';
+      document.getElementById('setDeliveryNote').value = s.free_delivery_note || '';
+      document.getElementById('setHeroTitle').value = s.hero_title || '';
+      document.getElementById('setHeroSub').value = s.hero_subtitle || '';
+      document.getElementById('setWhatsapp').value = s.whatsapp_number || '01611110611';
+    }
+
     function renderCatalogs() {
       const grid = document.getElementById('catalogGrid');
+      const strip = document.getElementById('headerCatStrip');
+
+      strip.innerHTML = `<button type="button" class="cat-chip ${!selectedCatalogId ? 'active' : ''}" data-cat-chip="">All</button>` +
+        allCatalogs.map((cat) => {
+          const title = lang === 'bn' ? (cat.name_bn || cat.name_en) : cat.name_en;
+          return `<button type="button" class="cat-chip ${selectedCatalogId === cat.id ? 'active' : ''}" data-cat-chip="${cat.id}">${title}</button>`;
+        }).join('');
+
+      strip.querySelectorAll('[data-cat-chip]').forEach((chip) => {
+        chip.addEventListener('click', () => {
+          selectedCatalogId = chip.getAttribute('data-cat-chip') || null;
+          renderCatalogs();
+          renderProducts();
+        });
+      });
+
       if (!allCatalogs.length) {
         grid.innerHTML = `<div class="cat-card">No active categories yet.</div>`;
         return;
-        }
+      }
       grid.innerHTML = allCatalogs.map((cat) => `
         <div class="cat-card" data-cat-id="${cat.id}" style="${selectedCatalogId === cat.id ? 'border-color:#174B35;background:#f0f6f3;' : ''}">
-          ${cat.image_url ? `<img src="${cat.image_url}" alt="${cat.name_en}">` : `<div style="font-size:1.5rem;margin-bottom:0.3rem;">🐝</div>`}
+          ${cat.image_url ? `<img src="${cat.image_url}" alt="${cat.name_en}" loading="lazy">` : `<div style="font-size:1.5rem;margin-bottom:0.3rem;">🐝</div>`}
           <div style="font-weight:700;font-size:0.9rem;">${lang === 'bn' ? (cat.name_bn || cat.name_en) : cat.name_en}</div>
         </div>
       `).join('');
@@ -711,11 +1032,25 @@
 
     function renderProducts() {
       const q = document.getElementById('searchInput').value.trim().toLowerCase();
-      const filtered = allProducts.filter((p) => {
+      const sortBy = document.getElementById('sortSelect').value;
+
+      let filtered = allProducts.filter((p) => {
         const matchCat = !selectedCatalogId || p.catalog_id === selectedCatalogId;
         const matchQuery = !q || (p.name_en || '').toLowerCase().includes(q) || (p.name_bn || '').toLowerCase().includes(q);
         return matchCat && matchQuery;
       });
+
+      const effectivePrice = (p) => {
+        const hasDisc = p.discount_price !== null && p.discount_price > 0 && Number(p.discount_price) < Number(p.base_price);
+        return hasDisc ? Number(p.discount_price) : Number(p.base_price);
+      };
+
+      if (sortBy === 'price_asc') filtered.sort((a, b) => effectivePrice(a) - effectivePrice(b));
+      else if (sortBy === 'price_desc') filtered.sort((a, b) => effectivePrice(b) - effectivePrice(a));
+
+      document.getElementById('reviewProductId').innerHTML = allProducts.map((p) =>
+        `<option value="${p.id}">${lang === 'bn' ? (p.name_bn || p.name_en) : p.name_en}</option>`
+      ).join('');
 
       const grid = document.getElementById('productGrid');
       if (!filtered.length) {
@@ -727,16 +1062,22 @@
         const price = hasDisc ? Number(p.discount_price) : Number(p.base_price);
         const img = Array.isArray(p.images) && p.images.length ? p.images[0] : '';
         const title = lang === 'bn' ? (p.name_bn || p.name_en) : p.name_en;
+        const stockText = Number(p.stock_qty) > 0 ? `Stock: ${p.stock_qty}` : 'Out of Stock';
+
         return `
           <div class="product-card">
-            <div class="product-img">${img ? `<img src="${img}" alt="${title}">` : `<span>BHIVE MART</span>`}</div>
+            <div class="product-img">${img ? `<img src="${img}" alt="${title}" loading="lazy">` : `<span>BHIVE MART</span>`}</div>
             <div class="product-body">
               <div class="product-title">${title}</div>
+              <div class="product-meta">${stockText}</div>
               <div class="price-row">
                 <span>৳${price.toFixed(0)}</span>
                 ${hasDisc ? `<span class="old-price">৳${Number(p.base_price).toFixed(0)}</span>` : ''}
               </div>
-              <button class="btn-add" data-add-prod="${p.id}" type="button">${lang === 'bn' ? 'কার্টে যোগ করুন' : 'Add to Cart'}</button>
+              <div class="card-btns">
+                <button class="btn-add" data-add-prod="${p.id}" type="button" ${Number(p.stock_qty) <= 0 ? 'disabled' : ''}>${lang === 'bn' ? 'কার্ট' : 'Add to Cart'}</button>
+                <button class="btn-wish" data-wish-prod="${p.id}" type="button" title="Save to Wishlist">♡</button>
+              </div>
             </div>
           </div>
         `;
@@ -746,14 +1087,34 @@
         btn.addEventListener('click', () => {
           const prod = allProducts.find((x) => x.id === btn.getAttribute('data-add-prod'));
           if (!prod) return;
-          const hasDisc = prod.discount_price !== null && prod.discount_price > 0 && Number(prod.discount_price) < Number(prod.base_price);
-          const price = hasDisc ? Number(prod.discount_price) : Number(prod.base_price);
+          const price = effectivePrice(prod);
           const cart = getCart();
           const ex = cart.find((i) => i.id === prod.id);
-          if (ex) ex.qty += 1;
-          else cart.push({ id: prod.id, name_en: prod.name_en, name_bn: prod.name_bn, price, qty: 1 });
+          if (ex) {
+            if (ex.qty + 1 > Number(prod.stock_qty || 99)) {
+              showMsg('Reached available stock limit.', true);
+              return;
+            }
+            ex.qty += 1;
+          } else {
+            cart.push({ id: prod.id, name_en: prod.name_en, name_bn: prod.name_bn, price, qty: 1 });
+          }
           saveCart(cart);
           showMsg('Added to cart!');
+        });
+      });
+
+      grid.querySelectorAll('[data-wish-prod]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const { data: { session } } = await supabase.auth.getSession();
+          if (!session) {
+            showMsg('Please login to save items to your wishlist.', true);
+            return;
+          }
+          const pid = btn.getAttribute('data-wish-prod');
+          const { error } = await supabase.from('wishlists').upsert({ user_id: session.user.id, product_id: pid });
+          if (error) showMsg(error.message, true);
+          else showMsg('Saved to your wishlist!');
         });
       });
     }
@@ -769,7 +1130,7 @@
         document.getElementById('cartDeliveryVal').textContent = '0';
         document.getElementById('cartTotalVal').textContent = '0';
         return;
-      }
+        }
 
       let subtotal = 0;
       box.innerHTML = cart.map((item, idx) => {
@@ -778,7 +1139,11 @@
         return `
           <div class="list-item">
             <div><strong>${item.name_en}</strong> — ৳${item.price} × ${item.qty} = ৳${sub}</div>
-            <button class="btn btn-danger" data-rem-idx="${idx}" type="button">Remove</button>
+            <div style="display:flex;gap:0.35rem;">
+              <button class="btn" style="background:#e8ece9;" data-qty-dec="${idx}" type="button">-</button>
+              <button class="btn" style="background:#e8ece9;" data-qty-inc="${idx}" type="button">+</button>
+              <button class="btn btn-danger" data-rem-idx="${idx}" type="button">Remove</button>
+            </div>
           </div>
         `;
       }).join('');
@@ -787,62 +1152,80 @@
       document.getElementById('cartDeliveryVal').textContent = delCharge.toFixed(0);
       document.getElementById('cartTotalVal').textContent = (subtotal + delCharge).toFixed(0);
 
-      box.querySelectorAll('[data-rem-idx]').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const next = getCart().filter((_, i) => i !== Number(btn.getAttribute('data-rem-idx')));
-          saveCart(next);
-        });
-      });
+      box.querySelectorAll('[data-qty-dec]').forEach((btn) => btn.addEventListener('click', () => {
+        const c = getCart();
+        const i = Number(btn.getAttribute('data-qty-dec'));
+        if (c[i].qty > 1) c[i].qty -= 1;
+        else c.splice(i, 1);
+        saveCart(c);
+      }));
+
+      box.querySelectorAll('[data-qty-inc]').forEach((btn) => btn.addEventListener('click', () => {
+        const c = getCart();
+        const i = Number(btn.getAttribute('data-qty-inc'));
+        c[i].qty += 1;
+        saveCart(c);
+      }));
+
+      box.querySelectorAll('[data-rem-idx]').forEach((btn) => btn.addEventListener('click', () => {
+        saveCart(getCart().filter((_, i) => i !== Number(btn.getAttribute('data-rem-idx'))));
+      }));
     }
 
-    async function loadStore() {
-      const [{ data: cats }, { data: prods }] = await Promise.all([
-        supabase.from('catalogs').select('*').eq('is_active', true).order('display_order'),
-        supabase.from('products').select('*').eq('is_published', true).order('created_at', { ascending: false })
-      ]);
-      allCatalogs = cats || [];
-      allProducts = prods || [];
-      renderCatalogs();
-      renderProducts();
-    }
-
-    async function loadCustomerOrders(userId) {
-      const box = document.getElementById('customerOrdersBox');
-      const { data: orders, error } = await supabase
-        .from('orders')
+    async function loadApprovedReviews() {
+      const { data: revs } = await supabase
+        .from('product_reviews')
         .select('*')
-        .eq('customer_id', userId)
-        .order('created_at', { ascending: false });
+        .eq('is_approved', true)
+        .order('created_at', { ascending: false })
+        .limit(6);
 
-      if (error) {
-        box.innerHTML = `<p style="color:#c5221f;">Could not load orders: ${error.message}</p>`;
+      const box = document.getElementById('approvedReviewsBox');
+      if (!revs || !revs.length) {
+        box.innerHTML = `<div class="info-card"><p style="font-size:0.86rem;">Verified customer reviews will appear here after admin approval.</p></div>`;
         return;
       }
-      if (!orders || !orders.length) {
-        box.innerHTML = '<p>No orders placed yet.</p>';
-        return;
-      }
-      box.innerHTML = orders.map((o) => `
-        <div class="list-item">
-          <div>
-            <strong>Order #${o.order_number}</strong> <span class="badge">${o.order_status}</span>
-            <div style="font-size:0.84rem;margin-top:0.2rem;">Total: ৳${Number(o.total_amount).toFixed(0)} (${o.payment_method})</div>
-            <div style="font-size:0.8rem;opacity:0.8;">Address: ${o.delivery_address}</div>
-          </div>
+      box.innerHTML = revs.map((r) => `
+        <div class="info-card">
+          <div style="display:flex;justify-content:space-between;"><strong>${r.reviewer_name}</strong><span class="badge">${'★'.repeat(r.rating)}</span></div>
+          <p style="font-size:0.86rem;margin-top:0.35rem;">${r.comment}</p>
         </div>
       `).join('');
     }
 
+    async function loadStore() {
+      const [{ data: cats }, { data: prods }, { data: settings }] = await Promise.all([
+        supabase.from('catalogs').select('*').eq('is_active', true).order('display_order'),
+        supabase.from('products').select('*').eq('is_published', true).order('created_at', { ascending: false }),
+        supabase.from('website_settings').select('*').eq('id', 1).single()
+      ]);
+      allCatalogs = cats || [];
+      allProducts = prods || [];
+      applySettingsToUI(settings);
+      renderCatalogs();
+      renderProducts();
+      loadApprovedReviews();
+    }
+
     async function loadCustomerAccount() {
       const { data: { session } } = await supabase.auth.getSession();
+      currentUserSession = session;
       if (!session) {
         document.getElementById('authCard').style.display = 'block';
         document.getElementById('accountDashboard').style.display = 'none';
         return;
       }
-      const { data: prof } = await supabase.from('profiles').select('*').eq('id', session.user.id).single();
       document.getElementById('authCard').style.display = 'none';
       document.getElementById('accountDashboard').style.display = 'block';
+
+      const [{ data: prof }, { data: orders }, { data: wish }, { data: addrs }, { data: claims }] = await Promise.all([
+        supabase.from('profiles').select('*').eq('id', session.user.id).single(),
+        supabase.from('orders').select('*').eq('customer_id', session.user.id).order('created_at', { ascending: false }),
+        supabase.from('wishlists').select('*, products(name_en, discount_price, base_price)').eq('user_id', session.user.id),
+        supabase.from('addresses').select('*').eq('user_id', session.user.id).order('created_at', { ascending: false }),
+        supabase.from('reward_claims').select('*').eq('claimant_id', session.user.id).order('created_at', { ascending: false })
+      ]);
+
       if (prof) {
         document.getElementById('profName').textContent = prof.full_name || 'Member';
         document.getElementById('profMeta').textContent = `${session.user.email} • ${prof.role}`;
@@ -855,7 +1238,53 @@
         if (!document.getElementById('codName').value) document.getElementById('codName').value = prof.full_name || '';
         if (!document.getElementById('codPhone').value) document.getElementById('codPhone').value = prof.phone || '';
       }
-      await loadCustomerOrders(session.user.id);
+
+      document.getElementById('customerOrdersBox').innerHTML = (!orders || !orders.length)
+        ? '<p>No orders placed yet.</p>'
+        : orders.map((o) => `
+          <div class="list-item">
+            <div>
+              <strong>Order #${o.order_number}</strong> <span class="badge">${o.order_status}</span>
+              ${o.courier_name ? `<span class="badge">${o.courier_name}</span>` : ''}
+              <div style="font-size:0.84rem;margin-top:0.2rem;">Total: ৳${Number(o.total_amount).toFixed(0)} (${o.payment_method})</div>
+              <div style="font-size:0.8rem;opacity:0.85;">${o.delivery_address}</div>
+            </div>
+          </div>
+        `).join('');
+
+      document.getElementById('myWishlistBox').innerHTML = (!wish || !wish.length)
+        ? '<p>No items in wishlist.</p>'
+        : wish.map((w) => `
+          <div class="list-item">
+            <div><strong>${w.products?.name_en || 'Product'}</strong> — ৳${w.products?.discount_price || w.products?.base_price || 0}</div>
+            <button class="btn btn-danger" data-del-wish="${w.id}" type="button">Remove</button>
+          </div>
+        `).join('');
+
+      document.querySelectorAll('[data-del-wish]').forEach((b) => b.addEventListener('click', async () => {
+        await supabase.from('wishlists').delete().eq('id', b.getAttribute('data-del-wish'));
+        loadCustomerAccount();
+      }));
+
+      document.getElementById('myAddressesBox').innerHTML = (!addrs || !addrs.length)
+        ? '<p>No saved addresses.</p>'
+        : addrs.map((a) => `
+          <div class="list-item">
+            <div><strong>${a.label}</strong> — ${a.recipient_name} (${a.phone})<div style="font-size:0.82rem;">${a.street_address}, ${a.upazila}, ${a.district}</div></div>
+            <button class="btn btn-danger" data-del-addr="${a.id}" type="button">Delete</button>
+          </div>
+        `).join('');
+
+      document.querySelectorAll('[data-del-addr]').forEach((b) => b.addEventListener('click', async () => {
+        await supabase.from('addresses').delete().eq('id', b.getAttribute('data-del-addr'));
+        loadCustomerAccount();
+      }));
+
+      document.getElementById('myRewardClaimsBox').innerHTML = (!claims || !claims.length)
+        ? '<p style="font-size:0.84rem;opacity:0.8;">No gift claims submitted yet.</p>'
+        : claims.map((c) => `
+          <div class="list-item"><div><strong>Claim (${c.claim_role})</strong> <span class="badge">${c.status}</span></div></div>
+        `).join('');
     }
 
     async function uploadImg(bucket, file) {
@@ -883,6 +1312,7 @@
       document.getElementById('adminDashboard').style.display = 'block';
       await refreshAdminLists();
       await loadAdminOrders();
+      await loadAdminExtras();
     }
 
     async function refreshAdminLists() {
@@ -893,6 +1323,8 @@
       allCatalogs = cats || [];
       allProducts = prods || [];
 
+      document.getElementById('stTotalCatalogs').textContent = allCatalogs.length;
+      document.getElementById('stTotalProducts').textContent = allProducts.length;
       document.getElementById('prodCatalogId').innerHTML =
         allCatalogs.map((c) => `<option value="${c.id}">${c.name_en} (${c.name_bn})</option>`).join('');
 
@@ -905,6 +1337,7 @@
 
       document.querySelectorAll('[data-adm-toggle-cat]').forEach((b) => b.addEventListener('click', async () => {
         await supabase.from('catalogs').update({ is_active: b.getAttribute('data-act') === 'true' }).eq('id', b.getAttribute('data-adm-toggle-cat'));
+        await logAdminAction('Toggled catalog status');
         showMsg('Catalog updated.');
         refreshAdminLists();
         loadStore();
@@ -919,56 +1352,234 @@
 
       document.querySelectorAll('[data-adm-toggle-prod]').forEach((b) => b.addEventListener('click', async () => {
         await supabase.from('products').update({ is_published: b.getAttribute('data-pub') === 'true' }).eq('id', b.getAttribute('data-adm-toggle-prod'));
+        await logAdminAction('Toggled product publish state');
         showMsg('Product updated.');
         refreshAdminLists();
         loadStore();
       }));
+      }
+
+    async function bookCourierForOrder(order, selectedCourier) {
+      if (order.courier_tracking_id) {
+        return { courier: order.courier_name || selectedCourier, trackingId: order.courier_tracking_id };
+      }
+      const prefix = selectedCourier.replace(/[^A-Za-z]/g, '').slice(0, 3).toUpperCase() || 'BHV';
+      const trackingId = `${prefix}-${Date.now().toString().slice(-7)}`;
+
+      await supabase.from('courier_bookings').insert({
+        order_id: order.id,
+        order_number: order.order_number,
+        courier_name: selectedCourier,
+        tracking_code: trackingId,
+        customer_name: order.customer_name,
+        customer_phone: order.customer_phone,
+        district: order.district || '',
+        upazila: order.upazila || '',
+        delivery_address: order.delivery_address,
+        cod_amount: Number(order.total_amount || 0),
+        booking_status: 'Booked'
+      });
+
+      return { courier: selectedCourier, trackingId };
     }
 
-    async function loadAdminOrders() {
-      const box = document.getElementById('adminOrderList');
-      const { data: orders, error } = await supabase
-        .from('orders')
-        .select('*')
-        .order('created_at', { ascending: false });
+    function updateOverviewStats() {
+      const totalOrders = allOrders.length;
+      const delivered = allOrders.filter((o) => o.order_status === 'Delivered');
+      const active = allOrders.filter((o) => !['Delivered', 'Cancelled'].includes(o.order_status));
+      const sales = delivered.reduce((s, o) => s + Number(o.total_amount || 0), 0);
 
-      if (error) {
-        box.innerHTML = `<p style="color:#c5221f;">Error loading orders: ${error.message}</p>`;
-        return;
-      }
-      if (!orders || !orders.length) {
-        box.innerHTML = '<p>No orders yet.</p>';
-        return;
-      }
-      box.innerHTML = orders.map((o) => `
+      document.getElementById('stTotalOrders').textContent = totalOrders;
+      document.getElementById('stTotalSales').textContent = `৳${sales.toFixed(0)}`;
+      document.getElementById('stPendingOrders').textContent = active.length;
+      document.getElementById('stDeliveredOrders').textContent = delivered.length;
+
+      document.getElementById('recentOrdersPreview').innerHTML = allOrders.slice(0, 5).map((o) => `
         <div class="list-item">
-          <div>
-            <strong>#${o.order_number}</strong> — ${o.customer_name} (${o.customer_phone})
-            <div style="font-size:0.84rem;">Total: ৳${Number(o.total_amount).toFixed(0)} • Address: ${o.delivery_address}</div>
-          </div>
-          <div style="display:flex;gap:0.4rem;align-items:center;">
-            <select data-order-status="${o.id}" style="width:auto;">
-              ${['Pending', 'Confirmed', 'Shipped', 'Delivered', 'Cancelled'].map((st) =>
-                `<option value="${st}" ${o.order_status === st ? 'selected' : ''}>${st}</option>`
-              ).join('')}
-            </select>
-            <button class="btn btn-forest" data-save-order="${o.id}" type="button">Update</button>
-          </div>
+          <div><strong>#${o.order_number}</strong> — ${o.customer_name} • ৳${Number(o.total_amount).toFixed(0)}</div>
+          <span class="badge">${o.order_status}</span>
         </div>
-      `).join('');
+      `).join('') || '<p>No recent orders.</p>';
+    }
+
+    function renderAdminOrdersView() {
+      const box = document.getElementById('adminOrderList');
+
+      if (activeOrderFolder === 'courier_bookings') {
+        if (!allCourierBookings.length) {
+          box.innerHTML = '<p>No courier bookings found yet.</p>';
+          return;
+        }
+        box.innerHTML = allCourierBookings.map((b) => `
+          <div class="list-item">
+            <div>
+              <strong>${b.courier_name}</strong> — <span class="badge">${b.tracking_code}</span>
+              <div style="font-size:0.84rem;margin-top:0.2rem;">Order #${b.order_number} • ${b.customer_name} (${b.customer_phone}) • COD: ৳${Number(b.cod_amount).toFixed(0)}</div>
+              <div style="font-size:0.8rem;opacity:0.85;">${b.upazila || ''}, ${b.district || ''} — ${b.delivery_address}</div>
+            </div>
+            <button class="btn btn-danger" data-del-booking="${b.id}" type="button">Delete</button>
+          </div>
+        `).join('');
+
+        box.querySelectorAll('[data-del-booking]').forEach((btn) => {
+          btn.addEventListener('click', async () => {
+            const { error } = await supabase.from('courier_bookings').delete().eq('id', btn.getAttribute('data-del-booking'));
+            if (error) showMsg(error.message, true);
+            else { showMsg('Courier booking deleted.'); loadAdminOrders(); }
+          });
+        });
+        return;
+      }
+
+      const filteredOrders = allOrders.filter((o) => {
+        if (activeOrderFolder === 'Delivered') return o.order_status === 'Delivered';
+        if (activeOrderFolder === 'Cancelled') return o.order_status === 'Cancelled';
+        return !['Delivered', 'Cancelled'].includes(o.order_status);
+      });
+
+      if (!filteredOrders.length) {
+        box.innerHTML = `<p>No orders in "${activeOrderFolder}" folder.</p>`;
+        return;
+      }
+
+      box.innerHTML = filteredOrders.map((o) => {
+        const itemsText = Array.isArray(o.items)
+          ? o.items.map((i) => `${i.name_en} (×${i.qty})`).join(', ')
+          : '';
+        const showDelete = activeOrderFolder === 'Delivered' || activeOrderFolder === 'Cancelled';
+
+        return `
+          <div class="list-item">
+            <div>
+              <strong>#${o.order_number}</strong> — ${o.customer_name} (${o.customer_phone})
+              <div style="font-size:0.84rem;margin-top:0.2rem;">Total: ৳${Number(o.total_amount).toFixed(0)} • ${itemsText}</div>
+              <div style="font-size:0.8rem;opacity:0.85;">${o.delivery_address}</div>
+              ${o.courier_name ? `<div style="font-size:0.78rem;color:#174B35;font-weight:700;margin-top:0.2rem;">Courier: ${o.courier_name} ${o.courier_tracking_id ? `(${o.courier_tracking_id})` : ''}</div>` : ''}
+            </div>
+            <div style="display:flex;gap:0.4rem;align-items:center;flex-wrap:wrap;">
+              <select data-order-status="${o.id}" style="width:auto;">
+                ${['Pending', 'Confirmed', 'Processing', 'Shipped', 'Delivered', 'Cancelled'].map((st) =>
+                  `<option value="${st}" ${o.order_status === st ? 'selected' : ''}>${st}</option>`
+                ).join('')}
+              </select>
+              <button class="btn btn-forest" data-save-order="${o.id}" type="button">Update</button>
+              ${showDelete ? `<button class="btn btn-danger" data-del-order="${o.id}" type="button">Delete</button>` : ''}
+            </div>
+          </div>
+        `;
+      }).join('');
 
       box.querySelectorAll('[data-save-order]').forEach((btn) => {
         btn.addEventListener('click', async () => {
           const oid = btn.getAttribute('data-save-order');
+          const orderObj = allOrders.find((x) => x.id === oid);
           const newStatus = box.querySelector(`[data-order-status="${oid}"]`).value;
+          const selectedCourier = document.getElementById('adminCourierSelect').value;
+
+          const patchData = {
+            order_status: newStatus,
+            updated_at: new Date().toISOString()
+          };
+
+          let bookedInfo = '';
+          if (newStatus === 'Confirmed' && orderObj) {
+            const bk = await bookCourierForOrder(orderObj, selectedCourier);
+            patchData.courier_name = bk.courier;
+            patchData.courier_tracking_id = bk.trackingId;
+            patchData.courier_booked_at = new Date().toISOString();
+            bookedInfo = ` & auto-booked with ${bk.courier} (${bk.trackingId})`;
+          }
+
           const { error: updErr } = await supabase
             .from('orders')
-            .update({ order_status: newStatus, updated_at: new Date().toISOString() })
+            .update(patchData)
             .eq('id', oid);
+
           if (updErr) showMsg(updErr.message, true);
-          else { showMsg(`Order status updated to ${newStatus}.`); loadAdminOrders(); }
+          else {
+            await logAdminAction(`Updated order ${orderObj?.order_number || oid} to ${newStatus}`);
+            showMsg(`Order status updated to ${newStatus}${bookedInfo}.`);
+            loadAdminOrders();
+            }
         });
       });
+
+      box.querySelectorAll('[data-del-order]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const oid = btn.getAttribute('data-del-order');
+          const { error: delErr } = await supabase.from('orders').delete().eq('id', oid);
+          if (delErr) showMsg(delErr.message, true);
+          else {
+            await logAdminAction(`Deleted order ${oid}`);
+            showMsg('Order permanently deleted.');
+            loadAdminOrders();
+          }
+        });
+      });
+    }
+
+    async function loadAdminOrders() {
+      const [{ data: orders, error }, { data: bookings }] = await Promise.all([
+        supabase.from('orders').select('*').order('created_at', { ascending: false }),
+        supabase.from('courier_bookings').select('*').order('created_at', { ascending: false })
+      ]);
+
+      if (error) {
+        document.getElementById('adminOrderList').innerHTML = `<p style="color:#c5221f;">Error loading orders: ${error.message}</p>`;
+        return;
+      }
+      allOrders = orders || [];
+      allCourierBookings = bookings || [];
+      updateOverviewStats();
+      renderAdminOrdersView();
+    }
+
+    async function loadAdminExtras() {
+      const [{ data: gifts }, { data: claims }, { data: revs }, { data: logs }] = await Promise.all([
+        supabase.from('gifts').select('*').order('created_at', { ascending: false }),
+        supabase.from('reward_claims').select('*').order('created_at', { ascending: false }),
+        supabase.from('product_reviews').select('*').order('created_at', { ascending: false }),
+        supabase.from('admin_activity_logs').select('*').order('created_at', { ascending: false }).limit(15)
+      ]);
+
+      document.getElementById('adminGiftsList').innerHTML = (!gifts || !gifts.length)
+        ? '<p>No gifts added yet.</p>'
+        : gifts.map((g) => `<div class="list-item"><div><strong>${g.title_en}</strong> / ${g.title_bn} <span class="badge">Stock: ${g.stock_qty}</span></div></div>`).join('');
+
+      document.getElementById('adminClaimsList').innerHTML = (!claims || !claims.length)
+        ? '<p>No reward claims yet.</p>'
+        : claims.map((c) => `
+          <div class="list-item">
+            <div><strong>${c.claim_role}</strong> — <span class="badge">${c.status}</span></div>
+            <button class="btn btn-forest" data-approve-claim="${c.id}" type="button">Approve</button>
+          </div>
+        `).join('');
+
+      document.querySelectorAll('[data-approve-claim]').forEach((b) => b.addEventListener('click', async () => {
+        await supabase.from('reward_claims').update({ status: 'Approved' }).eq('id', b.getAttribute('data-approve-claim'));
+        showMsg('Claim approved.');
+        loadAdminExtras();
+      }));
+
+      document.getElementById('adminReviewsList').innerHTML = (!revs || !revs.length)
+        ? '<p>No reviews yet.</p>'
+        : revs.map((r) => `
+          <div class="list-item">
+            <div><strong>${r.reviewer_name}</strong> (${r.rating}★): ${r.comment} <span class="badge">${r.is_approved ? 'Approved' : 'Pending'}</span></div>
+            <button class="btn btn-forest" data-app-rev="${r.id}" type="button">Approve</button>
+          </div>
+        `).join('');
+
+      document.querySelectorAll('[data-app-rev]').forEach((b) => b.addEventListener('click', async () => {
+        await supabase.from('product_reviews').update({ is_approved: true }).eq('id', b.getAttribute('data-app-rev'));
+        showMsg('Review approved.');
+        loadAdminExtras();
+        loadApprovedReviews();
+      }));
+
+      document.getElementById('adminLogsBox').innerHTML = (!logs || !logs.length)
+        ? '<p>No activity logs yet.</p>'
+        : logs.map((l) => `<div class="list-item"><div>${l.action_text}</div><span class="badge">${new Date(l.created_at).toLocaleString()}</span></div>`).join('');
     }
 
     // Navigation & Events
@@ -983,7 +1594,17 @@
     document.getElementById('mobAdminBtn').addEventListener('click', () => switchView('admin'));
     document.getElementById('mobCartBtn').addEventListener('click', () => switchView('cart'));
 
+    document.querySelectorAll('[data-order-folder]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-order-folder]').forEach((b) => b.classList.remove('active-sub'));
+        btn.classList.add('active-sub');
+        activeOrderFolder = btn.getAttribute('data-order-folder');
+        renderAdminOrdersView();
+      });
+    });
+
     document.getElementById('codZone').addEventListener('change', renderCart);
+    document.getElementById('sortSelect').addEventListener('change', renderProducts);
 
     document.getElementById('langToggle').addEventListener('click', () => {
       lang = lang === 'en' ? 'bn' : 'en';
@@ -991,7 +1612,7 @@
       document.getElementById('langToggle').textContent = lang === 'en' ? 'বাংলা' : 'EN';
       renderCatalogs();
       renderProducts();
-       });
+    });
 
     document.getElementById('searchInput').addEventListener('input', renderProducts);
     document.getElementById('clearFilterBtn').addEventListener('click', () => {
@@ -1000,7 +1621,31 @@
       renderProducts();
     });
 
-    // Cash on Delivery Order Placement
+    // Review Form
+    document.getElementById('reviewForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        showMsg('Please login to submit a review.', true);
+        return;
+      }
+      const { data: prof } = await supabase.from('profiles').select('full_name').eq('id', session.user.id).single();
+      const { error } = await supabase.from('product_reviews').insert({
+        product_id: document.getElementById('reviewProductId').value,
+        user_id: session.user.id,
+        reviewer_name: prof?.full_name || session.user.email,
+        rating: Number(document.getElementById('reviewRating').value),
+        comment: document.getElementById('reviewComment').value.trim(),
+        is_approved: false
+      });
+      if (error) showMsg(error.message, true);
+      else {
+        e.target.reset();
+        showMsg('Review submitted for admin approval!');
+      }
+    });
+
+    // COD Order Placement
     document.getElementById('codCheckoutForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const cart = getCart();
@@ -1020,13 +1665,19 @@
       const deliveryCharge = getDeliveryCharge();
       const totalAmount = subtotal + deliveryCharge;
       const orderNumber = 'BHV-' + Date.now().toString().slice(-6);
+      const district = document.getElementById('codDistrict').value;
+      const upazila = document.getElementById('codUpazila').value;
+      const streetAddr = document.getElementById('codAddress').value.trim();
+      const fullAddress = `${streetAddr}, ${upazila}, ${district}`;
 
       const { error } = await supabase.from('orders').insert({
         order_number: orderNumber,
         customer_id: session.user.id,
         customer_name: document.getElementById('codName').value.trim(),
         customer_phone: document.getElementById('codPhone').value.trim(),
-        delivery_address: document.getElementById('codAddress').value.trim(),
+        district,
+        upazila,
+        delivery_address: fullAddress,
         items: cart,
         subtotal,
         delivery_charge: deliveryCharge,
@@ -1039,13 +1690,13 @@
         showMsg('Order failed: ' + error.message, true);
       } else {
         saveCart([]);
-        e.target.reset();
+        document.getElementById('codAddress').value = '';
         showMsg(`Order #${orderNumber} placed successfully (Cash on Delivery)!`);
         switchView('account');
       }
     });
 
-    // Customer Auth
+    // Customer Auth & Account Actions
     document.getElementById('showLoginTab').addEventListener('click', () => {
       document.getElementById('loginForm').style.display = 'block';
       document.getElementById('signupForm').style.display = 'none';
@@ -1077,7 +1728,7 @@
         }
       });
       if (error) showMsg(error.message, true);
-      else showMsg('Account created! Please sign in.');
+      else showMsg('Account created! You can sign in now.');
     });
     document.getElementById('profileUpdateForm').addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -1090,6 +1741,34 @@
       if (error) showMsg(error.message, true);
       else showMsg('Profile saved!');
     });
+    document.getElementById('addAddressForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) return;
+      const { error } = await supabase.from('addresses').insert({
+        user_id: session.user.id,
+        label: document.getElementById('addrLabel').value.trim(),
+        recipient_name: document.getElementById('addrName').value.trim(),
+        phone: document.getElementById('addrPhone').value.trim(),
+        district: document.getElementById('addrDistrict').value.trim(),
+        upazila: document.getElementById('addrUpazila').value.trim(),
+        street_address: document.getElementById('addrStreet').value.trim()
+      });
+      if (error) showMsg(error.message, true);
+      else { e.target.reset(); showMsg('Address saved!'); loadCustomerAccount(); }
+    });
+    document.getElementById('claimGiftBtn').addEventListener('click', async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) return;
+      const { error } = await supabase.from('reward_claims').insert({
+        claimant_id: session.user.id,
+        claim_role: 'referrer',
+        status: 'Pending',
+        notes: 'Requested via Referral Hub'
+      });
+      if (error) showMsg(error.message, true);
+      else { showMsg('Gift claim submitted for review!'); loadCustomerAccount(); }
+    });
     document.getElementById('copyRefBtn').addEventListener('click', () => {
       navigator.clipboard?.writeText(document.getElementById('myRefLink').textContent);
       showMsg('Referral link copied!');
@@ -1099,7 +1778,14 @@
       loadCustomerAccount();
     });
 
-    // Admin Forms
+    // Admin Tabs & Forms
+    const adminSections = ['admSecOverview', 'admSecCats', 'admSecProds', 'admSecOrders', 'admSecGifts', 'admSecSettings'];
+    const showAdminSec = (activeId) => {
+      adminSections.forEach((id) => {
+        document.getElementById(id).style.display = id === activeId ? 'block' : 'none';
+      });
+      };
+
     document.getElementById('adminLoginForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const { error } = await supabase.auth.signInWithPassword({
@@ -1113,22 +1799,12 @@
       await supabase.auth.signOut();
       checkAdminAuth();
     });
-    document.getElementById('admTabCats').addEventListener('click', () => {
-      document.getElementById('admSecCats').style.display = 'block';
-      document.getElementById('admSecProds').style.display = 'none';
-      document.getElementById('admSecOrders').style.display = 'none';
-    });
-    document.getElementById('admTabProds').addEventListener('click', () => {
-      document.getElementById('admSecCats').style.display = 'none';
-      document.getElementById('admSecProds').style.display = 'block';
-      document.getElementById('admSecOrders').style.display = 'none';
-    });
-    document.getElementById('admTabOrders').addEventListener('click', () => {
-      document.getElementById('admSecCats').style.display = 'none';
-      document.getElementById('admSecProds').style.display = 'none';
-      document.getElementById('admSecOrders').style.display = 'block';
-      loadAdminOrders();
-    });
+    document.getElementById('admTabOverview').addEventListener('click', () => { showAdminSec('admSecOverview'); loadAdminOrders(); });
+    document.getElementById('admTabCats').addEventListener('click', () => showAdminSec('admSecCats'));
+    document.getElementById('admTabProds').addEventListener('click', () => showAdminSec('admSecProds'));
+    document.getElementById('admTabOrders').addEventListener('click', () => { showAdminSec('admSecOrders'); loadAdminOrders(); });
+    document.getElementById('admTabGifts').addEventListener('click', () => { showAdminSec('admSecGifts'); loadAdminExtras(); });
+    document.getElementById('admTabSettings').addEventListener('click', () => { showAdminSec('admSecSettings'); loadAdminExtras(); });
 
     document.getElementById('catalogForm').addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -1143,6 +1819,7 @@
           is_active: true
         });
         if (error) throw error;
+        await logAdminAction(`Added catalog ${document.getElementById('catNameEn').value.trim()}`);
         showMsg('Catalog added!');
         e.target.reset();
         refreshAdminLists();
@@ -1161,6 +1838,7 @@
           name_en: nameEn,
           name_bn: document.getElementById('prodNameBn').value.trim(),
           slug: nameEn.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '-' + Date.now().toString().slice(-4),
+          sku: document.getElementById('prodSku').value.trim() || null,
           base_price: Number(document.getElementById('prodPrice').value),
           discount_price: disc ? Number(disc) : null,
           stock_qty: Number(document.getElementById('prodStock').value),
@@ -1168,11 +1846,49 @@
           is_published: document.getElementById('prodPublished').checked
         });
         if (error) throw error;
+        await logAdminAction(`Added product ${nameEn}`);
         showMsg('Product added!');
         e.target.reset();
         refreshAdminLists();
         loadStore();
       } catch (err) { showMsg(err.message, true); }
+    });
+
+    document.getElementById('giftForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const { error } = await supabase.from('gifts').insert({
+        title_en: document.getElementById('giftTitleEn').value.trim(),
+        title_bn: document.getElementById('giftTitleBn').value.trim(),
+        stock_qty: Number(document.getElementById('giftStock').value || 10),
+        is_active: true
+      });
+      if (error) showMsg(error.message, true);
+      else {
+        await logAdminAction('Added referral gift');
+        e.target.reset();
+        showMsg('Gift added!');
+        loadAdminExtras();
+      }
+    });
+
+    document.getElementById('websiteSettingsForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const { error } = await supabase.from('website_settings').update({
+        brand_name: document.getElementById('setBrandName').value.trim(),
+        tagline: document.getElementById('setTagline').value.trim(),
+        announcement_text: document.getElementById('setAnnouncement').value.trim(),
+        free_delivery_note: document.getElementById('setDeliveryNote').value.trim(),
+        hero_title: document.getElementById('setHeroTitle').value.trim(),
+        hero_subtitle: document.getElementById('setHeroSub').value.trim(),
+        whatsapp_number: document.getElementById('setWhatsapp').value.trim(),
+        updated_at: new Date().toISOString()
+      }).eq('id', 1);
+      if (error) showMsg(error.message, true);
+      else {
+        await logAdminAction('Updated website settings');
+        showMsg('Website settings saved!');
+        loadStore();
+      }
     });
 
     // Init
@@ -1181,6 +1897,7 @@
       localStorage.setItem('bhive_ref_code', urlRef.trim().toUpperCase());
       document.getElementById('regRefCode').value = urlRef.trim().toUpperCase();
     }
+    populateLocations();
     saveCart(getCart());
     loadStore();
   </script>
