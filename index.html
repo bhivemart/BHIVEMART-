@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BHIVE MART — Smart Shopping. Better Living.</title>
-  <meta name="description" content="BHIVE MART — Smart Shopping. Better Living. Bagerhat, Bangladesh." />
+  <meta name="description" content="BHIVE MART — Smart Shopping. Better Living. From Bagerhat to the World." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
@@ -14,337 +14,1175 @@
       --golden-beige: #D8B66A;
       --dark-green: #24352B;
       --white: #FFFFFF;
-      --border: rgba(36, 53, 43, 0.12);
+      --border: rgba(36, 53, 43, 0.14);
       --shadow: 0 8px 24px rgba(23, 75, 53, 0.08);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif;
       background-color: var(--cream-white);
       color: var(--dark-green);
       line-height: 1.6;
-      padding-bottom: 72px;
+      padding-bottom: 76px;
     }
+
+    /* Top Strip */
+    .top-strip {
+      background: var(--dark-green);
+      color: var(--cream-white);
+      font-size: 0.78rem;
+      padding: 0.42rem 1rem;
+    }
+    .top-strip-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .top-links { display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap; }
+    .wa-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--golden-beige);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    /* Header */
     header {
-      position: sticky; top: 0; z-index: 100;
-      background: var(--forest-green); color: var(--cream-white);
-      padding: 0.75rem 1rem; box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--forest-green);
+      color: var(--cream-white);
+      padding: 0.75rem 1rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.14);
     }
-    .nav-top { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: auto; gap: 0.5rem; flex-wrap: wrap; }
-    .brand { display: flex; align-items: center; gap: 0.55rem; text-decoration: none; color: var(--cream-white); }
-    .brand-title { font-weight: 700; font-size: 1.1rem; letter-spacing: 0.4px; line-height: 1.1; }
-    .brand-tag { font-size: 0.6rem; color: var(--golden-beige); letter-spacing: 0.8px; display: block; }
-    .nav-actions { display: flex; align-items: center; gap: 0.45rem; }
+    .nav-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      cursor: pointer;
+    }
+    .brand-logo-box {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: var(--cream-white);
+      padding: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border: 1.5px solid var(--golden-beige);
+    }
+    .brand-logo-box img { width: 100%; height: 100%; object-fit: contain; }
+    .brand-title { font-weight: 700; font-size: 1.12rem; letter-spacing: 0.4px; line-height: 1.1; }
+    .brand-tag { font-size: 0.62rem; color: var(--golden-beige); letter-spacing: 0.7px; display: block; }
+
+    .nav-actions { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
     .btn-pill {
-      background: rgba(248,247,240,0.12); color: var(--cream-white);
-      border: 1px solid rgba(216,182,106,0.45); padding: 0.38rem 0.7rem;
-      border-radius: 99px; font-size: 0.78rem; cursor: pointer; text-decoration: none;
+      background: rgba(248, 247, 240, 0.14);
+      color: var(--cream-white);
+      border: 1px solid rgba(216, 182, 106, 0.5);
+      padding: 0.4rem 0.72rem;
+      border-radius: 99px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-pill.active-view {
+      background: var(--cream-white);
+      color: var(--forest-green);
+      border-color: var(--cream-white);
     }
     .btn-gold { background: var(--golden-beige); color: var(--dark-green); font-weight: 700; border: none; }
-    .search-bar { max-width: 1200px; margin: 0.6rem auto 0; }
+    .btn-forest { background: var(--forest-green); color: var(--cream-white); border: none; }
+    .btn-danger { background: #9e2a2b; color: #fff; border: none; }
+
+    .search-bar { max-width: 1200px; margin: 0.65rem auto 0; }
     .search-bar input {
-      width: 100%; padding: 0.58rem 0.95rem; border-radius: 8px; border: none;
-      background: var(--cream-white); color: var(--dark-green); font-size: 0.9rem;
+      width: 100%;
+      padding: 0.6rem 1rem;
+      border-radius: 10px;
+      border: none;
+      background: var(--cream-white);
+      color: var(--dark-green);
+      font-size: 0.9rem;
     }
+
+    /* Hero */
     .hero {
       background: linear-gradient(135deg, var(--forest-green) 0%, var(--dark-green) 100%);
-      color: var(--cream-white); padding: 2.3rem 1.2rem; text-align: center;
+      color: var(--cream-white);
+      padding: 2.2rem 1.2rem;
+    }
+    .hero-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      align-items: center;
     }
     .hero-badge {
-      display: inline-block; background: rgba(216,182,106,0.18); color: var(--golden-beige);
-      padding: 0.28rem 0.8rem; border-radius: 99px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.7rem;
+      display: inline-block;
+      background: rgba(216, 182, 106, 0.18);
+      color: var(--golden-beige);
+      padding: 0.28rem 0.8rem;
+      border-radius: 99px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 0.65rem;
     }
-    .hero h1 { font-size: clamp(1.7rem, 4vw, 2.6rem); margin-bottom: 0.55rem; }
-    .hero p { max-width: 620px; margin: 0 auto 1.2rem; opacity: 0.92; font-size: 0.92rem; }
-    .container { max-width: 1200px; margin: 1.8rem auto; padding: 0 1rem; }
-    .section-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+    .hero h1 { font-size: clamp(1.7rem, 4vw, 2.55rem); margin-bottom: 0.55rem; line-height: 1.2; }
+    .hero p { opacity: 0.92; font-size: 0.94rem; margin-bottom: 1.15rem; max-width: 580px; }
+    .hero-visual {
+      background: var(--cream-white);
+      color: var(--dark-green);
+      border-radius: 16px;
+      padding: 0.85rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+      border: 2px solid var(--golden-beige);
+      text-align: center;
+    }
+    .hero-visual img { width: 100%; max-height: 250px; object-fit: contain; border-radius: 10px; }
+
+    /* Container & Cards */
+    .container { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      gap: 0.5rem;
+    }
     .section-head h2 { font-size: 1.25rem; color: var(--forest-green); }
-    .grid-cats { display: grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap: 0.85rem; }
+
+    .grid-cats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+      gap: 0.85rem;
+    }
     .cat-card {
-      background: var(--white); border: 1px solid var(--border); border-radius: 14px;
-      padding: 1rem; text-align: center; box-shadow: var(--shadow); cursor: pointer;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+      cursor: pointer;
     }
-    .cat-card:hover { border-color: var(--golden-beige); }
-    .cat-card img { width: 52px; height: 52px; object-fit: cover; border-radius: 10px; margin-bottom: 0.45rem; }
-    .grid-products { display: grid; grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)); gap: 0.95rem; }
+    .cat-card img { width: 56px; height: 56px; object-fit: cover; border-radius: 10px; margin-bottom: 0.45rem; }
+
+    .grid-products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+      gap: 0.95rem;
+    }
     .product-card {
-      background: var(--white); border: 1px solid var(--border); border-radius: 14px;
-      overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--shadow);
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow);
     }
-    .product-img { height: 150px; background: #EAE8DC; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .product-img {
+      height: 155px;
+      background: #EAE8DC;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
     .product-img img { width: 100%; height: 100%; object-fit: cover; }
     .product-body { padding: 0.8rem; }
     .product-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 0.3rem; }
     .price-row { display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.6rem; font-weight: 700; color: var(--forest-green); }
     .old-price { text-decoration: line-through; color: #777; font-weight: 400; font-size: 0.8rem; }
     .btn-add {
-      width: 100%; padding: 0.52rem; background: var(--forest-green); color: var(--cream-white);
-      border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.85rem;
+      width: 100%;
+      padding: 0.52rem;
+      background: var(--forest-green);
+      color: var(--cream-white);
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.85rem;
     }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .info-card, .panel-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.15rem;
+      margin-bottom: 1.1rem;
+      box-shadow: var(--shadow);
+    }
+    .info-card h3, .panel-card h2, .panel-card h3 { color: var(--forest-green); margin-bottom: 0.45rem; }
+
     .referral-banner {
-      background: var(--dark-green); color: var(--cream-white); border-radius: 16px;
-      padding: 1.5rem; border-left: 5px solid var(--golden-beige);
+      background: var(--dark-green);
+      color: var(--cream-white);
+      border-radius: 16px;
+      padding: 1.5rem;
+      border-left: 5px solid var(--golden-beige);
     }
+
+    label { display: block; font-size: 0.8rem; font-weight: 600; margin-top: 0.55rem; margin-bottom: 0.25rem; }
+    input, select, textarea {
+      width: 100%; padding: 0.55rem 0.75rem; border: 1px solid var(--border);
+      border-radius: 8px; font-family: inherit; font-size: 0.9rem; background: #fff;
+    }
+    .btn {
+      padding: 0.5rem 0.9rem; border-radius: 8px; cursor: pointer;
+      font-weight: 600; font-size: 0.84rem; display: inline-block;
+    }
+    .list-item {
+      border-top: 1px solid var(--border); padding: 0.8rem 0;
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 0.6rem; flex-wrap: wrap;
+    }
+    .badge {
+      background: rgba(216,182,106,0.24); color: var(--dark-green);
+      padding: 0.2rem 0.55rem; border-radius: 99px; font-size: 0.75rem; font-weight: 700;
+    }
+    .msg { padding: 0.65rem 0.9rem; border-radius: 8px; margin-bottom: 1rem; font-size: 0.88rem; display: none; }
+    .msg.ok { display: block; background: #e6f4ea; color: #137333; }
+    .msg.err { display: block; background: #fce8e6; color: #c5221f; }
+
+    .wa-float {
+      position: fixed;
+      right: 16px;
+      bottom: 84px;
+      z-index: 110;
+      background: #25D366;
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 0.55rem 0.85rem;
+      border-radius: 99px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
     .mobile-nav {
-      position: fixed; bottom: 0; left: 0; right: 0; background: var(--white);
-      border-top: 1px solid var(--border); display: flex; justify-content: space-around;
-      padding: 0.55rem 0; z-index: 99;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-around;
+      padding: 0.55rem 0;
+      z-index: 99;
     }
-    .mobile-nav a { text-decoration: none; color: var(--dark-green); font-size: 0.72rem; text-align: center; font-weight: 600; }
-    @media (min-width: 768px) { .mobile-nav { display: none; } body { padding-bottom: 0; } }
-    footer { background: var(--dark-green); color: var(--cream-white); padding: 2rem 1rem; margin-top: 3rem; font-size: 0.85rem; }
+    .mobile-nav button {
+      background: none;
+      border: none;
+      color: var(--dark-green);
+      font-size: 0.74rem;
+      text-align: center;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    @media (min-width: 768px) {
+      .hero-inner { grid-template-columns: 1.25fr 0.85fr; }
+      .mobile-nav { display: none; }
+      .wa-float { bottom: 20px; }
+      body { padding-bottom: 0; }
+    }
+
+    footer {
+      background: var(--dark-green);
+      color: var(--cream-white);
+      padding: 2.2rem 1rem;
+      margin-top: 3rem;
+      font-size: 0.86rem;
+    }
+    footer a { color: var(--golden-beige); text-decoration: none; }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="nav-top">
-    <a href="index.html" class="brand">
-      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <polygon points="20,2 36,11 36,29 20,38 4,29 4,11" fill="#D8B66A" fill-opacity="0.18" stroke="#D8B66A" stroke-width="2.2"/>
-        <circle cx="20" cy="20" r="6.5" stroke="#F8F7F0" stroke-width="2"/>
-        <path d="M14 18H26M14 22H26" stroke="#D8B66A" stroke-width="2"/>
-      </svg>
-      <div>
-        <span class="brand-title">BHIVE MART</span>
-        <span class="brand-tag" data-i18n="tagline">SMART SHOPPING. BETTER LIVING.</span>
+  <!-- Top Strip -->
+  <div class="top-strip">
+    <div class="top-strip-inner">
+      <span>Bagerhat, Bangladesh • Smart Shopping. Better Living.</span>
+      <div class="top-links">
+        <a class="wa-link" href="https://wa.me/8801611110611" target="_blank" rel="noopener noreferrer">
+          <span>WhatsApp: 01611110611</span>
+        </a>
+        <a href="https://www.facebook.com/share/19tShQMVbS/" target="_blank" rel="noopener noreferrer" style="color:#F8F7F0;text-decoration:none;">Facebook</a>
       </div>
-    </a>
-    <div class="nav-actions">
-      <button class="btn-pill" id="langToggle">বাংলা</button>
-      <a href="account.html" class="btn-pill" data-i18n="account">Account</a>
-      <a href="cart.html" class="btn-pill btn-gold"><span data-i18n="cart">Cart</span> (<span id="cartCount">0</span>)</a>
     </div>
   </div>
-  <div class="search-bar">
-    <input type="search" id="searchInput" placeholder="Search BHive Fresh, Tech, Home, Living...">
-  </div>
-</header>
 
-<section class="hero">
-  <span class="hero-badge" data-i18n="location_badge">Bagerhat, Bangladesh • Smart Shopping</span>
-  <h1 data-i18n="hero_title">Smart Shopping. Better Living.</h1>
-  <p data-i18n="hero_sub">Discover trusted products across Fresh, Tech, Home, and Living with automated referral rewards.</p>
-  <a href="#catalogs" class="btn-pill btn-gold" style="padding: 0.65rem 1.4rem; display:inline-block;" data-i18n="shop_now">Shop Now</a>
-</section>
-
-<main class="container">
-  <section id="catalogs">
-    <div class="section-head">
-      <h2 data-i18n="shop_by_cat">Shop by Categories</h2>
-      <button class="btn-pill" style="color:var(--forest-green);border-color:var(--forest-green);" id="clearFilterBtn">All</button>
-    </div>
-    <div class="grid-cats" id="catalogGrid">
-      <div class="cat-card">Loading...</div>
-    </div>
-  </section>
-
-  <section style="margin-top: 2rem;">
-    <div class="section-head">
-      <h2 data-i18n="products_title">Available Products</h2>
-    </div>
-    <div class="grid-products" id="productGrid">
-      <div class="product-card"><div class="product-body">Loading products...</div></div>
-    </div>
-  </section>
-
-  <section style="margin-top: 2.2rem;">
-    <div class="referral-banner">
-      <span class="hero-badge">BHIVE REFERRAL & REWARDS</span>
-      <h2 style="color: var(--golden-beige); margin-bottom: 0.45rem;" data-i18n="ref_title">Invite Friends & Earn Gifts</h2>
-      <p style="font-size: 0.88rem; margin-bottom: 0.9rem;" data-i18n="ref_desc">
-        Share your referral link. Earn referrer gifts on qualifying delivered orders, and unlock a 4th-order gift for referred members.
-      </p>
-      <a href="account.html" class="btn-pill btn-gold" data-i18n="open_account">Open Account & Referrals</a>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="container" style="margin:0 auto;">
-    <strong>BHIVE MART</strong> — <span data-i18n="tagline">SMART SHOPPING. BETTER LIVING.</span><br/>
-    <p style="opacity:0.8; margin-top:0.35rem;">Bagerhat, Bangladesh • Cash on Delivery</p>
-  </div>
-</footer>
-
-<nav class="mobile-nav">
-  <a href="index.html">Home</a>
-  <a href="#catalogs">Catalogs</a>
-  <a href="account.html">Account</a>
-  <a href="cart.html">Cart</a>
-</nav>
-
-<script type="module">
-  import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
-
-  const SUPABASE_URL = 'https://vhvkdmvsgjvwhoomvqtm.supabase.co';
-  const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_TQaWxFVZgMoOwonAmwCD-w_F5hME9YD';
-  const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
-
-  const dict = {
-    en: {
-      tagline: "SMART SHOPPING. BETTER LIVING.",
-      account: "Account", cart: "Cart",
-      location_badge: "Bagerhat, Bangladesh • Smart Shopping",
-      hero_title: "Smart Shopping. Better Living.",
-      hero_sub: "Discover trusted products across Fresh, Tech, Home, and Living with automated referral rewards.",
-      shop_now: "Shop Now", shop_by_cat: "Shop by Categories",
-      products_title: "Available Products",
-      ref_title: "Invite Friends & Earn Gifts",
-      ref_desc: "Share your referral link. Earn referrer gifts on qualifying delivered orders, and unlock a 4th-order gift for referred members.",
-      open_account: "Open Account & Referrals", add_cart: "Add to Cart"
-    },
-    bn: {
-      tagline: "স্মার্ট শপিং। বেটার লিভিং।",
-      account: "অ্যাকাউন্ট", cart: "কার্ট",
-      location_badge: "বাগেরহাট, বাংলাদেশ • স্মার্ট শপিং",
-      hero_title: "স্মার্ট শপিং। বেটার লিভিং।",
-      hero_sub: "ফ্রেশ, টেক, হোম এবং লিভিং পণ্যের সম্ভার ও অটোমেটেড রিওয়ার্ড সুবিধা।",
-      shop_now: "কেনাকাটা শুরু করুন", shop_by_cat: "ক্যাটাগরি সমূহ",
-      products_title: "পণ্যসমূহ",
-      ref_title: "বন্ধুদের আমন্ত্রণ জানান ও গিফট জিতুন",
-      ref_desc: "রেফারেল লিংক শেয়ার করুন। সফল ডেলিভারিতে রেফারার গিফট এবং ৪র্থ অর্ডারে নতুন সদস্যের জন্য বিশেষ গিফট আনলক করুন।",
-      open_account: "অ্যাকাউন্ট ও রেফারেল", add_cart: "কার্টে যোগ করুন"
-    }
-  };
-
-  let lang = localStorage.getItem('bhive_lang') || 'en';
-  let allProducts = [];
-  let selectedCatalogId = null;
-
-  const updateCartBadge = () => {
-    const cart = JSON.parse(localStorage.getItem('bhive_cart') || '[]');
-    const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
-    document.getElementById('cartCount').textContent = totalQty;
-  };
-
-  const applyLanguage = () => {
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const k = el.getAttribute('data-i18n');
-      if (dict[lang][k]) el.textContent = dict[lang][k];
-    });
-    document.getElementById('langToggle').textContent = lang === 'en' ? 'বাংলা' : 'EN';
-    renderCatalogs(window.__catalogs || []);
-    renderProducts(filterProducts());
-  };
-
-  const renderCatalogs = (catalogs) => {
-    const grid = document.getElementById('catalogGrid');
-    if (!catalogs.length) {
-      grid.innerHTML = `<div class="cat-card">${lang === 'bn' ? 'কোনো ক্যাটাগরি নেই' : 'No active catalogs'}</div>`;
-      return;
-    }
-    grid.innerHTML = catalogs.map(cat => `
-      <div class="cat-card" data-cat-id="${cat.id}" style="${selectedCatalogId === cat.id ? 'border-color:#174B35;background:#f0f6f3;' : ''}">
-        ${cat.image_url ? `<img src="${cat.image_url}" alt="${cat.name_en}">` : `<div style="font-size:1.5rem;margin-bottom:0.3rem;">🐝</div>`}
-        <div style="font-weight:700;font-size:0.9rem;">${lang === 'bn' ? (cat.name_bn || cat.name_en) : cat.name_en}</div>
+  <!-- Header -->
+  <header>
+    <div class="nav-top">
+      <div class="brand" id="goStoreBrand">
+        <div class="brand-logo-box">
+          <img src="assets/company-logo.png" alt="BHIVE Company Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+          <span style="display:none;font-weight:800;color:#174B35;font-size:0.85rem;">BH</span>
+        </div>
+        <div>
+          <span class="brand-title">BHIVE MART</span>
+          <span class="brand-tag">SMART SHOPPING. BETTER LIVING.</span>
+        </div>
       </div>
-    `).join('');
 
-    grid.querySelectorAll('.cat-card[data-cat-id]').forEach(card => {
-      card.addEventListener('click', () => {
-        selectedCatalogId = card.getAttribute('data-cat-id');
-        renderCatalogs(window.__catalogs || []);
-        renderProducts(filterProducts());
-      });
-    });
-  };
+      <div class="nav-actions">
+        <button class="btn-pill active-view" id="navStoreBtn" type="button">Store</button>
+        <button class="btn-pill" id="navAccountBtn" type="button">Account</button>
+        <button class="btn-pill" id="navAdminBtn" type="button">Admin</button>
+        <button class="btn-pill" id="langToggle" type="button">বাংলা</button>
+        <button class="btn-pill btn-gold" id="navCartBtn" type="button">Cart (<span id="cartCount">0</span>)</button>
+      </div>
+    </div>
 
-  const filterProducts = () => {
-    const q = document.getElementById('searchInput').value.trim().toLowerCase();
-    return allProducts.filter(p => {
-      const matchCat = !selectedCatalogId || p.catalog_id === selectedCatalogId;
-      const matchQuery = !q ||
-        (p.name_en || '').toLowerCase().includes(q) ||
-        (p.name_bn || '').toLowerCase().includes(q);
-      return matchCat && matchQuery;
-    });
-  };
+    <div class="search-bar" id="storeSearchBar">
+      <input type="search" id="searchInput" placeholder="Search BHive Fresh, Tech, Home, Living..." aria-label="Search products">
+    </div>
+     </header>
 
-  const renderProducts = (items) => {
-    const grid = document.getElementById('productGrid');
-    if (!items.length) {
-      grid.innerHTML = `<div class="product-card"><div class="product-body">${lang === 'bn' ? 'কোনো পণ্য পাওয়া যায়নি' : 'No published products yet.'}</div></div>`;
-      return;
-    }
-    grid.innerHTML = items.map(p => {
-      const hasDiscount = p.discount_price !== null && p.discount_price > 0 && Number(p.discount_price) < Number(p.base_price);
-      const finalPrice = hasDiscount ? p.discount_price : p.base_price;
-      const imgUrl = Array.isArray(p.images) && p.images.length ? p.images[0] : '';
-      const title = lang === 'bn' ? (p.name_bn || p.name_en) : p.name_en;
-      return `
-        <div class="product-card">
-          <div class="product-img">
-            ${imgUrl ? `<img src="${imgUrl}" alt="${title}">` : `<span>BHIVE</span>`}
-          </div>
-          <div class="product-body">
-            <div class="product-title">${title}</div>
-            <div class="price-row">
-              <span>৳${Number(finalPrice).toFixed(0)}</span>
-              ${hasDiscount ? `<span class="old-price">৳${Number(p.base_price).toFixed(0)}</span>` : ''}
-            </div>
-            <button class="btn-add" data-add-id="${p.id}">${dict[lang].add_cart}</button>
+  <!-- Global Status Message -->
+  <div class="container" style="margin-top:1rem;margin-bottom:0;">
+    <div id="globalMsg" class="msg"></div>
+  </div>
+
+  <!-- VIEW 1: STOREFRONT -->
+  <div id="view-store">
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <span class="hero-badge">From Bagerhat to the World</span>
+          <h1>Smart Shopping. Better Living.</h1>
+          <p>
+            Trusted Smart Gadgets, Home Appliances, and Fresh Food Items—crafted for everyday comfort and automated customer rewards.
+          </p>
+          <div style="display:flex;gap:0.65rem;flex-wrap:wrap;">
+            <a href="#catalogSection" class="btn-pill btn-gold" style="padding:0.65rem 1.35rem;">Shop Now</a>
+            <a href="https://wa.me/8801611110611" target="_blank" rel="noopener noreferrer" class="btn-pill" style="padding:0.65rem 1.2rem;">
+              WhatsApp: 01611110611
+            </a>
           </div>
         </div>
-      `;
-    }).join('');
 
-    grid.querySelectorAll('[data-add-id]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const prod = allProducts.find(x => x.id === btn.getAttribute('data-add-id'));
-        if (!prod) return;
-        const unitPrice = (prod.discount_price !== null && prod.discount_price > 0 && Number(prod.discount_price) < Number(prod.base_price))
-          ? Number(prod.discount_price) : Number(prod.base_price);
-        const cart = JSON.parse(localStorage.getItem('bhive_cart') || '[]');
-        const existing = cart.find(c => c.id === prod.id);
-        if (existing) existing.qty += 1;
-        else cart.push({ id: prod.id, name_en: prod.name_en, name_bn: prod.name_bn, price: unitPrice, qty: 1 });
-        localStorage.setItem('bhive_cart', JSON.stringify(cart));
-        updateCartBadge();
+        <div class="hero-visual">
+          <img src="assets/website-logo.png" alt="BHIVE MART Website Logo" onerror="this.style.display='none'; document.getElementById('heroLogoFallback').style.display='block';" />
+          <div id="heroLogoFallback" style="display:none;padding:1rem;">
+            <div style="font-size:1.4rem;font-weight:800;color:#174B35;">BHIVE MART</div>
+            <div style="font-size:0.85rem;color:#24352B;">SMART SHOPPING. BETTER LIVING.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main class="container">
+      <section id="catalogSection">
+        <div class="section-head">
+          <h2>Shop by Categories</h2>
+          <button class="btn-pill" style="color:var(--forest-green);border-color:var(--forest-green);" id="clearFilterBtn" type="button">All</button>
+        </div>
+        <div class="grid-cats" id="catalogGrid">
+          <div class="cat-card">Loading catalogs...</div>
+        </div>
+      </section>
+
+      <section style="margin-top:2.2rem;">
+        <div class="section-head">
+          <h2>Featured & Available Products</h2>
+        </div>
+        <div class="grid-products" id="productGrid">
+          <div class="product-card"><div class="product-body">Loading products...</div></div>
+        </div>
+      </section>
+
+      <section style="margin-top:2.3rem;">
+        <div class="referral-banner">
+          <span class="hero-badge">BHIVE REFERRAL & REWARDS</span>
+          <h2 style="color:var(--golden-beige);margin-bottom:0.45rem;">Share BHIVE, Unlock Exclusive Gifts</h2>
+          <p style="font-size:0.9rem;margin-bottom:1rem;">
+            Invite friends with your personal referral link. Earn referrer gifts on qualifying delivered orders, while referred members unlock a special gift on their 4th order.
+          </p>
+          <button type="button" class="btn-pill btn-gold" id="openAccountFromBanner">Account & Order History</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- VIEW 2: CUSTOMER ACCOUNT & ORDER HISTORY -->
+  <div id="view-account" class="container" style="display:none;">
+    <div class="panel-card" id="authCard">
+      <div style="display:flex;gap:0.5rem;margin-bottom:0.8rem;">
+        <button type="button" class="btn btn-forest" id="showLoginTab">Login</button>
+        <button type="button" class="btn btn-gold" id="showSignupTab">Create Account</button>
+      </div>
+
+      <form id="loginForm">
+        <h2>Customer Login</h2>
+        <label>Email</label>
+        <input type="email" id="loginEmail" required>
+        <label>Password</label>
+        <input type="password" id="loginPassword" required>
+        <button type="submit" class="btn btn-forest" style="margin-top:0.9rem;width:100%;">Sign In</button>
+      </form>
+
+      <form id="signupForm" style="display:none;">
+        <h2>Register New Account</h2>
+        <label>Full Name</label>
+        <input type="text" id="regName" required>
+        <label>Phone Number</label>
+        <input type="text" id="regPhone" required placeholder="01XXXXXXXXX">
+        <label>Email</label>
+        <input type="email" id="regEmail" required>
+        <label>Password (min 6 chars)</label>
+        <input type="password" id="regPassword" minlength="6" required>
+        <label>Referral Code (Optional)</label>
+        <input type="text" id="regRefCode" placeholder="e.g. BHIVE-A1B2">
+        <button type="submit" class="btn btn-gold" style="margin-top:0.9rem;width:100%;">Register</button>
+      </form>
+    </div>
+
+    <div id="accountDashboard" style="display:none;">
+      <div class="panel-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:0.5rem;flex-wrap:wrap;">
+          <div>
+            <h2 id="profName">Member</h2>
+            <div style="font-size:0.82rem;opacity:0.8;" id="profMeta"></div>
+          </div>
+          <button type="button" class="btn" style="background:#e0e0e0;" id="logoutCustomerBtn">Logout</button>
+        </div>
+
+        <form id="profileUpdateForm" style="margin-top:0.85rem;">
+          <label>Full Name</label>
+          <input type="text" id="editFullName" required>
+          <label>Phone</label>
+          <input type="text" id="editPhone" required>
+          <button type="submit" class="btn btn-forest" style="margin-top:0.75rem;">Save Profile</button>
+        </form>
+      </div>
+
+      <div class="panel-card">
+        <h3>Your Referral Link</h3>
+        <div style="background:var(--cream-white);border:1px dashed var(--forest-green);padding:0.75rem;border-radius:10px;word-break:break-all;font-size:0.85rem;">
+          <div>Code: <strong id="myRefCode">—</strong></div>
+          <div style="margin-top:0.3rem;">Link: <span id="myRefLink">—</span></div>
+        </div>
+        <button type="button" class="btn btn-gold" style="margin-top:0.7rem;" id="copyRefBtn">Copy Referral Link</button>
+      </div>
+
+      <div class="panel-card">
+        <h3>My Orders (Order History)</h3>
+        <div id="customerOrdersBox" style="margin-top:0.5rem;">Loading orders...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIEW 3: ADMIN PANEL (Catalogs, Products & Orders) -->
+  <div id="view-admin" class="container" style="display:none;">
+    <div class="panel-card" id="adminLoginBox">
+      <h2>Admin Sign In</h2>
+      <p style="font-size:0.84rem;margin-bottom:0.7rem;">Server-side role verification is enforced via Supabase RLS.</p>
+      <form id="adminLoginForm">
+        <label>Email</label>
+        <input type="email" id="adminEmail" required placeholder="beehivemart24@gmail.com">
+        <label>Password</label>
+        <input type="password" id="adminPassword" required>
+        <button type="submit" class="btn btn-forest" style="margin-top:0.9rem;width:100%;">Sign In to Admin</button>
+      </form>
+    </div>
+
+    <div id="adminDashboard" style="display:none;">
+      <div style="display:flex;gap:0.5rem;margin-bottom:1rem;flex-wrap:wrap;">
+        <button type="button" class="btn btn-forest" id="admTabCats">Catalogs</button>
+        <button type="button" class="btn btn-gold" id="admTabProds">Products</button>
+        <button type="button" class="btn btn-forest" id="admTabOrders">Orders</button>
+        <button type="button" class="btn" style="background:#e0e0e0;" id="admLogoutBtn">Logout</button>
+      </div>
+
+      <div class="panel-card" id="admSecCats">
+        <h3>Dynamic Catalog Management</h3>
+        <form id="catalogForm">
+          <div class="info-grid">
+            <div><label>Name (EN)</label><input type="text" id="catNameEn" required></div>
+            <div><label>Name (BN)</label><input type="text" id="catNameBn" required></div>
+            <div><label>Slug</label><input type="text" id="catSlug" required></div>
+            <div><label>Order</label><input type="number" id="catOrder" value="10"></div>
+          </div>
+          <label>Catalog Image</label>
+          <input type="file" id="catImageFile" accept="image/*">
+          <button type="submit" class="btn btn-forest" style="margin-top:0.8rem;">Save Catalog</button>
+        </form>
+        <div id="adminCatalogList" style="margin-top:1rem;"></div>
+      </div>
+
+      <div class="panel-card" id="admSecProds" style="display:none;">
+        <h3>Product Management</h3>
+        <form id="productForm">
+          <div class="info-grid">
+            <div><label>Name (EN)</label><input type="text" id="prodNameEn" required></div>
+            <div><label>Name (BN)</label><input type="text" id="prodNameBn" required></div>
+            <div><label>Catalog</label><select id="prodCatalogId" required></select></div>
+            <div><label>Price (BDT)</label><input type="number" step="0.01" id="prodPrice" required></div>
+            <div><label>Discount Price</label><input type="number" step="0.01" id="prodDiscount"></div>
+            <div><label>Stock</label><input type="number" id="prodStock" value="10" required></div>
+          </div>
+          <label>Product Image</label>
+          <input type="file" id="prodImageFile" accept="image/*">
+          <label><input type="checkbox" id="prodPublished" checked style="width:auto;"> Published</label>
+          <button type="submit" class="btn btn-forest" style="margin-top:0.8rem;">Save Product</button>
+        </form>
+        <div id="adminProductList" style="margin-top:1rem;"></div>
+      </div>
+
+      <div class="panel-card" id="admSecOrders" style="display:none;">
+        <h3>Customer Orders Management</h3>
+        <div id="adminOrderList" style="margin-top:0.75rem;">Loading orders...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIEW 4: CART & CASH ON DELIVERY CHECKOUT -->
+  <div id="view-cart" class="container" style="display:none;">
+    <div class="panel-card">
+      <h2>Shopping Cart</h2>
+      <div id="cartItemsBox" style="margin-top:0.75rem;"></div>
+      <div style="margin-top:1rem;font-size:0.95rem;">
+        <div>Subtotal: ৳<span id="cartSubtotalVal">0</span></div>
+        <div>Delivery Charge: ৳<span id="cartDeliveryVal">60</span></div>
+        <div style="font-weight:700;font-size:1.08rem;color:var(--forest-green);margin-top:0.25rem;">
+          Grand Total: ৳<span id="cartTotalVal">0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-card" id="codCheckoutCard">
+      <h2>Cash on Delivery (COD) Checkout</h2>
+      <p style="font-size:0.84rem;opacity:0.85;margin-bottom:0.5rem;">
+        Pay in cash upon delivery. Login to your customer account first so your order appears in Order History.
+      </p>
+      <form id="codCheckoutForm">
+        <label>Customer Name</label>
+        <input type="text" id="codName" required placeholder="Your Full Name">
+
+        <label>Phone Number</label>
+        <input type="text" id="codPhone" required placeholder="01XXXXXXXXX">
+
+        <label>Delivery Zone</label>
+        <select id="codZone">
+          <option value="60">Inside Bagerhat / Local (৳60)</option>
+          <option value="120">Outside Bagerhat / Nationwide (৳120)</option>
+        </select>
+
+        <label>Full Delivery Address</label>
+        <textarea id="codAddress" rows="3" required placeholder="House/Road/Upazila/District"></textarea>
+
+        <button type="submit" class="btn btn-gold" style="margin-top:0.95rem;width:100%;padding:0.7rem;">
+          Place Cash on Delivery Order
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp Button -->
+  <a class="wa-float" href="https://wa.me/8801611110611" target="_blank" rel="noopener noreferrer">
+    <span>WhatsApp: 01611110611</span>
+  </a>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container" style="margin:0 auto;">
+      <div class="info-grid" style="background:transparent;">
+        <div>
+          <strong style="font-size:1.05rem;color:var(--golden-beige);">BHIVE MART</strong>
+          <p style="margin-top:0.35rem;opacity:0.9;">SMART SHOPPING. BETTER LIVING.</p>
+          <p style="margin-top:0.35rem;opacity:0.8;">Bagerhat, Bangladesh</p>
+        </div>
+        <div>
+          <strong style="color:var(--golden-beige);">Contact & Hotline</strong>
+          <p style="margin-top:0.35rem;">WhatsApp: <a href="https://wa.me/8801611110611" target="_blank" rel="noopener noreferrer">01611110611</a></p>
+          <p style="margin-top:0.25rem;">Email: <a href="mailto:beehivemart24@gmail.com">beehivemart24@gmail.com</a></p>
+          <p style="margin-top:0.25rem;">Facebook: <a href="https://www.facebook.com/share/19tShQMVbS/" target="_blank" rel="noopener noreferrer">BHIVE MART Official Page</a></p>
+        </div>
+      </div>
+      <p style="opacity:0.65;margin-top:1.5rem;font-size:0.78rem;">© 2026 BHIVE MART. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Mobile Bottom Nav -->
+  <nav class="mobile-nav">
+    <button type="button" id="mobStoreBtn">Store</button>
+    <button type="button" id="mobAccountBtn">Account</button>
+    <button type="button" id="mobAdminBtn">Admin</button>
+    <button type="button" id="mobCartBtn">Cart</button>
+  </nav>
+
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+    const SUPABASE_URL = 'https://vhvkdmvsgjvwhoomvqtm.supabase.co';
+    const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_TQaWxFVZgMoOwonAmwCD-w_F5hME9YD';
+    const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+
+    let lang = localStorage.getItem('bhive_lang') || 'en';
+    let allCatalogs = [];
+    let allProducts = [];
+    let selectedCatalogId = null;
+
+    const showMsg = (text, isErr = false) => {
+      const box = document.getElementById('globalMsg');
+      box.textContent = text;
+      box.className = 'msg ' + (isErr ? 'err' : 'ok');
+    };
+
+    const getCart = () => JSON.parse(localStorage.getItem('bhive_cart') || '[]');
+    const getDeliveryCharge = () => Number(document.getElementById('codZone')?.value || 60);
+
+    const saveCart = (c) => {
+      localStorage.setItem('bhive_cart', JSON.stringify(c));
+      document.getElementById('cartCount').textContent = c.reduce((s, i) => s + Number(i.qty || 0), 0);
+      renderCart();
+    };
+
+    function switchView(viewName) {
+      ['store', 'account', 'admin', 'cart'].forEach((v) => {
+        document.getElementById('view-' + v).style.display = v === viewName ? 'block' : 'none';
       });
+      document.getElementById('storeSearchBar').style.display = viewName === 'store' ? 'block' : 'none';
+      document.getElementById('navStoreBtn').classList.toggle('active-view', viewName === 'store');
+      document.getElementById('navAccountBtn').classList.toggle('active-view', viewName === 'account');
+      document.getElementById('navAdminBtn').classList.toggle('active-view', viewName === 'admin');
+      if (viewName === 'account') loadCustomerAccount();
+      if (viewName === 'admin') checkAdminAuth();
+      if (viewName === 'cart') renderCart();
+    }
+
+    function renderCatalogs() {
+      const grid = document.getElementById('catalogGrid');
+      if (!allCatalogs.length) {
+        grid.innerHTML = `<div class="cat-card">No active categories yet.</div>`;
+        return;
+        }
+      grid.innerHTML = allCatalogs.map((cat) => `
+        <div class="cat-card" data-cat-id="${cat.id}" style="${selectedCatalogId === cat.id ? 'border-color:#174B35;background:#f0f6f3;' : ''}">
+          ${cat.image_url ? `<img src="${cat.image_url}" alt="${cat.name_en}">` : `<div style="font-size:1.5rem;margin-bottom:0.3rem;">🐝</div>`}
+          <div style="font-weight:700;font-size:0.9rem;">${lang === 'bn' ? (cat.name_bn || cat.name_en) : cat.name_en}</div>
+        </div>
+      `).join('');
+
+      grid.querySelectorAll('.cat-card[data-cat-id]').forEach((card) => {
+        card.addEventListener('click', () => {
+          selectedCatalogId = card.getAttribute('data-cat-id');
+          renderCatalogs();
+          renderProducts();
+        });
+      });
+    }
+
+    function renderProducts() {
+      const q = document.getElementById('searchInput').value.trim().toLowerCase();
+      const filtered = allProducts.filter((p) => {
+        const matchCat = !selectedCatalogId || p.catalog_id === selectedCatalogId;
+        const matchQuery = !q || (p.name_en || '').toLowerCase().includes(q) || (p.name_bn || '').toLowerCase().includes(q);
+        return matchCat && matchQuery;
+      });
+
+      const grid = document.getElementById('productGrid');
+      if (!filtered.length) {
+        grid.innerHTML = `<div class="product-card"><div class="product-body">No published products found.</div></div>`;
+        return;
+      }
+      grid.innerHTML = filtered.map((p) => {
+        const hasDisc = p.discount_price !== null && p.discount_price > 0 && Number(p.discount_price) < Number(p.base_price);
+        const price = hasDisc ? Number(p.discount_price) : Number(p.base_price);
+        const img = Array.isArray(p.images) && p.images.length ? p.images[0] : '';
+        const title = lang === 'bn' ? (p.name_bn || p.name_en) : p.name_en;
+        return `
+          <div class="product-card">
+            <div class="product-img">${img ? `<img src="${img}" alt="${title}">` : `<span>BHIVE MART</span>`}</div>
+            <div class="product-body">
+              <div class="product-title">${title}</div>
+              <div class="price-row">
+                <span>৳${price.toFixed(0)}</span>
+                ${hasDisc ? `<span class="old-price">৳${Number(p.base_price).toFixed(0)}</span>` : ''}
+              </div>
+              <button class="btn-add" data-add-prod="${p.id}" type="button">${lang === 'bn' ? 'কার্টে যোগ করুন' : 'Add to Cart'}</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      grid.querySelectorAll('[data-add-prod]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const prod = allProducts.find((x) => x.id === btn.getAttribute('data-add-prod'));
+          if (!prod) return;
+          const hasDisc = prod.discount_price !== null && prod.discount_price > 0 && Number(prod.discount_price) < Number(prod.base_price);
+          const price = hasDisc ? Number(prod.discount_price) : Number(prod.base_price);
+          const cart = getCart();
+          const ex = cart.find((i) => i.id === prod.id);
+          if (ex) ex.qty += 1;
+          else cart.push({ id: prod.id, name_en: prod.name_en, name_bn: prod.name_bn, price, qty: 1 });
+          saveCart(cart);
+          showMsg('Added to cart!');
+        });
+      });
+    }
+
+    function renderCart() {
+      const cart = getCart();
+      const box = document.getElementById('cartItemsBox');
+      const delCharge = cart.length ? getDeliveryCharge() : 0;
+
+      if (!cart.length) {
+        box.innerHTML = '<p>Your cart is empty.</p>';
+        document.getElementById('cartSubtotalVal').textContent = '0';
+        document.getElementById('cartDeliveryVal').textContent = '0';
+        document.getElementById('cartTotalVal').textContent = '0';
+        return;
+      }
+
+      let subtotal = 0;
+      box.innerHTML = cart.map((item, idx) => {
+        const sub = Number(item.price) * Number(item.qty);
+        subtotal += sub;
+        return `
+          <div class="list-item">
+            <div><strong>${item.name_en}</strong> — ৳${item.price} × ${item.qty} = ৳${sub}</div>
+            <button class="btn btn-danger" data-rem-idx="${idx}" type="button">Remove</button>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('cartSubtotalVal').textContent = subtotal.toFixed(0);
+      document.getElementById('cartDeliveryVal').textContent = delCharge.toFixed(0);
+      document.getElementById('cartTotalVal').textContent = (subtotal + delCharge).toFixed(0);
+
+      box.querySelectorAll('[data-rem-idx]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const next = getCart().filter((_, i) => i !== Number(btn.getAttribute('data-rem-idx')));
+          saveCart(next);
+        });
+      });
+    }
+
+    async function loadStore() {
+      const [{ data: cats }, { data: prods }] = await Promise.all([
+        supabase.from('catalogs').select('*').eq('is_active', true).order('display_order'),
+        supabase.from('products').select('*').eq('is_published', true).order('created_at', { ascending: false })
+      ]);
+      allCatalogs = cats || [];
+      allProducts = prods || [];
+      renderCatalogs();
+      renderProducts();
+    }
+
+    async function loadCustomerOrders(userId) {
+      const box = document.getElementById('customerOrdersBox');
+      const { data: orders, error } = await supabase
+        .from('orders')
+        .select('*')
+        .eq('customer_id', userId)
+        .order('created_at', { ascending: false });
+
+      if (error) {
+        box.innerHTML = `<p style="color:#c5221f;">Could not load orders: ${error.message}</p>`;
+        return;
+      }
+      if (!orders || !orders.length) {
+        box.innerHTML = '<p>No orders placed yet.</p>';
+        return;
+      }
+      box.innerHTML = orders.map((o) => `
+        <div class="list-item">
+          <div>
+            <strong>Order #${o.order_number}</strong> <span class="badge">${o.order_status}</span>
+            <div style="font-size:0.84rem;margin-top:0.2rem;">Total: ৳${Number(o.total_amount).toFixed(0)} (${o.payment_method})</div>
+            <div style="font-size:0.8rem;opacity:0.8;">Address: ${o.delivery_address}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    async function loadCustomerAccount() {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        document.getElementById('authCard').style.display = 'block';
+        document.getElementById('accountDashboard').style.display = 'none';
+        return;
+      }
+      const { data: prof } = await supabase.from('profiles').select('*').eq('id', session.user.id).single();
+      document.getElementById('authCard').style.display = 'none';
+      document.getElementById('accountDashboard').style.display = 'block';
+      if (prof) {
+        document.getElementById('profName').textContent = prof.full_name || 'Member';
+        document.getElementById('profMeta').textContent = `${session.user.email} • ${prof.role}`;
+        document.getElementById('editFullName').value = prof.full_name || '';
+        document.getElementById('editPhone').value = prof.phone || '';
+        document.getElementById('myRefCode').textContent = prof.referral_code || '—';
+        document.getElementById('myRefLink').textContent = prof.referral_code
+          ? `${window.location.origin}${window.location.pathname}?ref=${encodeURIComponent(prof.referral_code)}`
+          : '—';
+        if (!document.getElementById('codName').value) document.getElementById('codName').value = prof.full_name || '';
+        if (!document.getElementById('codPhone').value) document.getElementById('codPhone').value = prof.phone || '';
+      }
+      await loadCustomerOrders(session.user.id);
+    }
+
+    async function uploadImg(bucket, file) {
+      if (!file) return null;
+      const ext = file.name.split('.').pop();
+      const path = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
+      const { error } = await supabase.storage.from(bucket).upload(path, file);
+      if (error) throw error;
+      return supabase.storage.from(bucket).getPublicUrl(path).data.publicUrl;
+    }
+
+    async function checkAdminAuth() {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        document.getElementById('adminLoginBox').style.display = 'block';
+        document.getElementById('adminDashboard').style.display = 'none';
+        return;
+      }
+      const { data: prof } = await supabase.from('profiles').select('role, is_active').eq('id', session.user.id).single();
+      if (!prof || !prof.is_active || !['admin', 'super_admin'].includes(prof.role)) {
+        showMsg('Access denied: Admin role required.', true);
+        return;
+      }
+      document.getElementById('adminLoginBox').style.display = 'none';
+      document.getElementById('adminDashboard').style.display = 'block';
+      await refreshAdminLists();
+      await loadAdminOrders();
+    }
+
+    async function refreshAdminLists() {
+      const [{ data: cats }, { data: prods }] = await Promise.all([
+        supabase.from('catalogs').select('*').order('display_order'),
+        supabase.from('products').select('*').order('created_at', { ascending: false })
+      ]);
+      allCatalogs = cats || [];
+      allProducts = prods || [];
+
+      document.getElementById('prodCatalogId').innerHTML =
+        allCatalogs.map((c) => `<option value="${c.id}">${c.name_en} (${c.name_bn})</option>`).join('');
+
+      document.getElementById('adminCatalogList').innerHTML = allCatalogs.map((c) => `
+        <div class="list-item">
+          <div><strong>${c.name_en}</strong> / ${c.name_bn} <span class="badge">${c.is_active ? 'Active' : 'Inactive'}</span></div>
+          <button class="btn btn-forest" data-adm-toggle-cat="${c.id}" data-act="${!c.is_active}" type="button">${c.is_active ? 'Disable' : 'Enable'}</button>
+        </div>
+      `).join('');
+
+      document.querySelectorAll('[data-adm-toggle-cat]').forEach((b) => b.addEventListener('click', async () => {
+        await supabase.from('catalogs').update({ is_active: b.getAttribute('data-act') === 'true' }).eq('id', b.getAttribute('data-adm-toggle-cat'));
+        showMsg('Catalog updated.');
+        refreshAdminLists();
+        loadStore();
+      }));
+
+      document.getElementById('adminProductList').innerHTML = allProducts.map((p) => `
+        <div class="list-item">
+          <div><strong>${p.name_en}</strong> — ৳${p.discount_price || p.base_price} <span class="badge">Stock: ${p.stock_qty}</span></div>
+          <button class="btn btn-forest" data-adm-toggle-prod="${p.id}" data-pub="${!p.is_published}" type="button">${p.is_published ? 'Unpublish' : 'Publish'}</button>
+        </div>
+      `).join('');
+
+      document.querySelectorAll('[data-adm-toggle-prod]').forEach((b) => b.addEventListener('click', async () => {
+        await supabase.from('products').update({ is_published: b.getAttribute('data-pub') === 'true' }).eq('id', b.getAttribute('data-adm-toggle-prod'));
+        showMsg('Product updated.');
+        refreshAdminLists();
+        loadStore();
+      }));
+    }
+
+    async function loadAdminOrders() {
+      const box = document.getElementById('adminOrderList');
+      const { data: orders, error } = await supabase
+        .from('orders')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error) {
+        box.innerHTML = `<p style="color:#c5221f;">Error loading orders: ${error.message}</p>`;
+        return;
+      }
+      if (!orders || !orders.length) {
+        box.innerHTML = '<p>No orders yet.</p>';
+        return;
+      }
+      box.innerHTML = orders.map((o) => `
+        <div class="list-item">
+          <div>
+            <strong>#${o.order_number}</strong> — ${o.customer_name} (${o.customer_phone})
+            <div style="font-size:0.84rem;">Total: ৳${Number(o.total_amount).toFixed(0)} • Address: ${o.delivery_address}</div>
+          </div>
+          <div style="display:flex;gap:0.4rem;align-items:center;">
+            <select data-order-status="${o.id}" style="width:auto;">
+              ${['Pending', 'Confirmed', 'Shipped', 'Delivered', 'Cancelled'].map((st) =>
+                `<option value="${st}" ${o.order_status === st ? 'selected' : ''}>${st}</option>`
+              ).join('')}
+            </select>
+            <button class="btn btn-forest" data-save-order="${o.id}" type="button">Update</button>
+          </div>
+        </div>
+      `).join('');
+
+      box.querySelectorAll('[data-save-order]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const oid = btn.getAttribute('data-save-order');
+          const newStatus = box.querySelector(`[data-order-status="${oid}"]`).value;
+          const { error: updErr } = await supabase
+            .from('orders')
+            .update({ order_status: newStatus, updated_at: new Date().toISOString() })
+            .eq('id', oid);
+          if (updErr) showMsg(updErr.message, true);
+          else { showMsg(`Order status updated to ${newStatus}.`); loadAdminOrders(); }
+        });
+      });
+    }
+
+    // Navigation & Events
+    document.getElementById('goStoreBrand').addEventListener('click', () => switchView('store'));
+    document.getElementById('navStoreBtn').addEventListener('click', () => switchView('store'));
+    document.getElementById('navAccountBtn').addEventListener('click', () => switchView('account'));
+    document.getElementById('navAdminBtn').addEventListener('click', () => switchView('admin'));
+    document.getElementById('navCartBtn').addEventListener('click', () => switchView('cart'));
+    document.getElementById('openAccountFromBanner').addEventListener('click', () => switchView('account'));
+    document.getElementById('mobStoreBtn').addEventListener('click', () => switchView('store'));
+    document.getElementById('mobAccountBtn').addEventListener('click', () => switchView('account'));
+    document.getElementById('mobAdminBtn').addEventListener('click', () => switchView('admin'));
+    document.getElementById('mobCartBtn').addEventListener('click', () => switchView('cart'));
+
+    document.getElementById('codZone').addEventListener('change', renderCart);
+
+    document.getElementById('langToggle').addEventListener('click', () => {
+      lang = lang === 'en' ? 'bn' : 'en';
+      localStorage.setItem('bhive_lang', lang);
+      document.getElementById('langToggle').textContent = lang === 'en' ? 'বাংলা' : 'EN';
+      renderCatalogs();
+      renderProducts();
+       });
+
+    document.getElementById('searchInput').addEventListener('input', renderProducts);
+    document.getElementById('clearFilterBtn').addEventListener('click', () => {
+      selectedCatalogId = null;
+      renderCatalogs();
+      renderProducts();
     });
-  };
 
-  async function loadStoreData() {
-    const { data: cats } = await supabase
-      .from('catalogs')
-      .select('*')
-      .eq('is_active', true)
-      .order('display_order', { ascending: true });
-    window.__catalogs = cats || [];
-    renderCatalogs(window.__catalogs);
+    // Cash on Delivery Order Placement
+    document.getElementById('codCheckoutForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const cart = getCart();
+      if (!cart.length) {
+        showMsg('Your cart is empty!', true);
+        return;
+      }
 
-    const { data: prods } = await supabase
-      .from('products')
-      .select('*')
-      .eq('is_published', true)
-      .order('created_at', { ascending: false });
-    allProducts = prods || [];
-    renderProducts(filterProducts());
-  }
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        showMsg('Please login to your account first to place an order.', true);
+        switchView('account');
+        return;
+      }
 
-  // Capture referral code if present in URL (?ref=BHIVE-XXXX)
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('ref')) {
-    localStorage.setItem('bhive_ref_code', params.get('ref').trim().toUpperCase());
-  }
+      const subtotal = cart.reduce((sum, item) => sum + Number(item.price) * Number(item.qty), 0);
+      const deliveryCharge = getDeliveryCharge();
+      const totalAmount = subtotal + deliveryCharge;
+      const orderNumber = 'BHV-' + Date.now().toString().slice(-6);
 
-  document.getElementById('langToggle').addEventListener('click', () => {
-    lang = lang === 'en' ? 'bn' : 'en';
-    localStorage.setItem('bhive_lang', lang);
-    applyLanguage();
-  });
+      const { error } = await supabase.from('orders').insert({
+        order_number: orderNumber,
+        customer_id: session.user.id,
+        customer_name: document.getElementById('codName').value.trim(),
+        customer_phone: document.getElementById('codPhone').value.trim(),
+        delivery_address: document.getElementById('codAddress').value.trim(),
+        items: cart,
+        subtotal,
+        delivery_charge: deliveryCharge,
+        total_amount: totalAmount,
+        payment_method: 'COD',
+        order_status: 'Pending'
+      });
 
-  document.getElementById('searchInput').addEventListener('input', () => renderProducts(filterProducts()));
-  document.getElementById('clearFilterBtn').addEventListener('click', () => {
-    selectedCatalogId = null;
-    renderCatalogs(window.__catalogs || []);
-    renderProducts(filterProducts());
-  });
+      if (error) {
+        showMsg('Order failed: ' + error.message, true);
+      } else {
+        saveCart([]);
+        e.target.reset();
+        showMsg(`Order #${orderNumber} placed successfully (Cash on Delivery)!`);
+        switchView('account');
+      }
+    });
 
-  updateCartBadge();
-  applyLanguage();
-  loadStoreData();
-</script>
+    // Customer Auth
+    document.getElementById('showLoginTab').addEventListener('click', () => {
+      document.getElementById('loginForm').style.display = 'block';
+      document.getElementById('signupForm').style.display = 'none';
+    });
+    document.getElementById('showSignupTab').addEventListener('click', () => {
+      document.getElementById('loginForm').style.display = 'none';
+      document.getElementById('signupForm').style.display = 'block';
+    });
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const { error } = await supabase.auth.signInWithPassword({
+        email: document.getElementById('loginEmail').value.trim(),
+        password: document.getElementById('loginPassword').value
+      });
+      if (error) showMsg(error.message, true);
+      else { showMsg('Logged in!'); loadCustomerAccount(); }
+    });
+    document.getElementById('signupForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const { error } = await supabase.auth.signUp({
+        email: document.getElementById('regEmail').value.trim(),
+        password: document.getElementById('regPassword').value,
+        options: {
+          data: {
+            full_name: document.getElementById('regName').value.trim(),
+            phone: document.getElementById('regPhone').value.trim(),
+            referral_code_input: document.getElementById('regRefCode').value.trim().toUpperCase()
+          }
+        }
+      });
+      if (error) showMsg(error.message, true);
+      else showMsg('Account created! Please sign in.');
+    });
+    document.getElementById('profileUpdateForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) return;
+      const { error } = await supabase.from('profiles').update({
+        full_name: document.getElementById('editFullName').value.trim(),
+        phone: document.getElementById('editPhone').value.trim()
+      }).eq('id', session.user.id);
+      if (error) showMsg(error.message, true);
+      else showMsg('Profile saved!');
+    });
+    document.getElementById('copyRefBtn').addEventListener('click', () => {
+      navigator.clipboard?.writeText(document.getElementById('myRefLink').textContent);
+      showMsg('Referral link copied!');
+    });
+    document.getElementById('logoutCustomerBtn').addEventListener('click', async () => {
+      await supabase.auth.signOut();
+      loadCustomerAccount();
+    });
+
+    // Admin Forms
+    document.getElementById('adminLoginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const { error } = await supabase.auth.signInWithPassword({
+        email: document.getElementById('adminEmail').value.trim(),
+        password: document.getElementById('adminPassword').value
+      });
+      if (error) showMsg(error.message, true);
+      else checkAdminAuth();
+    });
+    document.getElementById('admLogoutBtn').addEventListener('click', async () => {
+      await supabase.auth.signOut();
+      checkAdminAuth();
+    });
+    document.getElementById('admTabCats').addEventListener('click', () => {
+      document.getElementById('admSecCats').style.display = 'block';
+      document.getElementById('admSecProds').style.display = 'none';
+      document.getElementById('admSecOrders').style.display = 'none';
+    });
+    document.getElementById('admTabProds').addEventListener('click', () => {
+      document.getElementById('admSecCats').style.display = 'none';
+      document.getElementById('admSecProds').style.display = 'block';
+      document.getElementById('admSecOrders').style.display = 'none';
+    });
+    document.getElementById('admTabOrders').addEventListener('click', () => {
+      document.getElementById('admSecCats').style.display = 'none';
+      document.getElementById('admSecProds').style.display = 'none';
+      document.getElementById('admSecOrders').style.display = 'block';
+      loadAdminOrders();
+    });
+
+    document.getElementById('catalogForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      try {
+        const imgUrl = await uploadImg('catalog-images', document.getElementById('catImageFile').files[0]);
+        const { error } = await supabase.from('catalogs').insert({
+          name_en: document.getElementById('catNameEn').value.trim(),
+          name_bn: document.getElementById('catNameBn').value.trim(),
+          slug: document.getElementById('catSlug').value.trim().toLowerCase(),
+          display_order: Number(document.getElementById('catOrder').value || 10),
+          image_url: imgUrl,
+          is_active: true
+        });
+        if (error) throw error;
+        showMsg('Catalog added!');
+        e.target.reset();
+        refreshAdminLists();
+        loadStore();
+      } catch (err) { showMsg(err.message, true); }
+    });
+
+    document.getElementById('productForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      try {
+        const imgUrl = await uploadImg('product-images', document.getElementById('prodImageFile').files[0]);
+        const nameEn = document.getElementById('prodNameEn').value.trim();
+        const disc = document.getElementById('prodDiscount').value;
+        const { error } = await supabase.from('products').insert({
+          catalog_id: document.getElementById('prodCatalogId').value,
+          name_en: nameEn,
+          name_bn: document.getElementById('prodNameBn').value.trim(),
+          slug: nameEn.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '-' + Date.now().toString().slice(-4),
+          base_price: Number(document.getElementById('prodPrice').value),
+          discount_price: disc ? Number(disc) : null,
+          stock_qty: Number(document.getElementById('prodStock').value),
+          images: imgUrl ? [imgUrl] : [],
+          is_published: document.getElementById('prodPublished').checked
+        });
+        if (error) throw error;
+        showMsg('Product added!');
+        e.target.reset();
+        refreshAdminLists();
+        loadStore();
+      } catch (err) { showMsg(err.message, true); }
+    });
+
+    // Init
+    const urlRef = new URLSearchParams(window.location.search).get('ref');
+    if (urlRef) {
+      localStorage.setItem('bhive_ref_code', urlRef.trim().toUpperCase());
+      document.getElementById('regRefCode').value = urlRef.trim().toUpperCase();
+    }
+    saveCart(getCart());
+    loadStore();
+  </script>
 </body>
 </html>
