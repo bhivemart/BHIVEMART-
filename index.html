@@ -458,7 +458,6 @@
 
   <!-- VIEW 1: STOREFRONT -->
   <div id="view-store">
-    <!-- D. Hero Banner -->
     <section class="hero">
       <div class="hero-inner">
         <div>
@@ -486,7 +485,6 @@
     </section>
 
     <main class="container">
-      <!-- E. Shop by Categories -->
       <section id="catalogSection">
         <div class="section-head">
           <h2>Shop by Categories</h2>
@@ -497,7 +495,6 @@
         </div>
       </section>
 
-      <!-- F. Products -->
       <section style="margin-top:2rem;">
         <div class="section-head">
           <h2 id="productSectionHeading">Featured & Available Products</h2>
@@ -507,7 +504,6 @@
         </div>
       </section>
 
-      <!-- G. Referral Promotion -->
       <section style="margin-top:2.2rem;">
         <div class="referral-banner">
           <span class="hero-badge">BHIVE REFERRAL & GIFT REWARDS</span>
@@ -519,7 +515,6 @@
         </div>
       </section>
 
-      <!-- H. Trust & Service Section -->
       <section style="margin-top:2rem;">
         <div class="section-head"><h2>Why Shop with BHIVE MART</h2></div>
         <div class="info-grid">
@@ -530,7 +525,6 @@
         </div>
       </section>
 
-      <!-- I. Verified Customer Reviews -->
       <section style="margin-top:2rem;">
         <div class="section-head"><h2>Verified Customer Reviews</h2></div>
         <div class="info-grid" id="approvedReviewsBox">
@@ -580,7 +574,7 @@
         <label>Password (min 6 chars)</label>
         <input type="password" id="regPassword" minlength="6" required>
         <label>Referral Code (Optional)</label>
-        <input type="text" id="regRefCode" placeholder="e.g. BHIVE-A1B2">
+        <input type="text" id="regRefCode" placeholder="e.g. BHIVE-A1B2C3">
         <button type="submit" class="btn btn-gold" style="margin-top:0.9rem;width:100%;">Register</button>
       </form>
     </div>
@@ -629,9 +623,15 @@
             <div><label>Label</label><input type="text" id="addrLabel" placeholder="Home / Office" required></div>
             <div><label>Recipient Name</label><input type="text" id="addrName" required></div>
             <div><label>Phone</label><input type="text" id="addrPhone" required></div>
-            <div><label>District</label><input type="text" id="addrDistrict" required></div>
-            <div><label>Upazila / Thana</label><input type="text" id="addrUpazila" required></div>
-            <div><label>Street / Details</label><input type="text" id="addrStreet" required></div>
+            <div>
+              <label>District (জেলা)</label>
+              <select id="addrDistrict" required></select>
+            </div>
+            <div>
+              <label>Upazila / Thana (উপজেলা / থানা)</label>
+              <select id="addrUpazila" required></select>
+            </div>
+            <div><label>Street / Details</label><input type="text" id="addrStreet" required placeholder="House/Road/Bazar"></div>
           </div>
           <button type="submit" class="btn btn-forest" style="margin-top:0.7rem;">Save Address</button>
         </form>
@@ -657,7 +657,7 @@
         <input type="password" id="adminPassword" required>
         <button type="submit" class="btn btn-forest" style="margin-top:0.9rem;width:100%;">Sign In to Admin</button>
       </form>
-      </div>
+    </div>
 
     <div id="adminDashboard" style="display:none;">
       <div style="display:flex;gap:0.45rem;margin-bottom:1rem;flex-wrap:wrap;">
@@ -670,7 +670,6 @@
         <button type="button" class="btn" style="background:#e0e0e0;" id="admLogoutBtn">Logout</button>
       </div>
 
-      <!-- Admin Overview -->
       <div class="panel-card" id="admSecOverview">
         <h3>Dashboard Overview (Live Database Metrics)</h3>
         <div class="stats-grid" id="adminStatsGrid">
@@ -684,7 +683,6 @@
         <div id="recentOrdersPreview"></div>
       </div>
 
-      <!-- Admin Catalogs -->
       <div class="panel-card" id="admSecCats" style="display:none;">
         <h3>Dynamic Catalog Management</h3>
         <form id="catalogForm">
@@ -701,7 +699,6 @@
         <div id="adminCatalogList" style="margin-top:1rem;"></div>
       </div>
 
-      <!-- Admin Products -->
       <div class="panel-card" id="admSecProds" style="display:none;">
         <h3>Product Management</h3>
         <form id="productForm">
@@ -722,7 +719,6 @@
         <div id="adminProductList" style="margin-top:1rem;"></div>
       </div>
 
-      <!-- Admin Orders & Courier -->
       <div class="panel-card" id="admSecOrders" style="display:none;">
         <h3>Customer Orders & Courier Management</h3>
         <div style="background:var(--cream-white);border:1px solid var(--border);border-radius:10px;padding:0.85rem;margin-top:0.6rem;">
@@ -746,7 +742,6 @@
         <div id="adminOrderList" style="margin-top:0.5rem;">Loading orders...</div>
       </div>
 
-      <!-- Admin Gifts & Reviews -->
       <div class="panel-card" id="admSecGifts" style="display:none;">
         <h3>Referral Gifts & Claims</h3>
         <form id="giftForm">
@@ -765,7 +760,6 @@
         <div id="adminReviewsList"></div>
       </div>
 
-      <!-- Admin Website Settings & Activity Logs -->
       <div class="panel-card" id="admSecSettings" style="display:none;">
         <h3>Website Settings</h3>
         <form id="websiteSettingsForm">
@@ -846,7 +840,7 @@
     <span>WhatsApp: 01611110611</span>
   </a>
 
-  <!-- J. Footer -->
+  <!-- Footer -->
   <footer>
     <div class="container" style="margin:0 auto;">
       <div class="info-grid" style="background:transparent;">
@@ -890,11 +884,20 @@
       "Jessore / Jashore (যশোর)": ["Jashore Sadar", "Abhaynagar", "Bagherpara", "Chaugachha", "Jhikargachha", "Keshabpur", "Manirampur", "Sharsha"],
       "Satkhira (সাতক্ষীরা)": ["Satkhira Sadar", "Assasuni", "Debhata", "Kalaroa", "Kaliganj", "Shyamnagar", "Tala"],
       "Pirojpur (পিরোজপুর)": ["Pirojpur Sadar", "Bhandaria", "Kawkhali", "Mathbaria", "Nazirpur", "Nesarabad (Swarupkathi)", "Indurkani"],
+      "Gopalganj (গোপালগঞ্জ)": ["Gopalganj Sadar", "Kashiani", "Kotalipara", "Muksudpur", "Tungipara"],
+      "Narail (নড়াইল)": ["Narail Sadar", "Kalia", "Lohagara"],
+      "Faridpur (ফরিদপুর)": ["Faridpur Sadar", "Alfadanga", "Bhanga", "Boalmari", "Charbhadrasan", "Madhukhali", "Nagarkanda", "Sadarpur", "Saltha"],
+      "Madaripur (মাদারীপুর)": ["Madaripur Sadar", "Kalkini", "Rajoir", "Shibchar"],
+      "Shariatpur (শরীয়তপুর)": ["Shariatpur Sadar", "Bhedarganj", "Damudya", "Gosairhat", "Naria", "Zajira"],
       "Sylhet (সিলেট)": ["Sylhet Sadar", "Beanibazar", "Bishwanath", "Companiganj", "Dakshin Surma", "Fenchuganj", "Golapganj", "Gowainghat", "Jaintiapur", "Kanaighat", "Osmani Nagar", "Zakiganj"],
       "Rajshahi (রাজশাহী)": ["Rajshahi Sadar", "Bagha", "Bagmara", "Charghat", "Durgapur", "Godagari", "Mohanpur", "Paba", "Puthia", "Tanore"],
       "Rangpur (রংপুর)": ["Rangpur Sadar", "Badarganj", "Gangachara", "Kaunia", "Mithapukur", "Pirgachha", "Pirganj", "Taraganj"],
       "Barishal (বরিশাল)": ["Barishal Sadar", "Agailjhara", "Babuganj", "Bakerganj", "Banaripara", "Gaurnadi", "Hizla", "Mehendiganj", "Muladi", "Wazirpur"],
-      "Mymensingh (ময়মনসিংহ)": ["Mymensingh Sadar", "Bhaluka", "Dhobaura", "Fulbaria", "Gaffargaon", "Gauripur", "Haluaghat", "Ishwarganj", "Muktagachha", "Nandail", "Phulpur", "Trishal"]
+      "Mymensingh (ময়মনসিংহ)": ["Mymensingh Sadar", "Bhaluka", "Dhobaura", "Fulbaria", "Gaffargaon", "Gauripur", "Haluaghat", "Ishwarganj", "Muktagachha", "Nandail", "Phulpur", "Trishal"],
+      "Cumilla (কুমিল্লা)": ["Cumilla Sadar", "Cumilla Sadar Dakshin", "Barura", "Brahmanpara", "Burichang", "Chandina", "Chauddagram", "Daudkandi", "Debidwar", "Homna", "Laksam", "Muradnagar", "Nangalkot", "Titas"],
+      "Gazipur (গাজীপুর)": ["Gazipur Sadar", "Kaliakair", "Kaliganj", "Kapasia", "Sreepur"],
+      "Narayanganj (নারায়ণগঞ্জ)": ["Narayanganj Sadar", "Araihazar", "Bandar", "Rupganj", "Sonargaon"],
+      "Bogura (বগুড়া)": ["Bogura Sadar", "Adamdighi", "Dhunat", "Dhupchanchia", "Gabtali", "Kahaloo", "Nandigram", "Sariakandi", "Shajahanpur", "Sherpur", "Shibganj", "Sonatala"]
     };
 
     let lang = localStorage.getItem('bhive_lang') || 'en';
@@ -904,7 +907,6 @@
     let allCourierBookings = [];
     let selectedCatalogId = null;
     let activeOrderFolder = 'active';
-    let currentUserSession = null;
 
     const showMsg = (text, isErr = false) => {
       const box = document.getElementById('globalMsg');
@@ -921,7 +923,7 @@
           action_text: actionText
         });
       } catch (_) {}
-      };
+    };
 
     const getCart = () => JSON.parse(localStorage.getItem('bhive_cart') || '[]');
     const getDeliveryCharge = () => Number(document.getElementById('codZone')?.value || 60);
@@ -932,21 +934,31 @@
       renderCart();
     };
 
-    function populateLocations() {
-      const distSel = document.getElementById('codDistrict');
-      const upaSel = document.getElementById('codUpazila');
+    function bindDistrictUpazila(distId, upaId, onDistrictChange) {
+      const distSel = document.getElementById(distId);
+      const upaSel = document.getElementById(upaId);
+      if (!distSel || !upaSel) return;
+
       const districts = Object.keys(BD_LOCATIONS);
       distSel.innerHTML = districts.map((d) => `<option value="${d}">${d}</option>`).join('');
 
       const syncUpazilas = () => {
         const list = BD_LOCATIONS[distSel.value] || [];
         upaSel.innerHTML = list.map((u) => `<option value="${u}">${u}</option>`).join('');
-        document.getElementById('codZone').value = distSel.value.includes('Bagerhat') ? '60' : '120';
-        renderCart();
+        if (onDistrictChange) onDistrictChange(distSel.value);
       };
 
       distSel.addEventListener('change', syncUpazilas);
       syncUpazilas();
+    }
+
+    function populateLocations() {
+      bindDistrictUpazila('codDistrict', 'codUpazila', (selectedDist) => {
+        document.getElementById('codZone').value = selectedDist.includes('Bagerhat') ? '60' : '120';
+        renderCart();
+      });
+
+      bindDistrictUpazila('addrDistrict', 'addrUpazila');
     }
 
     function switchView(viewName) {
@@ -1130,7 +1142,7 @@
         document.getElementById('cartDeliveryVal').textContent = '0';
         document.getElementById('cartTotalVal').textContent = '0';
         return;
-        }
+      }
 
       let subtotal = 0;
       box.innerHTML = cart.map((item, idx) => {
@@ -1207,9 +1219,45 @@
       loadApprovedReviews();
     }
 
+    async function ensureProfileAndReferral(session) {
+      let { data: prof } = await supabase
+        .from('profiles')
+        .select('*')
+        .eq('id', session.user.id)
+        .maybeSingle();
+
+      const generatedCode = 'BHIVE-' + session.user.id.replace(/-/g, '').slice(0, 6).toUpperCase();
+
+      if (!prof) {
+        const meta = session.user.user_metadata || {};
+        const { data: createdProf } = await supabase
+          .from('profiles')
+          .upsert({
+            id: session.user.id,
+            full_name: meta.full_name || session.user.email.split('@')[0],
+            phone: meta.phone || '',
+            role: 'customer',
+            is_active: true,
+            referral_code: generatedCode
+          })
+          .select('*')
+          .single();
+        prof = createdProf;
+      } else if (!prof.referral_code || !prof.referral_code.trim()) {
+        const { data: updatedProf } = await supabase
+          .from('profiles')
+          .update({ referral_code: generatedCode })
+          .eq('id', session.user.id)
+          .select('*')
+          .single();
+        if (updatedProf) prof = updatedProf;
+      }
+
+      return prof;
+    }
+
     async function loadCustomerAccount() {
       const { data: { session } } = await supabase.auth.getSession();
-      currentUserSession = session;
       if (!session) {
         document.getElementById('authCard').style.display = 'block';
         document.getElementById('accountDashboard').style.display = 'none';
@@ -1218,8 +1266,9 @@
       document.getElementById('authCard').style.display = 'none';
       document.getElementById('accountDashboard').style.display = 'block';
 
-      const [{ data: prof }, { data: orders }, { data: wish }, { data: addrs }, { data: claims }] = await Promise.all([
-        supabase.from('profiles').select('*').eq('id', session.user.id).single(),
+      const prof = await ensureProfileAndReferral(session);
+
+      const [{ data: orders }, { data: wish }, { data: addrs }, { data: claims }] = await Promise.all([
         supabase.from('orders').select('*').eq('customer_id', session.user.id).order('created_at', { ascending: false }),
         supabase.from('wishlists').select('*, products(name_en, discount_price, base_price)').eq('user_id', session.user.id),
         supabase.from('addresses').select('*').eq('user_id', session.user.id).order('created_at', { ascending: false }),
@@ -1237,6 +1286,8 @@
           : '—';
         if (!document.getElementById('codName').value) document.getElementById('codName').value = prof.full_name || '';
         if (!document.getElementById('codPhone').value) document.getElementById('codPhone').value = prof.phone || '';
+        if (!document.getElementById('addrName').value) document.getElementById('addrName').value = prof.full_name || '';
+        if (!document.getElementById('addrPhone').value) document.getElementById('addrPhone').value = prof.phone || '';
       }
 
       document.getElementById('customerOrdersBox').innerHTML = (!orders || !orders.length)
@@ -1357,7 +1408,7 @@
         refreshAdminLists();
         loadStore();
       }));
-      }
+    }
 
     async function bookCourierForOrder(order, selectedCourier) {
       if (order.courier_tracking_id) {
@@ -1500,7 +1551,7 @@
             await logAdminAction(`Updated order ${orderObj?.order_number || oid} to ${newStatus}`);
             showMsg(`Order status updated to ${newStatus}${bookedInfo}.`);
             loadAdminOrders();
-            }
+          }
         });
       });
 
@@ -1621,7 +1672,6 @@
       renderProducts();
     });
 
-    // Review Form
     document.getElementById('reviewForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const { data: { session } } = await supabase.auth.getSession();
@@ -1645,7 +1695,6 @@
       }
     });
 
-    // COD Order Placement
     document.getElementById('codCheckoutForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const cart = getCart();
@@ -1696,7 +1745,6 @@
       }
     });
 
-    // Customer Auth & Account Actions
     document.getElementById('showLoginTab').addEventListener('click', () => {
       document.getElementById('loginForm').style.display = 'block';
       document.getElementById('signupForm').style.display = 'none';
@@ -1750,12 +1798,17 @@
         label: document.getElementById('addrLabel').value.trim(),
         recipient_name: document.getElementById('addrName').value.trim(),
         phone: document.getElementById('addrPhone').value.trim(),
-        district: document.getElementById('addrDistrict').value.trim(),
-        upazila: document.getElementById('addrUpazila').value.trim(),
+        district: document.getElementById('addrDistrict').value,
+        upazila: document.getElementById('addrUpazila').value,
         street_address: document.getElementById('addrStreet').value.trim()
       });
       if (error) showMsg(error.message, true);
-      else { e.target.reset(); showMsg('Address saved!'); loadCustomerAccount(); }
+      else {
+        document.getElementById('addrLabel').value = '';
+        document.getElementById('addrStreet').value = '';
+        showMsg('Address saved!');
+        loadCustomerAccount();
+      }
     });
     document.getElementById('claimGiftBtn').addEventListener('click', async () => {
       const { data: { session } } = await supabase.auth.getSession();
@@ -1784,7 +1837,7 @@
       adminSections.forEach((id) => {
         document.getElementById(id).style.display = id === activeId ? 'block' : 'none';
       });
-      };
+    };
 
     document.getElementById('adminLoginForm').addEventListener('submit', async (e) => {
       e.preventDefault();
